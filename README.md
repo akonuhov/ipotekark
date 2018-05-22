@@ -1,1 +1,0 @@
-# ipotekark.ais

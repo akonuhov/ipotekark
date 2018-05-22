@@ -1,0 +1,123 @@
+<template lang="html">
+  <layouts-default>
+    <h1>Введите даные о сотруднике</h1>
+    <el-form label-position="top" class="el-form--user">
+      <el-card shadow="hover">
+        <el-row :gutter="12">
+          <el-col :span="6">
+            <el-form-item label="Фамилия">
+              <el-input v-model="userObject.firstName" placeholder="Фамилия"></el-input>
+            </el-form-item>
+          </el-col>
+          <el-col :span="6">
+            <el-form-item label="Имя">
+              <el-input v-model="userObject.lastName" placeholder="Имя"></el-input>
+            </el-form-item>
+          </el-col>
+          <el-col :span="6">
+            <el-form-item label="Отчество">
+              <el-input v-model="userObject.middleName" placeholder="Отчество"></el-input>
+            </el-form-item>
+          </el-col>
+          <el-col :span="6">
+            <el-form-item label="Должность">
+              <el-input v-model="userObject.position" placeholder="Должность"></el-input>
+            </el-form-item>
+          </el-col>
+          <el-col :span="6">
+            <el-form-item label="Дата рождения">
+              <el-date-picker
+                v-model="userObject.dataBirth"
+                type="date"
+                placeholder="Дата рождения">
+              </el-date-picker>
+            </el-form-item>
+          </el-col>
+          <el-col :span="6">
+            <el-form-item label="Дата принятия на работу">
+              <el-date-picker
+                v-model="userObject.employmentDate"
+                type="date"
+                placeholder="Дата принятия на работу">
+              </el-date-picker>
+            </el-form-item>
+          </el-col>
+          <el-col :span="6">
+            <el-form-item label="Электронная почта">
+              <el-input v-model="userObject.email" placeholder="Электронная почта"></el-input>
+            </el-form-item>
+          </el-col>
+          <el-col :span="6">
+            <el-form-item label="Контактный телефон">
+              <el-input v-model="userObject.phone" placeholder="Контактный телефон"></el-input>
+            </el-form-item>
+          </el-col>
+          <el-col :span="6">
+            <el-form-item label="Роль">
+              <el-select v-model="userObject.role" placeholder="Роль">
+                <el-option label="Специалист" value="specialist"></el-option>
+                <el-option label="Менеджер" value="manager"></el-option>
+                <el-option label="Администратор" value="admin"></el-option>
+              </el-select>
+            </el-form-item>
+          </el-col>
+          <el-col :span="6">
+            <el-form-item label="Пароль">
+              <el-input v-model="userObject.password" placeholder="Пароль"></el-input>
+            </el-form-item>
+          </el-col>
+        </el-row>
+      </el-card>
+      <el-row :gutter="12">
+        <el-col :span="24">
+          <el-button type="success" @click="onCreateUser">Добавить</el-button>
+          <el-button>Назад</el-button>
+        </el-col>
+      </el-row>
+    </el-form>
+  </layouts-default>
+</template>
+
+<script>
+import LayoutsDefault from '@/layouts/default'
+export default {
+  name: 'PageUserCreate',
+  data: () => ({
+    userObject: {
+      firstName: null,
+      lastName: null,
+      middleName: null,
+      password: null,
+      dataBirth: null,
+      email: null,
+      position: null,
+      phone: null,
+      employmentDate: null,
+      role: null
+    }
+  }),
+  methods: {
+    onCreateUser () {
+
+    }
+  },
+  components: {
+    LayoutsDefault
+  }
+}
+</script>
+
+<style lang="scss">
+.el-form--user {
+  .el-form-item {
+    &__content {
+      .el-date-editor {
+        width: 100%;
+      }
+      .el-select {
+        width: 100%;
+      }
+    }
+  }
+}
+</style>

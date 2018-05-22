@@ -1,0 +1,43 @@
+{
+  "host": "http://localhost",
+  "port": "3000",
+  "apiUrl": {
+    "users": {
+      "add": "/api/users",
+      "getId": "/api/users/",
+      "putId": "/api/users/",
+      "getAll": "/api/users",
+      "auth": "/api/users/auth"
+    },
+    "borrowers": {
+      "add": "/api/borrowers",
+      "getId": "/api/borrowers/",
+      "putId": "/api/borrowers/",
+      "getAll": "/api/borrowers"
+    },
+    "creditObject": {
+      "add": "/api/credit-object",
+      "getId": "/api/credit-object/",
+      "putId": "/api/credit-object/",
+      "getAll": "/api/credit-object"
+    },
+    "evaluators": {
+      "add": "/api/evaluators",
+      "getId": "/api/evaluators/",
+      "putId": "/api/evaluators/",
+      "getAll": "/api/evaluators"
+    },
+    "providers": {
+      "add": "/api/providers",
+      "getId": "/api/providers/",
+      "putId": "/api/providers/",
+      "getAll": "/api/providers"
+    },
+    "documents": {
+      "add": "/api/documents",
+      "getId": "/api/documents/",
+      "putId": "/api/documents/",
+      "getAll": "/api/documents"
+    }
+  }
+}

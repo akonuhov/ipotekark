@@ -1,0 +1,22 @@
+.el-menu {
+  border-right-color: #314D68;
+  &-vertical {
+    height: 100%;
+  }
+  &-item {
+    .fas {
+      margin-right: 5px;
+      width: 24px;
+      font-size: 18px;
+    }
+  }
+}
+.el-submenu {
+  &__title {
+    .fas {
+      margin-right: 5px;
+      width: 24px;
+      font-size: 18px;
+    }
+  }
+}

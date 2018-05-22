@@ -1,0 +1,10 @@
+.el-header {
+  display: flex;
+  align-items: center;
+  color: #000000;
+  background-color: #FFFFFF;
+  box-shadow: 0 2px 5px #9E9E9E;
+  &__menu-btn {
+    font-size: 18px;
+  }
+}
