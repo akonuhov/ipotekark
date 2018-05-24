@@ -16,7 +16,6 @@ var CreditObjectSchema = new Schema({
 	'percentRate': Number,
 	'totalLoanValue': Number,
 	'estimatedCostApartment': Number,
-	'shareInOwnership': Number,
 	'numberDependents': Number,
 	'ageOnMomentEndCredit': Number,
 	'monthlyPayment': Number,

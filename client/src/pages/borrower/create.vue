@@ -75,6 +75,18 @@
           </el-col>
         </el-row>
       </el-card>
+      <el-card>
+        <el-row :gutter="20">
+          <el-col :span="24" :md="24" :sm="24" :xs="24">
+            <h3>Долевое участие</h3>
+          </el-col>
+          <el-col :span="8" :md="8" :sm="12" :xs="24">
+            <el-form-item label="Доля в праве собственности, %">
+              <el-input-number v-model="borrowerObject.share.shareInOwnership" controls-position="right" :max="100"></el-input-number>
+            </el-form-item>
+          </el-col>
+        </el-row>
+      </el-card>
       <el-card shadow="hover">
         <el-row :gutter="20">
           <el-col :span="8" :md="8" :sm="12" :xs="24">
@@ -283,6 +295,9 @@ export default {
         unitCode: null,
         placeBirth: null
       },
+      share: {
+        shareInOwnership: null
+      },
       contactData: {
         phoneHome: null,
         phoneService: null,
@@ -358,6 +373,9 @@ export default {
 .el-form--borrower {
   .el-form-item {
     &__content {
+      .el-input-number {
+        width: 100%;
+      }
       .el-date-editor {
         width: 100%;
       }

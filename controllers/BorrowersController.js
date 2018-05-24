@@ -61,6 +61,9 @@ module.exports = {
       			unitCode : req.body.passportData.unitCode,
       			placeBirth : req.body.passportData.placeBirth
           },
+          share: {
+            shareInOwnership: req.body.share.placeBirth
+          },
           contactData: {
             phoneHome : req.body.contactData.phoneHome,
       			phoneService : req.body.contactData.phoneService,
@@ -144,6 +147,8 @@ module.exports = {
       			Borrowers.passportData.issuedBy = req.body.passportData.issuedBy ? req.body.passportData.issuedBy : Borrowers.passportData.issuedBy;
       			Borrowers.passportData.unitCode = req.body.passportData.unitCode ? req.body.passportData.unitCode : Borrowers.passportData.unitCode;
       			Borrowers.passportData.placeBirth = req.body.passportData.placeBirth ? req.body.passportData.placeBirth : Borrowers.passportData.placeBirth;
+            // shareData
+            Borrowers.share.shareInOwnership = req.body.share.shareInOwnership ? req.body.share.shareInOwnership : Borrowers.share.shareInOwnership;
             // contactData
       			Borrowers.contactData.phoneHome = req.body.contactData.phoneHome ? req.body.contactData.phoneHome : Borrowers.contactData.phoneHome;
       			Borrowers.contactData.phoneService = req.body.contactData.phoneService ? req.body.contactData.phoneService : Borrowers.contactData.phoneService;

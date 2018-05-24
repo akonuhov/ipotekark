@@ -102,11 +102,6 @@
             </el-form-item>
           </el-col>
           <el-col :span="8" :md="8" :sm="12" :xs="24">
-            <el-form-item label="Доля в праве собственности, %">
-              <el-input-number v-model="creditObject.shareInOwnership" controls-position="right" :max="100"></el-input-number>
-            </el-form-item>
-          </el-col>
-          <el-col :span="8" :md="8" :sm="12" :xs="24">
             <el-form-item label="Количество иждивенцев">
               <el-input-number v-model="creditObject.numberDependents" controls-position="right"></el-input-number>
             </el-form-item>
@@ -322,7 +317,6 @@ export default {
       percentRate: null,
       totalLoanValue: null,
       estimatedCostApartment: null,
-      shareInOwnership: null,
       numberDependents: null,
       ageOnMomentEndCredit: null,
       monthlyPayment: null,

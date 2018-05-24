@@ -62,7 +62,6 @@ module.exports = {
       			percentRate : req.body.percentRate,
       			totalLoanValue : req.body.totalLoanValue,
       			estimatedCostApartment : req.body.estimatedCostApartment,
-      			shareInOwnership : req.body.shareInOwnership,
       			numberDependents : req.body.numberDependents,
       			ageOnMomentEndCredit : req.body.ageOnMomentEndCredit,
       			monthlyPayment : req.body.monthlyPayment,
@@ -139,7 +138,6 @@ module.exports = {
       			CreditObject.percentRate = req.body.percentRate ? req.body.percentRate : CreditObject.percentRate;
       			CreditObject.totalLoanValue = req.body.totalLoanValue ? req.body.totalLoanValue : CreditObject.totalLoanValue;
       			CreditObject.estimatedCostApartment = req.body.estimatedCostApartment ? req.body.estimatedCostApartment : CreditObject.estimatedCostApartment;
-      			CreditObject.shareInOwnership = req.body.shareInOwnership ? req.body.shareInOwnership : CreditObject.shareInOwnership;
       			CreditObject.numberDependents = req.body.numberDependents ? req.body.numberDependents : CreditObject.numberDependents;
       			CreditObject.ageOnMomentEndCredit = req.body.ageOnMomentEndCredit ? req.body.ageOnMomentEndCredit : CreditObject.ageOnMomentEndCredit;
       			CreditObject.monthlyPayment = req.body.monthlyPayment ? req.body.monthlyPayment : CreditObject.monthlyPayment;

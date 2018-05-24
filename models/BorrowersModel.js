@@ -15,6 +15,9 @@ var BorrowersSchema = new Schema({
 		'unitCode' : String,
 		'placeBirth' : String
 	},
+	'share': {
+		'shareInOwnership': Number
+	}
 	'contactData': {
 		'phoneHome' : Number,
 		'phoneService' : Number,
