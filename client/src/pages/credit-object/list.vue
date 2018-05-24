@@ -39,7 +39,6 @@
 </template>
 
 <script>
-import { HTTP } from '@/plugins/axios'
 import LayoutsDefault from '@/layouts/default'
 export default {
   name: 'PageCreditObjectList',
@@ -64,7 +63,7 @@ export default {
     }]
   }),
   created () {
-    HTTP.get(this.$config.config.apiUrl.creditObject.getAll)
+    this.$http.get(this.$config.config.apiUrl.creditObject.getAll)
       .then(res => {
         this.creditsObject = res.data
       })

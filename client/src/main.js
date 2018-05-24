@@ -9,6 +9,7 @@ import router from './router'
 import VueConfig from 'vue-configuration'
 import appConfig from './config.json'
 import 'element-ui/lib/theme-chalk/index.css'
+import './plugins/axios'
 
 Vue.use(VueConfig, {
   config: appConfig

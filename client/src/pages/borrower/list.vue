@@ -26,8 +26,6 @@
 </template>
 
 <script>
-import { HTTP } from '@/plugins/axios'
-// import moment from 'moment'
 import LayoutsDefault from '@/layouts/default'
 export default {
   name: 'PageBorrowerList',
@@ -35,7 +33,7 @@ export default {
     borrowersObject: []
   }),
   created () {
-    HTTP.get(this.$config.config.apiUrl.borrowers.getAll)
+    this.$http.get(this.$config.config.apiUrl.borrowers.getAll)
       .then(res => {
         this.borrowersObject = res.data
       })

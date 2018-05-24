@@ -1,6 +1,6 @@
 <template lang="html">
   <layouts-default>
-    <h1>Введите даные о продавце/застройщике</h1>
+    <h1>Введите данные о продавце/застройщике</h1>
     <el-form label-position="top" class="el-form--borrower">
       <el-card shadow="hover">
         <el-row :gutter="12">

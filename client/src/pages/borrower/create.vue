@@ -265,7 +265,6 @@
 </template>
 
 <script>
-import { HTTP } from '@/plugins/axios'
 import LayoutsDefault from '@/layouts/default'
 export default {
   name: 'PageBorrowerCreate',
@@ -340,7 +339,7 @@ export default {
       }
     },
     onCreateBorrower () {
-      HTTP.post(this.$config.config.apiUrl.borrowers.add, this.borrowerObject)
+      this.$http.post(this.$config.config.apiUrl.borrowers.add, this.borrowerObject)
         .then(res => {
           console.log(res)
         })

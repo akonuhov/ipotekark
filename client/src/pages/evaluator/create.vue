@@ -1,6 +1,6 @@
 <template lang="html">
   <layouts-default>
-    <h1>Введите даные о оценщике</h1>
+    <h1>Введите данные о оценщике</h1>
     <el-form label-position="top" class="el-form--borrower">
       <el-card shadow="hover">
         <el-row :gutter="12">
@@ -52,7 +52,6 @@
 </template>
 
 <script>
-import { HTTP } from '@/plugins/axios'
 import LayoutsDefault from '@/layouts/default'
 export default {
   name: 'PageEvaluatorCreate',
@@ -74,7 +73,7 @@ export default {
   }),
   methods: {
     onCreateEvaluatorObject () {
-      HTTP.post(this.$config.config.apiUrl.evaluators.add, this.evaluatorObject)
+      this.$http.post(this.$config.config.apiUrl.evaluators.add, this.evaluatorObject)
         .then(res => {
           console.log(res)
         })

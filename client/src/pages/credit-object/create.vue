@@ -1,6 +1,6 @@
 <template lang="html">
   <layouts-default>
-    <h1>Введите даные о кредитном деле</h1>
+    <h1>Введите данные о кредитном деле</h1>
     <el-form label-position="top" class="el-form--credit-object">
       <div class="substrate">
         <el-row :gutter="12">
@@ -138,7 +138,7 @@
             <h3>Социальные выплаты</h3>
           </el-col>
           <el-col :span="8" :md="8" :sm="12" :xs="24">
-            <el-form-item label="Процентная ставка">
+            <el-form-item label="Категория соц. выплаты">
               <el-select v-model="creditObject.socialPayments.category" placeholder="Категория соц. выплаты">
                 <el-option
                   v-for="item in optionsSocialPayments"
@@ -303,7 +303,6 @@
 </template>
 
 <script>
-import { HTTP } from '@/plugins/axios'
 import LayoutsDefault from '@/layouts/default'
 export default {
   name: 'PageCreditObjectCreate',
@@ -409,7 +408,7 @@ export default {
     ]
   }),
   created () {
-    HTTP.get(this.$config.config.apiUrl.borrowers.getAll)
+    this.$http.get(this.$config.config.apiUrl.borrowers.getAll)
       .then(res => {
         this.optionsBorrower = res.data
       })
@@ -419,7 +418,7 @@ export default {
   },
   methods: {
     onCreateCredirObject () {
-      HTTP.post(this.$config.config.apiUrl.creditObject.add, this.creditObject)
+      this.$http.post(this.$config.config.apiUrl.creditObject.add, this.creditObject)
         .then(res => {
           console.log(res)
         })

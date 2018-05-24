@@ -39,7 +39,6 @@
 </template>
 
 <script>
-import { HTTP } from '@/plugins/axios'
 import LayoutsDefault from '@/layouts/default'
 export default {
   name: 'PageUserList',
@@ -47,7 +46,7 @@ export default {
     usersObject: []
   }),
   created () {
-    HTTP.get(this.$config.config.apiUrl.users.getAll)
+    this.$http.get(this.$config.config.apiUrl.users.getAll)
       .then(res => {
         this.usersObject = res.data
       })

@@ -1,6 +1,6 @@
 <template lang="html">
   <layouts-default>
-    <h1>Введите даные о сотруднике</h1>
+    <h1>Введите данные о сотруднике</h1>
     <el-form label-position="top" class="el-form--user">
       <el-card shadow="hover">
         <el-row :gutter="12">
