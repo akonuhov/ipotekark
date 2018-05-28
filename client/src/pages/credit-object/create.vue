@@ -1,46 +1,46 @@
 <template lang="html">
   <layouts-default>
     <h1>Введите данные о кредитном деле</h1>
-    <el-form label-position="top" class="el-form--credit-object">
+    <el-form :model="creditObject" :rules="rules" ref="creditObjectForm" label-position="top" class="el-form--credit-object">
       <div class="substrate">
-        <el-row :gutter="12">
+        <el-row :gutter="20">
           <el-col :span="6" :md="6" :sm="12" :xs="24">
-            <el-form-item label="Номер кредитного дела">
+            <el-form-item label="Номер кредитного дела" prop="id">
               <el-input placeholder="Номер кредитного дела" v-model="creditObject.id"></el-input>
             </el-form-item>
           </el-col>
           <el-col :span="6" :md="6" :sm="12" :xs="24">
-            <el-form-item label="Заемщик">
+            <el-form-item label="Заемщик" prop="borrowerId">
               <el-select v-model="creditObject.borrowerId" placeholder="Заемщик">
                 <el-option
-                  v-for="item in getAllBorrowersObject"
+                  v-for="item in getAllBorrowerObject"
                   :key="item._id"
-                  :label="item.passportData.lastName + ' ' + item.passportData.firstName + ' ' + item.passportData.middleName"
+                  :label="item.fioImenitelny + ' ' + item.passportData.firstName + ' ' + item.passportData.middleName"
                   :value="item._id">
                 </el-option>
               </el-select>
             </el-form-item>
           </el-col>
           <el-col :span="6" :md="6" :sm="12" :xs="24">
-            <el-form-item label="Продавцы/Застройщики">
+            <el-form-item label="Продавцы/Застройщики" prop="providerId">
               <el-select v-model="creditObject.providerId" placeholder="Продавцы/Застройщики">
                 <el-option
-                  v-for="item in optionsProvider"
-                  :key="item.value"
-                  :label="item.label"
-                  :value="item.value">
+                  v-for="item in getAllProviderObject"
+                  :key="item._id"
+                  :label="item.name"
+                  :value="item._id">
                 </el-option>
               </el-select>
             </el-form-item>
           </el-col>
           <el-col :span="6" :md="6" :sm="12" :xs="24">
-            <el-form-item label="Оценщики">
+            <el-form-item label="Оценщики" prop="evaluatorId">
               <el-select v-model="creditObject.evaluatorId" placeholder="Оценщики">
                 <el-option
-                  v-for="item in optionsEvaluator"
-                  :key="item.value"
-                  :label="item.label"
-                  :value="item.value">
+                  v-for="item in getAllEvaluatorObject"
+                  :key="item._id"
+                  :label="item.name"
+                  :value="item._id">
                 </el-option>
               </el-select>
             </el-form-item>
@@ -48,39 +48,39 @@
         </el-row>
       </div>
       <el-card shadow="hover">
-        <el-row :gutter="12">
+        <el-row :gutter="20">
           <el-col :span="8" :md="8" :sm="12" :xs="24">
-            <el-form-item label="Размер кредита">
+            <el-form-item label="Размер кредита" prop="amountCredit">
               <el-input-number v-model="creditObject.amountCredit" controls-position="right"></el-input-number>
             </el-form-item>
           </el-col>
           <el-col :span="8" :md="8" :sm="12" :xs="24">
-            <el-form-item label="Срок кредитования, мес">
+            <el-form-item label="Срок кредитования, мес" prop="timeCredit">
               <el-input-number v-model="creditObject.timeCredit" controls-position="right" :min="36" :max="360"></el-input-number>
             </el-form-item>
           </el-col>
           <el-col :span="8" :md="8" :sm="12" :xs="24">
-            <el-form-item label="Стоимость кв. м">
+            <el-form-item label="Стоимость кв. м" prop="costSquareMeter">
               <el-input-number v-model="creditObject.costSquareMeter" controls-position="right"></el-input-number>
             </el-form-item>
           </el-col>
           <el-col :span="8" :md="8" :sm="12" :xs="24">
-            <el-form-item label="Общая площадь квартиры">
+            <el-form-item label="Общая площадь квартиры" prop="totaAareAapartment">
               <el-input-number v-model="creditObject.totaAareAapartment" controls-position="right"></el-input-number>
             </el-form-item>
           </el-col>
           <el-col :span="8" :md="8" :sm="12" :xs="24">
-            <el-form-item label="Стоимость квартиры">
+            <el-form-item label="Стоимость квартиры" prop="costApartment">
               <el-input-number v-model="creditObject.costApartment" controls-position="right"></el-input-number>
             </el-form-item>
           </el-col>
           <el-col :span="8" :md="8" :sm="12" :xs="24">
-            <el-form-item label="Первоначальный взнос">
+            <el-form-item label="Первоначальный взнос" prop="initialFee">
               <el-input-number v-model="creditObject.initialFee" controls-position="right"></el-input-number>
             </el-form-item>
           </el-col>
           <el-col :span="8" :md="8" :sm="12" :xs="24">
-            <el-form-item label="Процентная ставка">
+            <el-form-item label="Процентная ставка" prop="percentRate">
               <el-select v-model="creditObject.percentRate" placeholder="Процентная ставка">
                 <el-option
                   v-for="item in optionsPercentRate"
@@ -92,32 +92,32 @@
             </el-form-item>
           </el-col>
           <el-col :span="8" :md="8" :sm="12" :xs="24">
-            <el-form-item label="Полная стоимость займа">
+            <el-form-item label="Полная стоимость займа" prop="totalLoanValue">
               <el-input-number v-model="creditObject.totalLoanValue" controls-position="right"></el-input-number>
             </el-form-item>
           </el-col>
           <el-col :span="8" :md="8" :sm="12" :xs="24">
-            <el-form-item label="Оценочная стоимость квартиры">
+            <el-form-item label="Оценочная стоимость квартиры" prop="estimatedCostApartment">
               <el-input-number v-model="creditObject.estimatedCostApartment" controls-position="right"></el-input-number>
             </el-form-item>
           </el-col>
           <el-col :span="8" :md="8" :sm="12" :xs="24">
-            <el-form-item label="Количество иждивенцев">
+            <el-form-item label="Количество иждивенцев" prop="numberDependents">
               <el-input-number v-model="creditObject.numberDependents" controls-position="right"></el-input-number>
             </el-form-item>
           </el-col>
           <el-col :span="8" :md="8" :sm="12" :xs="24">
-            <el-form-item label="Возраст на момент погашения кредита">
+            <el-form-item label="Возраст на момент погашения кредита" prop="ageOnMomentEndCredit">
               <el-input readonly placeholder="Возраст на момент погашения кредита" v-model="creditObject.ageOnMomentEndCredit"></el-input>
             </el-form-item>
           </el-col>
           <el-col :span="8" :md="8" :sm="12" :xs="24">
-            <el-form-item label="Ежемесячный платеж">
+            <el-form-item label="Ежемесячный платеж" prop="monthlyPayment">
               <el-input-number v-model="creditObject.monthlyPayment" controls-position="right"></el-input-number>
             </el-form-item>
           </el-col>
           <el-col :span="8" :md="8" :sm="12" :xs="24">
-            <el-form-item label="Дата договора займа">
+            <el-form-item label="Дата договора займа" prop="dateLoanAgreement">
               <el-date-picker
                 v-model="creditObject.dateLoanAgreement"
                 type="date"
@@ -127,8 +127,8 @@
           </el-col>
         </el-row>
       </el-card>
-      <el-card shadow="hover">
-        <el-row :gutter="12">
+      <el-card shadow="hover" v-if="creditObject.status === 'accept'">
+        <el-row :gutter="20">
           <el-col :span="24">
             <h3>Социальные выплаты</h3>
           </el-col>
@@ -287,7 +287,7 @@
           </el-col>
         </el-row>
       </el-card>
-      <el-row :gutter="12">
+      <el-row :gutter="20">
         <el-col :span="24">
           <el-button type="success" @click="onCreateCredirObject">Добавить</el-button>
           <el-button>Назад</el-button>
@@ -399,12 +399,255 @@ export default {
         value: 'Многодетная семья',
         label: 'Многодетная семья'
       }
-    ]
+    ],
+    rules: {
+      id: {
+        required: true,
+        message: 'Поле обязательно для заполнения',
+        trigger: 'change'
+      },
+      status: {
+        required: true,
+        message: 'Поле обязательно для заполнения',
+        trigger: 'change'
+      },
+      borrowerId: {
+        required: true,
+        message: 'Поле обязательно для заполнения',
+        trigger: 'change'
+      },
+      providerId: {
+        required: true,
+        message: 'Поле обязательно для заполнения',
+        trigger: 'change'
+      },
+      evaluatorId: {
+        required: true,
+        message: 'Поле обязательно для заполнения',
+        trigger: 'change'
+      },
+      amountCredit: {
+        required: true,
+        min: 1,
+        message: 'Поле обязательно для заполнения',
+        trigger: 'change'
+      },
+      timeCredit: {
+        required: true,
+        min: 36,
+        message: 'Поле обязательно для заполнения',
+        trigger: 'change'
+      },
+      costSquareMeter: {
+        required: true,
+        min: 1,
+        message: 'Поле обязательно для заполнения',
+        trigger: 'change'
+      },
+      totaAareAapartment: {
+        required: true,
+        min: 1,
+        message: 'Поле обязательно для заполнения',
+        trigger: 'change'
+      },
+      costApartment: {
+        required: true,
+        min: 1,
+        message: 'Поле обязательно для заполнения',
+        trigger: 'change'
+      },
+      initialFee: {
+        required: true,
+        min: 1,
+        message: 'Поле обязательно для заполнения',
+        trigger: 'change'
+      },
+      percentRate: {
+        required: true,
+        message: 'Поле обязательно для заполнения',
+        trigger: 'change'
+      },
+      totalLoanValue: {
+        required: true,
+        min: 1,
+        message: 'Поле обязательно для заполнения',
+        trigger: 'change'
+      },
+      estimatedCostApartment: {
+        required: true,
+        min: 1,
+        message: 'Поле обязательно для заполнения',
+        trigger: 'change'
+      },
+      numberDependents: {
+        required: true,
+        message: 'Поле обязательно для заполнения',
+        trigger: 'change'
+      },
+      ageOnMomentEndCredit: {
+        required: true,
+        min: 1,
+        message: 'Поле обязательно для заполнения',
+        trigger: 'change'
+      },
+      monthlyPayment: {
+        required: true,
+        min: 1,
+        message: 'Поле обязательно для заполнения',
+        trigger: 'change'
+      },
+      dateLoanAgreement: {
+        required: true,
+        message: 'Поле обязательно для заполнения',
+        trigger: 'change'
+      },
+      socialPayments: {
+        category: {
+          required: true,
+          message: 'Поле обязательно для заполнения',
+          trigger: 'change'
+        },
+        numberCitizensRegister: {
+          required: true,
+          message: 'Поле обязательно для заполнения',
+          trigger: 'change'
+        },
+        totalAreaPlaceRegistration: {
+          required: true,
+          message: 'Поле обязательно для заполнения',
+          trigger: 'change'
+        },
+        numberRegisteredPersons: {
+          required: true,
+          message: 'Поле обязательно для заполнения',
+          trigger: 'change'
+        },
+        provideCitizenArea: {
+          required: true,
+          message: 'Поле обязательно для заполнения',
+          trigger: 'change'
+        },
+        nameRegistrationCertificate: {
+          required: true,
+          message: 'Поле обязательно для заполнения',
+          trigger: 'change'
+        },
+        registrationCertificateNumber: {
+          required: true,
+          message: 'Поле обязательно для заполнения',
+          trigger: 'change'
+        },
+        dateRegistrationCertificate: {
+          required: true,
+          message: 'Поле обязательно для заполнения',
+          trigger: 'change'
+        },
+        numberCohabitingFamilyMembers: {
+          required: true,
+          message: 'Поле обязательно для заполнения',
+          trigger: 'change'
+        },
+        familyCertificateReference: {
+          required: true,
+          message: 'Поле обязательно для заполнения',
+          trigger: 'change'
+        },
+        familyCertificateNumber: {
+          required: true,
+          message: 'Поле обязательно для заполнения',
+          trigger: 'change'
+        },
+        dateCertificateFamily: {
+          required: true,
+          message: 'Поле обязательно для заполнения',
+          trigger: 'change'
+        },
+        cohabitingFamilyMembers: {
+          required: true,
+          message: 'Поле обязательно для заполнения',
+          trigger: 'change'
+        },
+        nameCertificateFromBank: {
+          required: true,
+          message: 'Поле обязательно для заполнения',
+          trigger: 'change'
+        },
+        numberCertificateFromBank: {
+          required: true,
+          message: 'Поле обязательно для заполнения',
+          trigger: 'change'
+        },
+        dateCertificateFromBank: {
+          required: true,
+          message: 'Поле обязательно для заполнения',
+          trigger: 'change'
+        },
+        nameEmployer: {
+          required: true,
+          message: 'Поле обязательно для заполнения',
+          trigger: 'change'
+        },
+        certificateNumberFromWork: {
+          required: true,
+          message: 'Поле обязательно для заполнения',
+          trigger: 'change'
+        },
+        dateCertificateFromWork: {
+          required: true,
+          message: 'Поле обязательно для заполнения',
+          trigger: 'change'
+        },
+        positionWithIndicationEmployer: {
+          required: true,
+          message: 'Поле обязательно для заполнения',
+          trigger: 'change'
+        },
+        nameDocumentConfirmingApprovalLoan: {
+          required: true,
+          message: 'Поле обязательно для заполнения',
+          trigger: 'change'
+        },
+        approvalNumber: {
+          required: true,
+          message: 'Поле обязательно для заполнения',
+          trigger: 'change'
+        },
+        approvalDate: {
+          required: true,
+          message: 'Поле обязательно для заполнения',
+          trigger: 'change'
+        },
+        categoryRecipientSocialBenefits: {
+          required: true,
+          message: 'Поле обязательно для заполнения',
+          trigger: 'change'
+        },
+        totalAmountSocialPayment: {
+          required: true,
+          message: 'Поле обязательно для заполнения',
+          trigger: 'change'
+        }
+      }
+    }
   }),
   created () {
-    this.$http.get(this.$config.config.apiUrl.borrowers.getAll)
+    this.$http.get('/api/borrowers')
       .then(res => {
         this.optionsBorrower = res.data
+      })
+      .catch(error => {
+        console.log(error)
+      })
+    this.$http.get('/api/providers')
+      .then(res => {
+        this.optionsProvider = res.data
+      })
+      .catch(error => {
+        console.log(error)
+      })
+    this.$http.get('/api/evaluators')
+      .then(res => {
+        this.optionsEvaluator = res.data
       })
       .catch(error => {
         console.log(error)
@@ -412,18 +655,37 @@ export default {
   },
   methods: {
     onCreateCredirObject () {
-      this.$http.post(this.$config.config.apiUrl.creditObject.add, this.creditObject)
-        .then(res => {
-          console.log(res)
-        })
-        .catch(error => {
-          console.log(error)
-        })
+      this.$refs['creditObjectForm'].validate((valid) => {
+        if (valid) {
+          this.$http.post('/api/credit-object', this.borrowerObject)
+            .then(res => {
+              this.$router.push('/credit-object')
+              this.$message({
+                message: 'Кредитное дело добавлено',
+                type: 'success'
+              })
+            })
+            .catch(error => {
+              this.$message({
+                message: error.response.data.error.message,
+                type: 'error'
+              })
+            })
+        } else {
+          return false
+        }
+      })
     }
   },
   computed: {
-    getAllBorrowersObject () {
+    getAllBorrowerObject () {
       return this.optionsBorrower
+    },
+    getAllProviderObject () {
+      return this.optionsProvider
+    },
+    getAllEvaluatorObject () {
+      return this.optionsEvaluator
     }
   },
   components: {

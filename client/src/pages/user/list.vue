@@ -4,35 +4,46 @@
     <el-table
       :data="getAllUsersObject"
       :default-sort = "{prop: '_id', order: 'descending'}"
+      @row-click="onRowClick"
       empty-text="Список сотрудников пуст">
       <el-table-column
-        prop="_id"
-        label="ID"
+        prop="firstName"
+        label="Фамилия"
         sortable>
       </el-table-column>
       <el-table-column
-        prop="timeCredit"
-        label="ФИО">
+        prop="lastName"
+        label="Имя"
+        sortable>
       </el-table-column>
       <el-table-column
-        prop="amountCredit"
-        label="Должность">
+        prop="middleName"
+        label="Отчество"
+        sortable>
       </el-table-column>
       <el-table-column
-        prop="timeCredit"
-        label="Дата приема на работу">
+        prop="position"
+        label="Должность"
+        sortable>
       </el-table-column>
       <el-table-column
-        prop="timeCredit"
+        prop="employmentDate"
+        label="Дата приема"
+        :formatter="formatterEmploymentDate">
+      </el-table-column>
+      <el-table-column
+        prop="phone"
         label="Контактный телефон">
       </el-table-column>
       <el-table-column
-        prop="timeCredit"
-        label="Электронная почта">
+        prop="email"
+        label="Электронная почта"
+        width="200">
       </el-table-column>
       <el-table-column
-        prop="timeCredit"
-        label="Дата рождения">
+        prop="dataBirth"
+        label="Дата рождения"
+        :formatter="formatterDataBirth">
       </el-table-column>
     </el-table>
   </layouts-default>
@@ -53,6 +64,17 @@ export default {
       .catch(error => {
         console.log(error)
       })
+  },
+  methods: {
+    formatterEmploymentDate (row, column) {
+      return this.moment(row.employmentDate).format('DD MMMM YYYY')
+    },
+    formatterDataBirth (row, column) {
+      return this.moment(row.dataBirth).format('DD MMMM YYYY')
+    },
+    onRowClick (row, event, column) {
+      // this.$router.push('/')
+    }
   },
   computed: {
     getAllUsersObject () {

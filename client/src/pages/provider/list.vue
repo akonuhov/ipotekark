@@ -5,30 +5,13 @@
       :data="getAllProviderObject"
       empty-text="Список операций пуст">
       <el-table-column
-        prop="_id"
-        label="ID">
-      </el-table-column>
-      <el-table-column
         prop="name"
         label="Наименование с указанием ОГРН и местонахождения"
         sortable>
       </el-table-column>
       <el-table-column
-        prop="bankAccount"
-        label="Расчетный счет">
-      </el-table-column>
-      <el-table-column
-        prop="bank"
-        label="Банк">
-      </el-table-column>
-      <el-table-column
-        prop="inn"
-        label="ИНН"
-        sortable>
-      </el-table-column>
-      <el-table-column
-        prop="kpp"
-        label="КПП"
+        prop="landPlace.address"
+        label="Адрес земельного участка"
         sortable>
       </el-table-column>
     </el-table>
@@ -42,6 +25,15 @@ export default {
   data: () => ({
     providerObject: []
   }),
+  created () {
+    this.$http.get('/api/providers')
+      .then(res => {
+        this.providerObject = res.data
+      })
+      .catch(error => {
+        console.log(error)
+      })
+  },
   computed: {
     getAllProviderObject () {
       return this.providerObject

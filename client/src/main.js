@@ -10,6 +10,7 @@ import VueConfig from 'vue-configuration'
 import appConfig from './config.json'
 import 'element-ui/lib/theme-chalk/index.css'
 import './plugins/axios'
+import './plugins/moment'
 
 Vue.use(VueConfig, {
   config: appConfig

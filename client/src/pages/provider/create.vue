@@ -1,64 +1,64 @@
 <template lang="html">
   <layouts-default>
     <h1>Введите данные о продавце/застройщике</h1>
-    <el-form label-position="top" class="el-form--borrower">
+    <el-form :model="providerObject" :rules="rules" ref="providerObjectForm" label-position="top" class="el-form--borrower">
       <el-card shadow="hover">
-        <el-row :gutter="12">
+        <el-row :gutter="20">
           <el-col :span="12" :md="12" :sm="12" :xs="24">
-            <el-form-item label="Наименование с указанием ОГРН и местонахождения">
+            <el-form-item label="Наименование с указанием ОГРН и местонахождения" prop="name">
               <el-input v-model="providerObject.name" placeholder="Наименование с указанием ОГРН и местонахождения"></el-input>
             </el-form-item>
           </el-col>
           <el-col :span="12" :md="12" :sm="12" :xs="24">
-            <el-form-item label="Наименование в творительном падеже, с указанием ОГРН и местонахождения">
+            <el-form-item label="Наименование в творительном падеже, с указанием ОГРН и местонахождения" prop="nameTvoritelny">
               <el-input v-model="providerObject.nameTvoritelny" placeholder="Наименование в творительном падеже, с указанием ОГРН и местонахождения"></el-input>
             </el-form-item>
           </el-col>
           <el-col :span="6" :md="6" :sm="12" :xs="24">
-            <el-form-item label="Расчетный счет">
+            <el-form-item label="Расчетный счет" prop="bankAccount">
               <el-input v-model="providerObject.bankAccount" placeholder="Расчетный счет"></el-input>
             </el-form-item>
           </el-col>
           <el-col :span="6" :md="6" :sm="12" :xs="24">
-            <el-form-item label="Банк">
+            <el-form-item label="Банк" prop="bank">
               <el-input v-model="providerObject.bank" placeholder="Банк"></el-input>
             </el-form-item>
           </el-col>
           <el-col :span="6" :md="6" :sm="12" :xs="24">
-            <el-form-item label="ИНН">
+            <el-form-item label="ИНН" prop="inn">
               <el-input v-model="providerObject.inn" placeholder="ИНН"></el-input>
             </el-form-item>
           </el-col>
           <el-col :span="6" :md="6" :sm="12" :xs="24">
-            <el-form-item label="КПП">
+            <el-form-item label="КПП" prop="kpp">
               <el-input v-model="providerObject.kpp" placeholder="КПП"></el-input>
             </el-form-item>
           </el-col>
           <el-col :span="12" :md="12" :sm="12" :xs="24">
-            <el-form-item label="Адрес земельного участка">
+            <el-form-item label="Адрес земельного участка" prop="landPlace.address">
               <el-input v-model="providerObject.landPlace.address" placeholder="Адрес земельного участка"></el-input>
             </el-form-item>
           </el-col>
           <el-col :span="6" :md="6" :sm="12" :xs="24">
-            <el-form-item label="Площадь, кв. м">
+            <el-form-item label="Площадь, кв. м" prop="landPlace.area">
               <el-input v-model="providerObject.landPlace.area" placeholder="Площадь, кв. м"></el-input>
             </el-form-item>
           </el-col>
           <el-col :span="6" :md="6" :sm="12" :xs="24">
-            <el-form-item label="Кадастровый номер">
+            <el-form-item label="Кадастровый номер" prop="landPlace.cadastralId">
               <el-input v-model="providerObject.landPlace.cadastralId" placeholder="Кадастровый номер"></el-input>
             </el-form-item>
           </el-col>
           <el-col :span="24" :md="24" :sm="24" :xs="24">
-            <el-form-item label="Иная информация">
+            <el-form-item label="Иная информация" prop="other">
               <el-input type="textarea" :rows="5" v-model="providerObject.other" placeholder="Иная информация"></el-input>
             </el-form-item>
           </el-col>
         </el-row>
       </el-card>
-      <el-row :gutter="12">
+      <el-row :gutter="20">
         <el-col :span="24">
-          <el-button type="success" @click="onCreateBorrower">Добавить</el-button>
+          <el-button type="success" @click="onCreateProvider">Добавить</el-button>
           <el-button>Назад</el-button>
         </el-col>
       </el-row>
@@ -84,8 +84,86 @@ export default {
         cadastralId: null
       },
       other: null
+    },
+    rules: {
+      name: {
+        required: true,
+        message: 'Поле обязательно для заполнения',
+        trigger: 'change'
+      },
+      nameTvoritelny: {
+        required: true,
+        message: 'Поле обязательно для заполнения',
+        trigger: 'change'
+      },
+      bankAccount: {
+        required: true,
+        message: 'Поле обязательно для заполнения',
+        trigger: 'change'
+      },
+      bank: {
+        required: true,
+        message: 'Поле обязательно для заполнения',
+        trigger: 'change'
+      },
+      inn: {
+        required: true,
+        message: 'Поле обязательно для заполнения',
+        trigger: 'change'
+      },
+      kpp: {
+        required: true,
+        message: 'Поле обязательно для заполнения',
+        trigger: 'change'
+      },
+      landPlace: {
+        address: {
+          required: true,
+          message: 'Поле обязательно для заполнения',
+          trigger: 'change'
+        },
+        area: {
+          required: true,
+          message: 'Поле обязательно для заполнения',
+          trigger: 'change'
+        },
+        cadastralId: {
+          required: true,
+          message: 'Поле обязательно для заполнения',
+          trigger: 'change'
+        }
+      },
+      other: {
+        required: true,
+        message: 'Поле обязательно для заполнения',
+        trigger: 'change'
+      }
     }
   }),
+  methods: {
+    onCreateProvider () {
+      this.$refs['providerObjectForm'].validate((valid) => {
+        if (valid) {
+          this.$http.post('/api/providers', this.providerObject)
+            .then(res => {
+              this.$router.push('/provider')
+              this.$message({
+                message: 'Продавец/застройщик добавлен',
+                type: 'success'
+              })
+            })
+            .catch(error => {
+              this.$message({
+                message: error.response.data.error.message,
+                type: 'error'
+              })
+            })
+        } else {
+          return false
+        }
+      })
+    }
+  },
   components: {
     LayoutsDefault
   }

@@ -45,12 +45,8 @@ module.exports = {
                     });
                     return;
                 }
-                var token = jsonwebtoken.sign({ email: Users.email }, 'secretapplication', {
-                    expiresIn: 3600
-                });
                 res.json({
                     success: true,
-                    token: token,
                     userId: Users.id
                 });
 

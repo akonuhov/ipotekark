@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import PageLogin from '@/pages/auth/login'
 import PageMain from '@/pages/index'
 import PageCreditObjectList from '@/pages/credit-object/list'
 import PageCreditObjectCreate from '@/pages/credit-object/create'
@@ -19,6 +20,11 @@ Vue.use(Router)
 
 export default new Router({
   routes: [
+    {
+      path: '/login',
+      name: 'PageLogin',
+      component: PageLogin
+    },
     {
       path: '/',
       name: 'PageMain',

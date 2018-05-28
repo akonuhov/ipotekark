@@ -8,7 +8,7 @@ var UsersController = require('../controllers/UsersController.js');
 router.get('/', UsersController.list);
 
 /*
- * GET
+ * GET ID
  */
 router.get('/:id', UsersController.show);
 

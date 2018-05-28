@@ -1,31 +1,31 @@
 <template lang="html">
   <layouts-default>
     <h1>Введите данные о сотруднике</h1>
-    <el-form label-position="top" class="el-form--user">
+    <el-form :model="userObject" :rules="rules" ref="userObjectForm" label-position="top" class="el-form--user">
       <el-card shadow="hover">
-        <el-row :gutter="12">
+        <el-row :gutter="20">
           <el-col :span="6">
-            <el-form-item label="Фамилия">
+            <el-form-item label="Фамилия" prop="firstName">
               <el-input v-model="userObject.firstName" placeholder="Фамилия"></el-input>
             </el-form-item>
           </el-col>
           <el-col :span="6">
-            <el-form-item label="Имя">
+            <el-form-item label="Имя" prop="lastName">
               <el-input v-model="userObject.lastName" placeholder="Имя"></el-input>
             </el-form-item>
           </el-col>
           <el-col :span="6">
-            <el-form-item label="Отчество">
+            <el-form-item label="Отчество" prop="middleName">
               <el-input v-model="userObject.middleName" placeholder="Отчество"></el-input>
             </el-form-item>
           </el-col>
           <el-col :span="6">
-            <el-form-item label="Должность">
+            <el-form-item label="Должность" prop="position">
               <el-input v-model="userObject.position" placeholder="Должность"></el-input>
             </el-form-item>
           </el-col>
           <el-col :span="6">
-            <el-form-item label="Дата рождения">
+            <el-form-item label="Дата рождения" prop="dataBirth">
               <el-date-picker
                 v-model="userObject.dataBirth"
                 type="date"
@@ -34,7 +34,7 @@
             </el-form-item>
           </el-col>
           <el-col :span="6">
-            <el-form-item label="Дата принятия на работу">
+            <el-form-item label="Дата принятия на работу" prop="employmentDate">
               <el-date-picker
                 v-model="userObject.employmentDate"
                 type="date"
@@ -43,17 +43,17 @@
             </el-form-item>
           </el-col>
           <el-col :span="6">
-            <el-form-item label="Электронная почта">
+            <el-form-item label="Электронная почта" prop="email">
               <el-input v-model="userObject.email" placeholder="Электронная почта"></el-input>
             </el-form-item>
           </el-col>
           <el-col :span="6">
-            <el-form-item label="Контактный телефон">
+            <el-form-item label="Контактный телефон" prop="phone">
               <el-input v-model="userObject.phone" placeholder="Контактный телефон"></el-input>
             </el-form-item>
           </el-col>
           <el-col :span="6">
-            <el-form-item label="Роль">
+            <el-form-item label="Роль" prop="role">
               <el-select v-model="userObject.role" placeholder="Роль">
                 <el-option label="Специалист" value="specialist"></el-option>
                 <el-option label="Менеджер" value="manager"></el-option>
@@ -62,7 +62,7 @@
             </el-form-item>
           </el-col>
           <el-col :span="6">
-            <el-form-item label="Пароль">
+            <el-form-item label="Пароль" prop="password">
               <el-input v-model="userObject.password" placeholder="Пароль"></el-input>
             </el-form-item>
           </el-col>
@@ -94,11 +94,84 @@ export default {
       phone: null,
       employmentDate: null,
       role: null
+    },
+    rules: {
+      firstName: {
+        required: true,
+        message: 'Поле обязательно для заполнения',
+        trigger: 'change'
+      },
+      lastName: {
+        required: true,
+        message: 'Поле обязательно для заполнения',
+        trigger: 'change'
+      },
+      middleName: {
+        required: true,
+        message: 'Поле обязательно для заполнения',
+        trigger: 'change'
+      },
+      password: {
+        required: true,
+        message: 'Поле обязательно для заполнения',
+        trigger: 'change'
+      },
+      dataBirth: {
+        type: 'date',
+        required: true,
+        message: 'Поле обязательно для заполнения',
+        trigger: 'change'
+      },
+      email: {
+        required: true,
+        message: 'Поле обязательно для заполнения',
+        trigger: 'change'
+      },
+      position: {
+        required: true,
+        message: 'Поле обязательно для заполнения',
+        trigger: 'change'
+      },
+      phone: {
+        required: true,
+        message: 'Поле обязательно для заполнения',
+        trigger: 'change'
+      },
+      employmentDate: {
+        type: 'date',
+        required: true,
+        message: 'Поле обязательно для заполнения',
+        trigger: 'change'
+      },
+      role: {
+        required: true,
+        message: 'Поле обязательно для заполнения',
+        trigger: 'blur'
+      }
     }
   }),
   methods: {
     onCreateUser () {
-
+      this.$refs['userObjectForm'].validate((valid) => {
+        if (valid) {
+          this.$http.post('/api/users', this.userObject)
+            .then(res => {
+              this.$router.push('/user')
+              this.$message({
+                message: 'Сотрудник добавлен',
+                type: 'success'
+              })
+            })
+            .catch(error => {
+              this.$message({
+                message: error.response.data.error.message,
+                type: 'error'
+              })
+            })
+        } else {
+          return false
+        }
+      })
     }
   },
   components: {
