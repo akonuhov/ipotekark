@@ -17,7 +17,7 @@ var BorrowersSchema = new Schema({
 	},
 	'share': {
 		'shareInOwnership': Number
-	}
+	},
 	'contactData': {
 		'phoneHome' : Number,
 		'phoneService' : Number,
