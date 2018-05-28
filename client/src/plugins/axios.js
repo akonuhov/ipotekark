@@ -13,7 +13,7 @@ import Vue from 'vue'
 import Axios from 'axios'
 
 Axios.defaults.headers.common.Accept = 'application/json'
-Axios.defaults.baseURL = 'http://localhost:3000'
+Axios.defaults.baseURL = 'http://91.214.130.109:3333'
 
 // Bind Axios to Vue.
 Vue.$http = Axios
