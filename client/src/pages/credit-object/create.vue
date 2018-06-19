@@ -51,32 +51,32 @@
         <el-row :gutter="20">
           <el-col :span="8" :md="8" :sm="12" :xs="24">
             <el-form-item label="Размер кредита" prop="amountCredit">
-              <el-input-number v-model="creditObject.amountCredit" controls-position="right"></el-input-number>
+              <el-input-number v-model="creditObject.amountCredit" :min="0" controls-position="right"></el-input-number>
             </el-form-item>
           </el-col>
           <el-col :span="8" :md="8" :sm="12" :xs="24">
             <el-form-item label="Срок кредитования, мес" prop="timeCredit">
-              <el-input-number v-model="creditObject.timeCredit" controls-position="right" :min="36" :max="360"></el-input-number>
+              <el-input-number v-model="creditObject.timeCredit" :min="36" :max="360" controls-position="right"></el-input-number>
             </el-form-item>
           </el-col>
           <el-col :span="8" :md="8" :sm="12" :xs="24">
             <el-form-item label="Стоимость кв. м" prop="costSquareMeter">
-              <el-input-number v-model="creditObject.costSquareMeter" controls-position="right"></el-input-number>
+              <el-input-number v-model="creditObject.costSquareMeter" :min="0" controls-position="right"></el-input-number>
             </el-form-item>
           </el-col>
           <el-col :span="8" :md="8" :sm="12" :xs="24">
             <el-form-item label="Общая площадь квартиры" prop="totaAareAapartment">
-              <el-input-number v-model="creditObject.totaAareAapartment" controls-position="right"></el-input-number>
+              <el-input-number v-model="creditObject.totaAareAapartment" :min="0" controls-position="right"></el-input-number>
             </el-form-item>
           </el-col>
           <el-col :span="8" :md="8" :sm="12" :xs="24">
             <el-form-item label="Стоимость квартиры" prop="costApartment">
-              <el-input-number v-model="creditObject.costApartment" controls-position="right"></el-input-number>
+              <el-input-number v-model="creditObject.costApartment" :min="0" controls-position="right"></el-input-number>
             </el-form-item>
           </el-col>
           <el-col :span="8" :md="8" :sm="12" :xs="24">
             <el-form-item label="Первоначальный взнос" prop="initialFee">
-              <el-input-number v-model="creditObject.initialFee" controls-position="right"></el-input-number>
+              <el-input-number v-model="creditObject.initialFee" :min="0" controls-position="right"></el-input-number>
             </el-form-item>
           </el-col>
           <el-col :span="8" :md="8" :sm="12" :xs="24">
@@ -93,17 +93,17 @@
           </el-col>
           <el-col :span="8" :md="8" :sm="12" :xs="24">
             <el-form-item label="Полная стоимость займа" prop="totalLoanValue">
-              <el-input-number v-model="creditObject.totalLoanValue" controls-position="right"></el-input-number>
+              <el-input-number v-model="creditObject.totalLoanValue" :min="0" controls-position="right"></el-input-number>
             </el-form-item>
           </el-col>
           <el-col :span="8" :md="8" :sm="12" :xs="24">
             <el-form-item label="Оценочная стоимость квартиры" prop="estimatedCostApartment">
-              <el-input-number v-model="creditObject.estimatedCostApartment" controls-position="right"></el-input-number>
+              <el-input-number v-model="creditObject.estimatedCostApartment" :min="0" controls-position="right"></el-input-number>
             </el-form-item>
           </el-col>
           <el-col :span="8" :md="8" :sm="12" :xs="24">
             <el-form-item label="Количество иждивенцев" prop="numberDependents">
-              <el-input-number v-model="creditObject.numberDependents" controls-position="right"></el-input-number>
+              <el-input-number v-model="creditObject.numberDependents" :min="0" controls-position="right"></el-input-number>
             </el-form-item>
           </el-col>
           <el-col :span="8" :md="8" :sm="12" :xs="24">
@@ -113,7 +113,7 @@
           </el-col>
           <el-col :span="8" :md="8" :sm="12" :xs="24">
             <el-form-item label="Ежемесячный платеж" prop="monthlyPayment">
-              <el-input-number v-model="creditObject.monthlyPayment" controls-position="right"></el-input-number>
+              <el-input-number v-model="creditObject.monthlyPayment" :min="0" controls-position="right"></el-input-number>
             </el-form-item>
           </el-col>
           <el-col :span="8" :md="8" :sm="12" :xs="24">
@@ -147,22 +147,22 @@
           </el-col>
           <el-col :span="8" :md="8" :sm="12" :xs="24">
             <el-form-item label="Номер в реестре граждан">
-              <el-input placeholder="Номер в реестре граждан" v-model="creditObject.socialPayments.numberCitizensRegister"></el-input>
+              <el-input v-model="creditObject.socialPayments.numberCitizensRegister" :min="0" placeholder="Номер в реестре граждан"></el-input>
             </el-form-item>
           </el-col>
           <el-col :span="8" :md="8" :sm="12" :xs="24">
             <el-form-item label="Общая площадь по месту регистрации, кв. м">
-              <el-input-number v-model="creditObject.socialPayments.totalAreaPlaceRegistration" controls-position="right"></el-input-number>
+              <el-input-number v-model="creditObject.socialPayments.totalAreaPlaceRegistration" :min="0" controls-position="right"></el-input-number>
             </el-form-item>
           </el-col>
           <el-col :span="8" :md="8" :sm="12" :xs="24">
             <el-form-item label="Количество зарегистрированных лиц">
-              <el-input-number v-model="creditObject.socialPayments.numberRegisteredPersons" controls-position="right"></el-input-number>
+              <el-input-number v-model="creditObject.socialPayments.numberRegisteredPersons" :min="0" controls-position="right"></el-input-number>
             </el-form-item>
           </el-col>
           <el-col :span="8" :md="8" :sm="12" :xs="24">
             <el-form-item label="Обеспеченность площадью гражданина, кв. м">
-              <el-input-number v-model="creditObject.socialPayments.provideCitizenArea" controls-position="right"></el-input-number>
+              <el-input-number v-model="creditObject.socialPayments.provideCitizenArea" :min="0" controls-position="right"></el-input-number>
             </el-form-item>
           </el-col>
           <el-col :span="8" :md="8" :sm="12" :xs="24">
@@ -186,7 +186,7 @@
           </el-col>
           <el-col :span="8" :md="8" :sm="12" :xs="24">
             <el-form-item label="Количество совместно проживающих членов семьи">
-              <el-input-number v-model="creditObject.socialPayments.numberCohabitingFamilyMembers" controls-position="right"></el-input-number>
+              <el-input-number v-model="creditObject.socialPayments.numberCohabitingFamilyMembers" :min="0" controls-position="right"></el-input-number>
             </el-form-item>
           </el-col>
           <el-col :span="8" :md="8" :sm="12" :xs="24">
@@ -428,37 +428,31 @@ export default {
       },
       amountCredit: {
         required: true,
-        min: 1,
         message: 'Поле обязательно для заполнения',
         trigger: 'change'
       },
       timeCredit: {
         required: true,
-        min: 36,
         message: 'Поле обязательно для заполнения',
         trigger: 'change'
       },
       costSquareMeter: {
         required: true,
-        min: 1,
         message: 'Поле обязательно для заполнения',
         trigger: 'change'
       },
       totaAareAapartment: {
         required: true,
-        min: 1,
         message: 'Поле обязательно для заполнения',
         trigger: 'change'
       },
       costApartment: {
         required: true,
-        min: 1,
         message: 'Поле обязательно для заполнения',
         trigger: 'change'
       },
       initialFee: {
         required: true,
-        min: 1,
         message: 'Поле обязательно для заполнения',
         trigger: 'change'
       },
@@ -469,13 +463,11 @@ export default {
       },
       totalLoanValue: {
         required: true,
-        min: 1,
         message: 'Поле обязательно для заполнения',
         trigger: 'change'
       },
       estimatedCostApartment: {
         required: true,
-        min: 1,
         message: 'Поле обязательно для заполнения',
         trigger: 'change'
       },
@@ -486,13 +478,11 @@ export default {
       },
       ageOnMomentEndCredit: {
         required: true,
-        min: 1,
         message: 'Поле обязательно для заполнения',
         trigger: 'change'
       },
       monthlyPayment: {
         required: true,
-        min: 1,
         message: 'Поле обязательно для заполнения',
         trigger: 'change'
       },

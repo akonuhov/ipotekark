@@ -19,6 +19,7 @@ import PageUserCreate from '@/pages/user/create'
 Vue.use(Router)
 
 export default new Router({
+  mode: 'history',
   routes: [
     {
       path: '/login',
@@ -28,72 +29,114 @@ export default new Router({
     {
       path: '/',
       name: 'PageMain',
-      component: PageMain
+      component: PageMain,
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       path: '/credit-object',
       name: 'PageCreditObjectList',
-      component: PageCreditObjectList
+      component: PageCreditObjectList,
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       path: '/credit-object/create',
       name: 'PageCreditObjectCreate',
-      component: PageCreditObjectCreate
+      component: PageCreditObjectCreate,
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       path: '/borrower',
       name: 'PageBorrowerList',
-      component: PageBorrowerList
+      component: PageBorrowerList,
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       path: '/borrower/create',
       name: 'PageBorrowerCreate',
-      component: PageBorrowerCreate
+      component: PageBorrowerCreate,
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       path: '/document',
       name: 'PageDocumentList',
-      component: PageDocumentList
+      component: PageDocumentList,
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       path: '/document/create',
       name: 'PageDocumentCreate',
-      component: PageDocumentCreate
+      component: PageDocumentCreate,
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       path: '/provider',
       name: 'PageProviderList',
-      component: PageProviderList
+      component: PageProviderList,
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       path: '/provider/create',
       name: 'PageProviderCreate',
-      component: PageProviderCreate
+      component: PageProviderCreate,
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       path: '/evaluator',
       name: 'PageEvaluatorList',
-      component: PageEvaluatorList
+      component: PageEvaluatorList,
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       path: '/evaluator/create',
       name: 'PageEvaluatorCreate',
-      component: PageEvaluatorCreate
+      component: PageEvaluatorCreate,
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       path: '/history-operation',
       name: 'PageHistoryOperationList',
-      component: PageHistoryOperationList
+      component: PageHistoryOperationList,
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       path: '/user',
       name: 'PageUserList',
-      component: PageUserList
+      component: PageUserList,
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       path: '/user/create',
       name: 'PageUserCreate',
-      component: PageUserCreate
+      component: PageUserCreate,
+      meta: {
+        requiresAuth: true
+      }
     }
   ]
 })

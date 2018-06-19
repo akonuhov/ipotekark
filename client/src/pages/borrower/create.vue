@@ -409,7 +409,6 @@ export default {
       share: {
         shareInOwnership: {
           required: true,
-          min: 1,
           message: 'Поле обязательно для заполнения',
           trigger: 'change'
         }
@@ -487,7 +486,6 @@ export default {
       },
       aggregateExpense: {
         required: true,
-        min: 1,
         message: 'Поле обязательно для заполнения',
         trigger: 'change'
       },

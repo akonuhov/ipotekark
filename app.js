@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({
   extended: false
 }));
 app.use(cors());
-mongoose.connect('mongodb://91.214.130.109/ipotekark');
+mongoose.connect('mongodb://localhost/ipotekark');
 
 app.use(routes);
 
