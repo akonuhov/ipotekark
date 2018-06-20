@@ -4,7 +4,8 @@
     <el-table
       :data="getAllCreditsObject"
       :default-sort = "{prop: '_id', order: 'descending'}"
-      empty-text="Список кредитных дел пуст">
+      empty-text="Список кредитных дел пуст"
+      @row-click="onRowClick">
       <el-table-column
         prop="_id"
         label="ID"
@@ -74,6 +75,9 @@ export default {
   methods: {
     formatter (row, column) {
       return row.address
+    },
+    onRowClick (row, event, column) {
+      this.$router.push('/credit-object/' + row._id)
     }
   },
   computed: {

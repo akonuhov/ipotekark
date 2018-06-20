@@ -4,6 +4,7 @@ import PageLogin from '@/pages/auth/login'
 import PageMain from '@/pages/index'
 import PageCreditObjectList from '@/pages/credit-object/list'
 import PageCreditObjectCreate from '@/pages/credit-object/create'
+import PageCreditObjectUpdate from '@/pages/credit-object/update'
 import PageBorrowerList from '@/pages/borrower/list'
 import PageBorrowerCreate from '@/pages/borrower/create'
 import PageBorrowerUpdate from '@/pages/borrower/update'
@@ -39,6 +40,14 @@ export default new Router({
       path: '/credit-object',
       name: 'PageCreditObjectList',
       component: PageCreditObjectList,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/credit-object/:id',
+      name: 'PageCreditObjectUpdate',
+      component: PageCreditObjectUpdate,
       meta: {
         requiresAuth: true
       }
