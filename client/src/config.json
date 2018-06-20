@@ -1,5 +1,5 @@
 {
-  "host": "http://localhost",
+  "host": "http://ais.ipotekark.ru",
   "port": "3000",
   "apiUrl": {
     "users": {

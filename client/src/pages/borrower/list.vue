@@ -3,7 +3,8 @@
     <h1>Список заемщиков</h1>
     <el-table
       :data="getAllBorrowersObject"
-      empty-text="Список заемщиков пуст">
+      empty-text="Список заемщиков пуст"
+      @row-click="onRowClick">
       <el-table-column
         prop="_id"
         label="ID">
@@ -42,7 +43,9 @@ export default {
       })
   },
   methods: {
-
+    onRowClick (row, event, column) {
+      this.$router.push('/borrower/' + row._id)
+    }
   },
   computed: {
     getAllBorrowersObject () {
