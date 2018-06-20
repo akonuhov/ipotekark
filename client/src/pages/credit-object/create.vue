@@ -125,6 +125,25 @@
               </el-date-picker>
             </el-form-item>
           </el-col>
+          <el-col :span="8" :md="8" :sm="12" :xs="24">
+            <el-form-item label="Номер договора приобретения">
+              <el-input readonly placeholder="Номер договора приобретения"></el-input>
+            </el-form-item>
+          </el-col>
+          <el-col :span="8" :md="8" :sm="12" :xs="24">
+            <el-form-item label="Номер отчета об оценке">
+              <el-input readonly placeholder="Номер отчета об оценке"></el-input>
+            </el-form-item>
+          </el-col>
+          <el-col :span="8" :md="8" :sm="12" :xs="24">
+            <el-form-item label="Дата отчета об оценке">
+              <el-date-picker
+                v-model="creditObject.dateLoanAgreement"
+                type="date"
+                placeholder="Дата отчета об оценке">
+              </el-date-picker>
+            </el-form-item>
+          </el-col>
         </el-row>
       </el-card>
       <el-card shadow="hover" v-if="creditObject.status === 'accept'">
