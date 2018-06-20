@@ -11,7 +11,7 @@
           </el-col>
           <el-col :span='24' :md='24' :sm='24' :xs='24'>
             <el-form-item label='Содержание документа'>
-              <!-- <editor v-model="documentObject.text" /> -->
+              <editor v-model="documentObject.text" />
             </el-form-item>
           </el-col>
         </el-row>
@@ -27,7 +27,7 @@
 </template>
 
 <script>
-// import Editor from '@tinymce/tinymce-vue'
+import Editor from '@tinymce/tinymce-vue'
 import LayoutsDefault from '@/layouts/default'
 export default {
   name: 'PageDocumentCreate',
@@ -40,10 +40,10 @@ export default {
   components: {
     LayoutsDefault
   }
-  // components: {
-  //   LayoutsDefault,
-  //   Editor
-  // }
+  components: {
+    LayoutsDefault,
+    Editor
+  }
 }
 </script>
 
