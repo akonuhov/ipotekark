@@ -38,9 +38,6 @@ export default {
     }
   }),
   components: {
-    LayoutsDefault
-  },
-  components: {
     LayoutsDefault,
     Editor
   }
