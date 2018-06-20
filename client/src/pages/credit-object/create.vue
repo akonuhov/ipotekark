@@ -611,7 +611,7 @@ export default {
     onCreateCredirObject () {
       this.$refs['creditObjectForm'].validate((valid) => {
         if (valid) {
-          this.$http.post('/api/credit-object', this.borrowerObject)
+          this.$http.post('/api/credit-object', this.creditObject)
             .then(res => {
               this.$router.push('/credit-object')
               this.$message({
