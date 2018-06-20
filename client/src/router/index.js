@@ -21,7 +21,6 @@ import PageUserCreate from '@/pages/user/create'
 Vue.use(Router)
 
 export default new Router({
-  mode: 'history',
   routes: [
     {
       path: '/login',
