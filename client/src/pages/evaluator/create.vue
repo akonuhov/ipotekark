@@ -10,32 +10,32 @@
             </el-form-item>
           </el-col>
           <el-col :span="12" :md="12" :sm="12" :xs="24">
-            <el-form-item label="Наименование в творительном падеже, с указанием ОГРН и местонахождения" prop="nameTvoritelny">
+            <el-form-item label="Наименование в творительном падеже, с указанием ОГРН и местонахождения">
               <el-input v-model="evaluatorObject.nameTvoritelny" placeholder="Наименование в творительном падеже, с указанием ОГРН и местонахождения"></el-input>
             </el-form-item>
           </el-col>
           <el-col :span="6" :md="6" :sm="12" :xs="24">
-            <el-form-item label="Расчетный счет" prop="bankAccount">
+            <el-form-item label="Расчетный счет">
               <el-input v-model="evaluatorObject.bankAccount" placeholder="Расчетный счет"></el-input>
             </el-form-item>
           </el-col>
           <el-col :span="6" :md="6" :sm="12" :xs="24">
-            <el-form-item label="Банк" prop="bank">
+            <el-form-item label="Банк">
               <el-input v-model="evaluatorObject.bank" placeholder="Банк"></el-input>
             </el-form-item>
           </el-col>
           <el-col :span="6" :md="6" :sm="12" :xs="24">
-            <el-form-item label="ИНН" prop="inn">
+            <el-form-item label="ИНН">
               <el-input v-model="evaluatorObject.inn" placeholder="ИНН"></el-input>
             </el-form-item>
           </el-col>
           <el-col :span="6" :md="6" :sm="12" :xs="24">
-            <el-form-item label="КПП" prop="kpp">
+            <el-form-item label="КПП">
               <el-input v-model="evaluatorObject.kpp" placeholder="КПП"></el-input>
             </el-form-item>
           </el-col>
           <el-col :span="24" :md="24" :sm="24" :xs="24">
-            <el-form-item label="Иная информация" prop="other">
+            <el-form-item label="Иная информация">
               <el-input type="textarea" :rows="5" v-model="evaluatorObject.other" placeholder="Иная информация"></el-input>
             </el-form-item>
           </el-col>
@@ -67,36 +67,6 @@ export default {
     },
     rules: {
       name: {
-        required: true,
-        message: 'Поле обязательно для заполнения',
-        trigger: 'change'
-      },
-      nameTvoritelny: {
-        required: true,
-        message: 'Поле обязательно для заполнения',
-        trigger: 'change'
-      },
-      bankAccount: {
-        required: true,
-        message: 'Поле обязательно для заполнения',
-        trigger: 'change'
-      },
-      bank: {
-        required: true,
-        message: 'Поле обязательно для заполнения',
-        trigger: 'change'
-      },
-      inn: {
-        required: true,
-        message: 'Поле обязательно для заполнения',
-        trigger: 'change'
-      },
-      kpp: {
-        required: true,
-        message: 'Поле обязательно для заполнения',
-        trigger: 'change'
-      },
-      other: {
         required: true,
         message: 'Поле обязательно для заполнения',
         trigger: 'change'

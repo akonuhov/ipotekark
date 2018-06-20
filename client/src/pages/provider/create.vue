@@ -35,22 +35,22 @@
             </el-form-item>
           </el-col>
           <el-col :span="12" :md="12" :sm="12" :xs="24">
-            <el-form-item label="Адрес земельного участка" prop="landPlace.address">
+            <el-form-item label="Адрес земельного участка">
               <el-input v-model="providerObject.landPlace.address" placeholder="Адрес земельного участка"></el-input>
             </el-form-item>
           </el-col>
           <el-col :span="6" :md="6" :sm="12" :xs="24">
-            <el-form-item label="Площадь, кв. м" prop="landPlace.area">
+            <el-form-item label="Площадь, кв. м">
               <el-input v-model="providerObject.landPlace.area" placeholder="Площадь, кв. м"></el-input>
             </el-form-item>
           </el-col>
           <el-col :span="6" :md="6" :sm="12" :xs="24">
-            <el-form-item label="Кадастровый номер" prop="landPlace.cadastralId">
+            <el-form-item label="Кадастровый номер">
               <el-input v-model="providerObject.landPlace.cadastralId" placeholder="Кадастровый номер"></el-input>
             </el-form-item>
           </el-col>
           <el-col :span="24" :md="24" :sm="24" :xs="24">
-            <el-form-item label="Иная информация" prop="other">
+            <el-form-item label="Иная информация">
               <el-input type="textarea" :rows="5" v-model="providerObject.other" placeholder="Иная информация"></el-input>
             </el-form-item>
           </el-col>
@@ -112,28 +112,6 @@ export default {
         trigger: 'change'
       },
       kpp: {
-        required: true,
-        message: 'Поле обязательно для заполнения',
-        trigger: 'change'
-      },
-      landPlace: {
-        address: {
-          required: true,
-          message: 'Поле обязательно для заполнения',
-          trigger: 'change'
-        },
-        area: {
-          required: true,
-          message: 'Поле обязательно для заполнения',
-          trigger: 'change'
-        },
-        cadastralId: {
-          required: true,
-          message: 'Поле обязательно для заполнения',
-          trigger: 'change'
-        }
-      },
-      other: {
         required: true,
         message: 'Поле обязательно для заполнения',
         trigger: 'change'

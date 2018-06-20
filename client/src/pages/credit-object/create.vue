@@ -15,14 +15,14 @@
                 <el-option
                   v-for="item in getAllBorrowerObject"
                   :key="item._id"
-                  :label="item.fioImenitelny + ' ' + item.passportData.firstName + ' ' + item.passportData.middleName"
+                  :label="item.passportData.fioImenitelny"
                   :value="item._id">
                 </el-option>
               </el-select>
             </el-form-item>
           </el-col>
           <el-col :span="6" :md="6" :sm="12" :xs="24">
-            <el-form-item label="Продавцы/Застройщики" prop="providerId">
+            <el-form-item label="Продавцы/Застройщики">
               <el-select v-model="creditObject.providerId" placeholder="Продавцы/Застройщики">
                 <el-option
                   v-for="item in getAllProviderObject"
@@ -34,7 +34,7 @@
             </el-form-item>
           </el-col>
           <el-col :span="6" :md="6" :sm="12" :xs="24">
-            <el-form-item label="Оценщики" prop="evaluatorId">
+            <el-form-item label="Оценщики">
               <el-select v-model="creditObject.evaluatorId" placeholder="Оценщики">
                 <el-option
                   v-for="item in getAllEvaluatorObject"
@@ -60,22 +60,22 @@
             </el-form-item>
           </el-col>
           <el-col :span="8" :md="8" :sm="12" :xs="24">
-            <el-form-item label="Стоимость кв. м" prop="costSquareMeter">
+            <el-form-item label="Стоимость кв. м">
               <el-input-number v-model="creditObject.costSquareMeter" :min="0" controls-position="right"></el-input-number>
             </el-form-item>
           </el-col>
           <el-col :span="8" :md="8" :sm="12" :xs="24">
-            <el-form-item label="Общая площадь квартиры" prop="totaAareAapartment">
+            <el-form-item label="Общая площадь квартиры">
               <el-input-number v-model="creditObject.totaAareAapartment" :min="0" controls-position="right"></el-input-number>
             </el-form-item>
           </el-col>
           <el-col :span="8" :md="8" :sm="12" :xs="24">
-            <el-form-item label="Стоимость квартиры" prop="costApartment">
+            <el-form-item label="Стоимость квартиры">
               <el-input-number v-model="creditObject.costApartment" :min="0" controls-position="right"></el-input-number>
             </el-form-item>
           </el-col>
           <el-col :span="8" :md="8" :sm="12" :xs="24">
-            <el-form-item label="Первоначальный взнос" prop="initialFee">
+            <el-form-item label="Первоначальный взнос">
               <el-input-number v-model="creditObject.initialFee" :min="0" controls-position="right"></el-input-number>
             </el-form-item>
           </el-col>
@@ -92,12 +92,12 @@
             </el-form-item>
           </el-col>
           <el-col :span="8" :md="8" :sm="12" :xs="24">
-            <el-form-item label="Полная стоимость займа" prop="totalLoanValue">
+            <el-form-item label="Полная стоимость займа">
               <el-input-number v-model="creditObject.totalLoanValue" :min="0" controls-position="right"></el-input-number>
             </el-form-item>
           </el-col>
           <el-col :span="8" :md="8" :sm="12" :xs="24">
-            <el-form-item label="Оценочная стоимость квартиры" prop="estimatedCostApartment">
+            <el-form-item label="Оценочная стоимость квартиры">
               <el-input-number v-model="creditObject.estimatedCostApartment" :min="0" controls-position="right"></el-input-number>
             </el-form-item>
           </el-col>
@@ -107,17 +107,17 @@
             </el-form-item>
           </el-col>
           <el-col :span="8" :md="8" :sm="12" :xs="24">
-            <el-form-item label="Возраст на момент погашения кредита" prop="ageOnMomentEndCredit">
+            <el-form-item label="Возраст на момент погашения кредита">
               <el-input readonly placeholder="Возраст на момент погашения кредита" v-model="creditObject.ageOnMomentEndCredit"></el-input>
             </el-form-item>
           </el-col>
           <el-col :span="8" :md="8" :sm="12" :xs="24">
-            <el-form-item label="Ежемесячный платеж" prop="monthlyPayment">
+            <el-form-item label="Ежемесячный платеж">
               <el-input-number v-model="creditObject.monthlyPayment" :min="0" controls-position="right"></el-input-number>
             </el-form-item>
           </el-col>
           <el-col :span="8" :md="8" :sm="12" :xs="24">
-            <el-form-item label="Дата договора займа" prop="dateLoanAgreement">
+            <el-form-item label="Дата договора займа">
               <el-date-picker
                 v-model="creditObject.dateLoanAgreement"
                 type="date"
@@ -416,16 +416,6 @@ export default {
         message: 'Поле обязательно для заполнения',
         trigger: 'change'
       },
-      providerId: {
-        required: true,
-        message: 'Поле обязательно для заполнения',
-        trigger: 'change'
-      },
-      evaluatorId: {
-        required: true,
-        message: 'Поле обязательно для заполнения',
-        trigger: 'change'
-      },
       amountCredit: {
         required: true,
         message: 'Поле обязательно для заполнения',
@@ -436,57 +426,12 @@ export default {
         message: 'Поле обязательно для заполнения',
         trigger: 'change'
       },
-      costSquareMeter: {
-        required: true,
-        message: 'Поле обязательно для заполнения',
-        trigger: 'change'
-      },
-      totaAareAapartment: {
-        required: true,
-        message: 'Поле обязательно для заполнения',
-        trigger: 'change'
-      },
-      costApartment: {
-        required: true,
-        message: 'Поле обязательно для заполнения',
-        trigger: 'change'
-      },
-      initialFee: {
-        required: true,
-        message: 'Поле обязательно для заполнения',
-        trigger: 'change'
-      },
       percentRate: {
         required: true,
         message: 'Поле обязательно для заполнения',
         trigger: 'change'
       },
-      totalLoanValue: {
-        required: true,
-        message: 'Поле обязательно для заполнения',
-        trigger: 'change'
-      },
-      estimatedCostApartment: {
-        required: true,
-        message: 'Поле обязательно для заполнения',
-        trigger: 'change'
-      },
       numberDependents: {
-        required: true,
-        message: 'Поле обязательно для заполнения',
-        trigger: 'change'
-      },
-      ageOnMomentEndCredit: {
-        required: true,
-        message: 'Поле обязательно для заполнения',
-        trigger: 'change'
-      },
-      monthlyPayment: {
-        required: true,
-        message: 'Поле обязательно для заполнения',
-        trigger: 'change'
-      },
-      dateLoanAgreement: {
         required: true,
         message: 'Поле обязательно для заполнения',
         trigger: 'change'
