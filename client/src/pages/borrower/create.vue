@@ -152,10 +152,10 @@
               <el-input-number v-model="borrowerObject.aggregateExpense" :step="500" controls-position="right"></el-input-number>
             </el-form-item>
             <h3>Информация о бансковском счете</h3>
-            <el-form-item label="Номер счета" prop="bankData.accountNumber">
+            <el-form-item label="Номер счета">
               <el-input v-model="borrowerObject.bankData.accountNumber" placeholder="Номер счета"></el-input>
             </el-form-item>
-            <el-form-item label="Реквизиты банка" prop="bankData.requisites">
+            <el-form-item label="Реквизиты банка">
               <el-input v-model="borrowerObject.bankData.requisites" placeholder="Реквизиты банка"></el-input>
             </el-form-item>
           </el-col>
@@ -172,7 +172,7 @@
                 </el-form-item>
               </el-col>
               <el-col :span="12" :md="12" :sm="12" :xs="24">
-                <el-form-item label="Район" prop="placeRegistration.district">
+                <el-form-item label="Район">
                   <el-input v-model="borrowerObject.placeRegistration.district" placeholder="Район"></el-input>
                 </el-form-item>
               </el-col>
@@ -187,27 +187,27 @@
                 </el-form-item>
               </el-col>
               <el-col :span="12" :md="12" :sm="12" :xs="24">
-                <el-form-item label="Тип части дорожной сети" prop="placeRegistration.typeRoad">
+                <el-form-item label="Тип части дорожной сети">
                   <el-input v-model="borrowerObject.placeRegistration.typeRoad" placeholder="Тип части дорожной сети"></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="12" :md="12" :sm="12" :xs="24">
-                <el-form-item label="Наименование части дорожной сети" prop="placeRegistration.nameRoad">
+                <el-form-item label="Наименование части дорожной сети">
                   <el-input v-model="borrowerObject.placeRegistration.nameRoad" placeholder="Наименование части дорожной сети"></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="8" :md="8" :sm="12" :xs="24">
-                <el-form-item label="Номер дома" prop="placeRegistration.houseNumber">
+                <el-form-item label="Номер дома">
                   <el-input v-model="borrowerObject.placeRegistration.houseNumber" placeholder="Номер дома"></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="8" :md="8" :sm="12" :xs="24">
-                <el-form-item label="Корпус" prop="placeRegistration.housing">
+                <el-form-item label="Корпус">
                   <el-input v-model="borrowerObject.placeRegistration.housing" placeholder="Корпус"></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="8" :md="8" :sm="12" :xs="24">
-                <el-form-item label="Номер квартиры" prop="placeRegistration.apartmentNumber">
+                <el-form-item label="Номер квартиры">
                   <el-input v-model="borrowerObject.placeRegistration.apartmentNumber" placeholder="Номер квартиры"></el-input>
                 </el-form-item>
               </el-col>
@@ -229,7 +229,7 @@
                 </el-form-item>
               </el-col>
               <el-col :span="12" :md="12" :sm="12" :xs="24">
-                <el-form-item label="Район" prop="placeResidence.district">
+                <el-form-item label="Район">
                   <el-input v-model="borrowerObject.placeResidence.district" placeholder="Район" :disabled="switchPlaceResidence"></el-input>
                 </el-form-item>
               </el-col>
@@ -244,27 +244,27 @@
                 </el-form-item>
               </el-col>
               <el-col :span="12" :md="12" :sm="12" :xs="24">
-                <el-form-item label="Тип части дорожной сети" prop="placeResidence.typeRoad">
+                <el-form-item label="Тип части дорожной сети">
                   <el-input v-model="borrowerObject.placeResidence.typeRoad" placeholder="Тип части дорожной сети" :disabled="switchPlaceResidence"></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="12" :md="12" :sm="12" :xs="24">
-                <el-form-item label="Наименование части дорожной сети" prop="placeResidence.nameRoad">
+                <el-form-item label="Наименование части дорожной сети">
                   <el-input v-model="borrowerObject.placeResidence.nameRoad" placeholder="Наименование части дорожной сети" :disabled="switchPlaceResidence"></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="8" :md="8" :sm="12" :xs="24">
-                <el-form-item label="Номер дома" prop="placeResidence.houseNumber">
+                <el-form-item label="Номер дома">
                   <el-input v-model="borrowerObject.placeResidence.houseNumber" placeholder="Номер дома" :disabled="switchPlaceResidence"></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="8" :md="8" :sm="12" :xs="24">
-                <el-form-item label="Корпус" prop="placeResidence.housing">
+                <el-form-item label="Корпус">
                   <el-input v-model="borrowerObject.placeResidence.housing" placeholder="Корпус" :disabled="switchPlaceResidence"></el-input>
                 </el-form-item>
               </el-col>
               <el-col :span="8" :md="8" :sm="12" :xs="24">
-                <el-form-item label="Номер квартиры" prop="placeResidence.apartmentNumber">
+                <el-form-item label="Номер квартиры">
                   <el-input v-model="borrowerObject.placeResidence.apartmentNumber" placeholder="Номер квартиры" :disabled="switchPlaceResidence"></el-input>
                 </el-form-item>
               </el-col>
@@ -435,18 +435,6 @@ export default {
           trigger: 'change'
         }
       },
-      bankData: {
-        accountNumber: {
-          required: true,
-          message: 'Поле обязательно для заполнения',
-          trigger: 'change'
-        },
-        requisites: {
-          required: true,
-          message: 'Поле обязательно для заполнения',
-          trigger: 'change'
-        }
-      },
       incomeData: {
         basic: {
           required: true,
@@ -495,42 +483,12 @@ export default {
           message: 'Поле обязательно для заполнения',
           trigger: 'change'
         },
-        district: {
-          required: true,
-          message: 'Поле обязательно для заполнения',
-          trigger: 'change'
-        },
         typeSettlement: {
           required: true,
           message: 'Поле обязательно для заполнения',
           trigger: 'change'
         },
         locality: {
-          required: true,
-          message: 'Поле обязательно для заполнения',
-          trigger: 'change'
-        },
-        typeRoad: {
-          required: true,
-          message: 'Поле обязательно для заполнения',
-          trigger: 'change'
-        },
-        nameRoad: {
-          required: true,
-          message: 'Поле обязательно для заполнения',
-          trigger: 'change'
-        },
-        houseNumber: {
-          required: true,
-          message: 'Поле обязательно для заполнения',
-          trigger: 'change'
-        },
-        housing: {
-          required: true,
-          message: 'Поле обязательно для заполнения',
-          trigger: 'change'
-        },
-        apartmentNumber: {
           required: true,
           message: 'Поле обязательно для заполнения',
           trigger: 'change'
@@ -542,42 +500,12 @@ export default {
           message: 'Поле обязательно для заполнения',
           trigger: 'change'
         },
-        district: {
-          required: true,
-          message: 'Поле обязательно для заполнения',
-          trigger: 'change'
-        },
         typeSettlement: {
           required: true,
           message: 'Поле обязательно для заполнения',
           trigger: 'change'
         },
         locality: {
-          required: true,
-          message: 'Поле обязательно для заполнения',
-          trigger: 'change'
-        },
-        typeRoad: {
-          required: true,
-          message: 'Поле обязательно для заполнения',
-          trigger: 'change'
-        },
-        nameRoad: {
-          required: true,
-          message: 'Поле обязательно для заполнения',
-          trigger: 'change'
-        },
-        houseNumber: {
-          required: true,
-          message: 'Поле обязательно для заполнения',
-          trigger: 'change'
-        },
-        housing: {
-          required: true,
-          message: 'Поле обязательно для заполнения',
-          trigger: 'change'
-        },
-        apartmentNumber: {
           required: true,
           message: 'Поле обязательно для заполнения',
           trigger: 'change'
