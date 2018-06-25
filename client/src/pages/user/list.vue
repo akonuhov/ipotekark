@@ -57,7 +57,7 @@ export default {
     usersObject: []
   }),
   created () {
-    this.$http.get(this.$config.config.apiUrl.users.getAll)
+    this.$http.get('/api/users')
       .then(res => {
         this.usersObject = res.data
       })
