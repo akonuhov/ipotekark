@@ -275,7 +275,7 @@
       <el-row :gutter="20">
         <el-col :span="24">
           <el-button type="success" @click="onCreateBorrower">Добавить</el-button>
-          <el-button>Назад</el-button>
+          <el-button @click="onClickButtonBack">Назад</el-button>
         </el-col>
       </el-row>
     </el-form>
@@ -522,6 +522,9 @@ export default {
           this.borrowerObject.placeResidence[item] = null
         }
       }
+    },
+    onClickButtonBack () {
+      this.$router.push('/borrower')
     },
     getIncomeDataSum () {
 

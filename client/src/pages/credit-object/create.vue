@@ -146,170 +146,10 @@
           </el-col>
         </el-row>
       </el-card>
-      <el-card shadow="hover" v-if="creditObject.status === 'accept'">
-        <el-row :gutter="20">
-          <el-col :span="24">
-            <h3>Социальные выплаты</h3>
-          </el-col>
-          <el-col :span="8" :md="8" :sm="12" :xs="24">
-            <el-form-item label="Категория соц. выплаты">
-              <el-select v-model="creditObject.socialPayments.category" placeholder="Категория соц. выплаты">
-                <el-option
-                  v-for="item in optionsSocialPayments"
-                  :key="item.value"
-                  :label="item.label"
-                  :value="item.value"
-                  :title="item.label">
-                </el-option>
-              </el-select>
-            </el-form-item>
-          </el-col>
-          <el-col :span="8" :md="8" :sm="12" :xs="24">
-            <el-form-item label="Номер в реестре граждан">
-              <el-input v-model="creditObject.socialPayments.numberCitizensRegister" :min="0" placeholder="Номер в реестре граждан"></el-input>
-            </el-form-item>
-          </el-col>
-          <el-col :span="8" :md="8" :sm="12" :xs="24">
-            <el-form-item label="Общая площадь по месту регистрации, кв. м">
-              <el-input-number v-model="creditObject.socialPayments.totalAreaPlaceRegistration" :min="0" controls-position="right"></el-input-number>
-            </el-form-item>
-          </el-col>
-          <el-col :span="8" :md="8" :sm="12" :xs="24">
-            <el-form-item label="Количество зарегистрированных лиц">
-              <el-input-number v-model="creditObject.socialPayments.numberRegisteredPersons" :min="0" controls-position="right"></el-input-number>
-            </el-form-item>
-          </el-col>
-          <el-col :span="8" :md="8" :sm="12" :xs="24">
-            <el-form-item label="Обеспеченность площадью гражданина, кв. м">
-              <el-input-number v-model="creditObject.socialPayments.provideCitizenArea" :min="0" controls-position="right"></el-input-number>
-            </el-form-item>
-          </el-col>
-          <el-col :span="8" :md="8" :sm="12" :xs="24">
-            <el-form-item label="Наименование справки о регистрации">
-              <el-input placeholder="Наименование справки о регистрации" v-model="creditObject.socialPayments.nameRegistrationCertificate"></el-input>
-            </el-form-item>
-          </el-col>
-          <el-col :span="8" :md="8" :sm="12" :xs="24">
-            <el-form-item label="Номер справки регистрации">
-              <el-input placeholder="Номер справки регистрации" v-model="creditObject.socialPayments.registrationCertificateNumber"></el-input>
-            </el-form-item>
-          </el-col>
-          <el-col :span="8" :md="8" :sm="12" :xs="24">
-            <el-form-item label="Дата справки о регистрации">
-              <el-date-picker
-                v-model="creditObject.socialPayments.dateRegistrationCertificate"
-                type="date"
-                placeholder="Дата справки о регистрации">
-              </el-date-picker>
-            </el-form-item>
-          </el-col>
-          <el-col :span="8" :md="8" :sm="12" :xs="24">
-            <el-form-item label="Количество совместно проживающих членов семьи">
-              <el-input-number v-model="creditObject.socialPayments.numberCohabitingFamilyMembers" :min="0" controls-position="right"></el-input-number>
-            </el-form-item>
-          </el-col>
-          <el-col :span="8" :md="8" :sm="12" :xs="24">
-            <el-form-item label="Наименование справки о составе семьи">
-              <el-input placeholder="Наименование справки о составе семьи" v-model="creditObject.socialPayments.familyCertificateReference"></el-input>
-            </el-form-item>
-          </el-col>
-          <el-col :span="8" :md="8" :sm="12" :xs="24">
-            <el-form-item label="Номер справки о составе семьи">
-              <el-input placeholder="Номер справки о составе семьи" v-model="creditObject.socialPayments.familyCertificateNumber"></el-input>
-            </el-form-item>
-          </el-col>
-          <el-col :span="8" :md="8" :sm="12" :xs="24">
-            <el-form-item label="Дата справки о составе семьи">
-              <el-date-picker
-                v-model="creditObject.socialPayments.dateCertificateFamily"
-                type="date"
-                placeholder="Дата справки о составе семьи">
-              </el-date-picker>
-            </el-form-item>
-          </el-col>
-          <el-col :span="8" :md="8" :sm="12" :xs="24">
-            <el-form-item label="Совместно проживающие члены семьи (перечислить через ,)">
-              <el-input placeholder="Совместно проживающие члены семьи (перечислить через ,)" v-model="creditObject.socialPayments.cohabitingFamilyMembers"></el-input>
-            </el-form-item>
-          </el-col>
-          <el-col :span="8" :md="8" :sm="12" :xs="24">
-            <el-form-item label="Наименование справки из банка">
-              <el-input placeholder="Наименование справки из банка" v-model="creditObject.socialPayments.nameCertificateFromBank"></el-input>
-            </el-form-item>
-          </el-col>
-          <el-col :span="8" :md="8" :sm="12" :xs="24">
-            <el-form-item label="Номер справки из банка">
-              <el-input placeholder="Номер справки из банка" v-model="creditObject.socialPayments.numberCertificateFromBank"></el-input>
-            </el-form-item>
-          </el-col>
-          <el-col :span="8" :md="8" :sm="12" :xs="24">
-            <el-form-item label="Дата справки из банка">
-              <el-date-picker
-                v-model="creditObject.socialPayments.dateCertificateFromBank"
-                type="date"
-                placeholder="Дата справки из банка">
-              </el-date-picker>
-            </el-form-item>
-          </el-col>
-          <el-col :span="8" :md="8" :sm="12" :xs="24">
-            <el-form-item label="Наименование работодателя">
-              <el-input placeholder="Наименование работодателя" v-model="creditObject.socialPayments.nameEmployer"></el-input>
-            </el-form-item>
-          </el-col>
-          <el-col :span="8" :md="8" :sm="12" :xs="24">
-            <el-form-item label="Номер справки с места работы">
-              <el-input placeholder="Номер справки с места работы" v-model="creditObject.socialPayments.certificateNumberFromWork"></el-input>
-            </el-form-item>
-          </el-col>
-          <el-col :span="8" :md="8" :sm="12" :xs="24">
-            <el-form-item label="Дата справки с места работы">
-              <el-date-picker
-                v-model="creditObject.socialPayments.dateCertificateFromWork"
-                type="date"
-                placeholder="Дата справки с места работы">
-              </el-date-picker>
-            </el-form-item>
-          </el-col>
-          <el-col :span="8" :md="8" :sm="12" :xs="24">
-            <el-form-item label="Должность (в родительном падеже) с указанием работодателя">
-              <el-input placeholder="Должность (в родительном падеже) с указанием работодателя" v-model="creditObject.socialPayments.positionWithIndicationEmployer"></el-input>
-            </el-form-item>
-          </el-col>
-          <el-col :span="8" :md="8" :sm="12" :xs="24">
-            <el-form-item label="Наименование документа подтверждающего одобрение по кредиту">
-              <el-input placeholder="Наименование документа подтверждающего одобрение по кредиту" v-model="creditObject.socialPayments.nameDocumentConfirmingApprovalLoan"></el-input>
-            </el-form-item>
-          </el-col>
-          <el-col :span="8" :md="8" :sm="12" :xs="24">
-            <el-form-item label="Номер одобрения">
-              <el-input placeholder="Номер одобрения" v-model="creditObject.socialPayments.approvalNumber"></el-input>
-            </el-form-item>
-          </el-col>
-          <el-col :span="8" :md="8" :sm="12" :xs="24">
-            <el-form-item label="Дата одобрения">
-              <el-date-picker
-                v-model="creditObject.socialPayments.approvalDate"
-                type="date"
-                placeholder="Дата одобрения">
-              </el-date-picker>
-            </el-form-item>
-          </el-col>
-          <el-col :span="8" :md="8" :sm="12" :xs="24">
-            <el-form-item label="Категория получателя соц. выплаты">
-              <el-input placeholder="Категория получателя соц. выплаты" v-model="creditObject.socialPayments.categoryRecipientSocialBenefits"></el-input>
-            </el-form-item>
-          </el-col>
-          <el-col :span="8" :md="8" :sm="12" :xs="24">
-            <el-form-item label="Итоговая сумма социальной выплаты">
-              <el-input placeholder="Итоговая сумма социальной выплаты" v-model="creditObject.socialPayments.totalAmountSocialPayment"></el-input>
-            </el-form-item>
-          </el-col>
-        </el-row>
-      </el-card>
       <el-row :gutter="20">
         <el-col :span="24">
           <el-button type="success" @click="onCreateCredirObject">Добавить</el-button>
-          <el-button>Назад</el-button>
+          <el-button @click="onClickButtonBack">Назад</el-button>
         </el-col>
       </el-row>
     </el-form>
@@ -339,34 +179,7 @@ export default {
       numberDependents: null,
       ageOnMomentEndCredit: null,
       monthlyPayment: null,
-      dateLoanAgreement: null,
-      socialPayments: {
-        category: null,
-        numberCitizensRegister: null,
-        totalAreaPlaceRegistration: null,
-        numberRegisteredPersons: null,
-        provideCitizenArea: null,
-        nameRegistrationCertificate: null,
-        registrationCertificateNumber: null,
-        dateRegistrationCertificate: null,
-        numberCohabitingFamilyMembers: null,
-        familyCertificateReference: null,
-        familyCertificateNumber: null,
-        dateCertificateFamily: null,
-        cohabitingFamilyMembers: null,
-        nameCertificateFromBank: null,
-        numberCertificateFromBank: null,
-        dateCertificateFromBank: null,
-        nameEmployer: null,
-        certificateNumberFromWork: null,
-        dateCertificateFromWork: null,
-        positionWithIndicationEmployer: null,
-        nameDocumentConfirmingApprovalLoan: null,
-        approvalNumber: null,
-        approvalDate: null,
-        categoryRecipientSocialBenefits: null,
-        totalAmountSocialPayment: null
-      }
+      dateLoanAgreement: null
     },
     optionsPercentRate: [{
       value: '13',
@@ -381,44 +194,6 @@ export default {
     optionsBorrower: [],
     optionsProvider: [],
     optionsEvaluator: [],
-    optionsSocialPayments: [
-      {
-        value: 'Граждане, состоящие на учете в качестве нуждающихся в жилых помещениях, предоставляемых по договорам социального найма',
-        label: 'Граждане, состоящие на учете в качестве нуждающихся в жилых помещениях, предоставляемых по договорам социального найма'
-      },
-      {
-        value: 'Граждане, для которых работа в государственных и муниципальных учреждениях, являющихся научными организациями или организациями научного обслуживания, в государственных и муниципальных образовательных учреждениях, государственных и муниципальных учреждениях здравоохранения, культуры, социальной защиты, занятости населения, физической культуры и спорта является основным местом работы',
-        label: 'Граждане, для которых работа в государственных и муниципальных учреждениях, являющихся научными организациями или организациями научного обслуживания, в государственных и муниципальных образовательных учреждениях, государственных и муниципальных учреждениях здравоохранения, культуры, социальной защиты, занятости населения, физической культуры и спорта является основным местом работы'
-      },
-      {
-        value: 'Молодая семья',
-        label: 'Молодая семья'
-      },
-      {
-        value: 'Граждане, для которых работа в федеральных органах государственной власти, органах государственной власти Республики Крым, органах местного самоуправления является основным местом работы',
-        label: 'Граждане, для которых работа в федеральных органах государственной власти, органах государственной власти Республики Крым, органах местного самоуправления является основным местом работы'
-      },
-      {
-        value: 'Граждане, имеющие двух и более несовершеннолетних детей и являющиеся получателями материнского (семейного) капитала',
-        label: 'Граждане, имеющие двух и более несовершеннолетних детей и являющиеся получателями материнского (семейного) капитала'
-      },
-      {
-        value: 'Работники предприятий, учреждений, организаций, учредителями которых являются исполнительные органы государственной власти Республики Крым',
-        label: 'Работники предприятий, учреждений, организаций, учредителями которых являются исполнительные органы государственной власти Республики Крым'
-      },
-      {
-        value: 'Граждане, имеющие обеспеченность общей площадью жилых помещений не более 18 квадратных метров в расчете на гражданина и каждого совместно проживающего с гражданином члена его семьи',
-        label: 'Граждане, имеющие обеспеченность общей площадью жилых помещений не более 18 квадратных метров в расчете на гражданина и каждого совместно проживающего с гражданином члена его семьи'
-      },
-      {
-        value: 'Инвалиды',
-        label: 'Инвалиды'
-      },
-      {
-        value: 'Многодетная семья',
-        label: 'Многодетная семья'
-      }
-    ],
     rules: {
       id: {
         required: true,
@@ -629,6 +404,9 @@ export default {
           return false
         }
       })
+    },
+    onClickButtonBack () {
+      this.$router.push('/credit-object')
     }
   },
   computed: {
