@@ -19,7 +19,7 @@
       <el-row :gutter='20'>
         <el-col :span='24'>
           <el-button type='success'>Добавить</el-button>
-          <el-button>Назад</el-button>
+          <el-button @click="onClickButtonBack">Назад</el-button>
         </el-col>
       </el-row>
     </el-form>
@@ -37,6 +37,11 @@ export default {
       text: null
     }
   }),
+  methods: {
+    onClickButtonBack () {
+      this.$router.push('/document')
+    }
+  },
   components: {
     LayoutsDefault,
     Editor

@@ -71,7 +71,7 @@
       <el-row :gutter="12">
         <el-col :span="24">
           <el-button type="success" @click="onCreateUser">Добавить</el-button>
-          <el-button>Назад</el-button>
+          <el-button @click="onClickButtonBack">Назад</el-button>
         </el-col>
       </el-row>
     </el-form>
@@ -172,6 +172,9 @@ export default {
           return false
         }
       })
+    },
+    onClickButtonBack () {
+      this.$router.push('/user')
     }
   },
   components: {

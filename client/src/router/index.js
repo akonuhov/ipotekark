@@ -8,6 +8,9 @@ import PageCreditObjectUpdate from '@/pages/credit-object/update'
 import PageBorrowerList from '@/pages/borrower/list'
 import PageBorrowerCreate from '@/pages/borrower/create'
 import PageBorrowerUpdate from '@/pages/borrower/update'
+import PageSocialPaymentsList from '@/pages/social-payments/list'
+import PageSocialPaymentsCreate from '@/pages/social-payments/create'
+import PageSocialPaymentsUpdate from '@/pages/social-payments/update'
 import PageDocumentList from '@/pages/document/list'
 import PageDocumentCreate from '@/pages/document/create'
 import PageProviderList from '@/pages/provider/list'
@@ -79,6 +82,30 @@ export default new Router({
       path: '/borrower/:id',
       name: 'PageBorrowerUpdate',
       component: PageBorrowerUpdate,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/social-payment',
+      name: 'PageSocialPaymentsList',
+      component: PageSocialPaymentsList,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/social-payment/create',
+      name: 'PageSocialPaymentsCreate',
+      component: PageSocialPaymentsCreate,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/social-payment/:id',
+      name: 'PageSocialPaymentsUpdate',
+      component: PageSocialPaymentsUpdate,
       meta: {
         requiresAuth: true
       }
