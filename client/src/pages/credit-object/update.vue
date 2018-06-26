@@ -381,9 +381,9 @@ export default {
       .catch(error => {
         console.log(error)
       })
-    this.$http.get(this.$config.config.apiUrl.creditObject.putId + this.$route.params.id)
+    this.$http.get('/api/credit-object/' + this.$route.params.id)
       .then(res => {
-        this.borrowerObject = Object.assign(this.creditObject, res.data)
+        this.creditObject = Object.assign(this.creditObject, res.data)
       })
       .catch(error => {
         console.log(error)

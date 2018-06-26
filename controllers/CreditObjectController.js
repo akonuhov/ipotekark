@@ -47,6 +47,7 @@ module.exports = {
      * CreditObjectController.create()
      */
     create: function (req, res) {
+        console.log(req);
         var CreditObject = new CreditObjectModel({
             id: req.body.id,
             status: req.body.id,

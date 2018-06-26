@@ -47,7 +47,7 @@ export default new Router({
       }
     },
     {
-      path: '/credit-object/:id',
+      path: '/credit-object/update/:id',
       name: 'PageCreditObjectUpdate',
       component: PageCreditObjectUpdate,
       meta: {
@@ -79,7 +79,7 @@ export default new Router({
       }
     },
     {
-      path: '/borrower/:id',
+      path: '/borrower/update/:id',
       name: 'PageBorrowerUpdate',
       component: PageBorrowerUpdate,
       meta: {
@@ -103,7 +103,7 @@ export default new Router({
       }
     },
     {
-      path: '/social-payment/:id',
+      path: '/social-payment/update/:id',
       name: 'PageSocialPaymentsUpdate',
       component: PageSocialPaymentsUpdate,
       meta: {

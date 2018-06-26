@@ -77,7 +77,7 @@ export default {
       return row.address
     },
     onRowClick (row, event, column) {
-      this.$router.push('/credit-object/' + row._id)
+      this.$router.push('/credit-object/update/' + row._id)
     }
   },
   computed: {

@@ -34,7 +34,7 @@ export default {
     borrowersObject: []
   }),
   created () {
-    this.$http.get(this.$config.config.apiUrl.borrowers.getAll)
+    this.$http.get('/api/borrowers')
       .then(res => {
         this.borrowersObject = res.data
       })
@@ -44,7 +44,7 @@ export default {
   },
   methods: {
     onRowClick (row, event, column) {
-      this.$router.push('/borrower/' + row._id)
+      this.$router.push('/borrower/update/' + row._id)
     }
   },
   computed: {

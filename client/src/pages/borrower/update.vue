@@ -514,7 +514,7 @@ export default {
     }
   }),
   created () {
-    this.$http.get(this.$config.config.apiUrl.borrowers.getId + this.$route.params.id)
+    this.$http.get('/api/borrowers/' + this.$route.params.id)
       .then(res => {
         this.borrowerObject = Object.assign(this.borrowerObject, res.data)
       })
