@@ -65,34 +65,7 @@ module.exports = {
       			numberDependents : req.body.numberDependents,
       			ageOnMomentEndCredit : req.body.ageOnMomentEndCredit,
       			monthlyPayment : req.body.monthlyPayment,
-      			dateLoanAgreement : req.body.dateLoanAgreement,
-            socialPayments: {
-              category: req.body.socialPayments.category,
-            	numberCitizensRegister: req.body.socialPayments.numberCitizensRegister,
-            	totalAreaPlaceRegistration: req.body.socialPayments.totalAreaPlaceRegistration,
-            	numberRegisteredPersons: req.body.socialPayments.numberRegisteredPersons,
-            	provideCitizenArea: req.body.socialPayments.provideCitizenArea,
-            	nameRegistrationCertificate: req.body.socialPayments.nameRegistrationCertificate,
-            	registrationCertificateNumber: req.body.socialPayments.registrationCertificateNumber,
-            	dateRegistrationCertificate: req.body.socialPayments.dateRegistrationCertificate,
-            	numberCohabitingFamilyMembers: req.body.socialPayments.numberCohabitingFamilyMembers,
-            	familyCertificateReference: req.body.socialPayments.familyCertificateReference,
-            	familyCertificateNumber: req.body.socialPayments.familyCertificateNumber,
-            	dateCertificateFamily: req.body.socialPayments.dateCertificateFamily,
-            	cohabitingFamilyMembers: req.body.socialPayments.cohabitingFamilyMembers,
-            	nameCertificateFromBank: req.body.socialPayments.nameCertificateFromBank,
-            	numberCertificateFromBank: req.body.socialPayments.numberCertificateFromBank,
-            	dateCertificateFromBank: req.body.socialPayments.dateCertificateFromBank,
-            	nameEmployer: req.body.socialPayments.nameEmployer,
-            	certificateNumberFromWork: req.body.socialPayments.certificateNumberFromWork,
-            	dateCertificateFromWork: req.body.socialPayments.dateCertificateFromWork,
-            	positionWithIndicationEmployer: req.body.socialPayments.positionWithIndicationEmployer,
-            	nameDocumentConfirmingApprovalLoan: req.body.socialPayments.nameDocumentConfirmingApprovalLoan,
-            	approvalNumber: req.body.socialPayments.approvalNumber,
-            	approvalDate: req.body.socialPayments.approvalDate,
-            	categoryRecipientSocialBenefits: req.body.socialPayments.categoryRecipientSocialBenefits,
-            	totalAmountSocialPayment: req.body.socialPayments.totalAmountSocialPayment
-            }
+      			dateLoanAgreement : req.body.dateLoanAgreement
         });
 
         CreditObject.save(function (err, CreditObject) {
@@ -142,32 +115,6 @@ module.exports = {
       			CreditObject.ageOnMomentEndCredit = req.body.ageOnMomentEndCredit ? req.body.ageOnMomentEndCredit : CreditObject.ageOnMomentEndCredit;
       			CreditObject.monthlyPayment = req.body.monthlyPayment ? req.body.monthlyPayment : CreditObject.monthlyPayment;
       			CreditObject.dateLoanAgreement = req.body.dateLoanAgreement ? req.body.dateLoanAgreement : CreditObject.dateLoanAgreement;
-            // socialPaymentsDate
-            CreditObject.socialPayments.category = req.body.socialPayments.category ? req.body.socialPayments.category : CreditObject.socialPayments.category;
-          	CreditObject.socialPayments.numberCitizensRegister = req.body.socialPayments.numberCitizensRegister ? req.body.socialPayments.numberCitizensRegister : CreditObject.socialPayments.numberCitizensRegister;
-          	CreditObject.socialPayments.totalAreaPlaceRegistration = req.body.socialPayments.totalAreaPlaceRegistration ? req.body.socialPayments.totalAreaPlaceRegistration : CreditObject.socialPayments.totalAreaPlaceRegistration;
-          	CreditObject.socialPayments.numberRegisteredPersons = req.body.socialPayments.numberRegisteredPersons ? req.body.socialPayments.numberRegisteredPersons : CreditObject.socialPayments.numberRegisteredPersons;
-          	CreditObject.socialPayments.provideCitizenArea = req.body.socialPayments.provideCitizenArea ? req.body.socialPayments.provideCitizenArea : CreditObject.socialPayments.provideCitizenArea;
-          	CreditObject.socialPayments.nameRegistrationCertificate = req.body.socialPayments.nameRegistrationCertificate ? req.body.socialPayments.nameRegistrationCertificate : CreditObject.socialPayments.nameRegistrationCertificate;
-          	CreditObject.socialPayments.registrationCertificateNumber = req.body.socialPayments.registrationCertificateNumber ? req.body.socialPayments.registrationCertificateNumber : CreditObject.socialPayments.registrationCertificateNumber;
-          	CreditObject.socialPayments.dateRegistrationCertificate = req.body.socialPayments.dateRegistrationCertificate ? req.body.socialPayments.dateRegistrationCertificate : CreditObject.socialPayments.dateRegistrationCertificate;
-          	CreditObject.socialPayments.numberCohabitingFamilyMembers = req.body.socialPayments.numberCohabitingFamilyMembers ? req.body.socialPayments.numberCohabitingFamilyMembers : CreditObject.socialPayments.numberCohabitingFamilyMembers;
-          	CreditObject.socialPayments.familyCertificateReference = req.body.socialPayments.familyCertificateReference ? req.body.socialPayments.familyCertificateReference : CreditObject.socialPayments.familyCertificateReference;
-          	CreditObject.socialPayments.familyCertificateNumber = req.body.socialPayments.familyCertificateNumber ? req.body.socialPayments.familyCertificateNumber : CreditObject.socialPayments.familyCertificateNumber;
-          	CreditObject.socialPayments.dateCertificateFamily = req.body.socialPayments.dateCertificateFamily ? req.body.socialPayments.dateCertificateFamily : CreditObject.socialPayments.dateCertificateFamily;
-          	CreditObject.socialPayments.cohabitingFamilyMembers = req.body.socialPayments.cohabitingFamilyMembers ? req.body.socialPayments.cohabitingFamilyMembers : CreditObject.socialPayments.cohabitingFamilyMembers;
-          	CreditObject.socialPayments.nameCertificateFromBank = req.body.socialPayments.nameCertificateFromBank ? req.body.socialPayments.nameCertificateFromBank : CreditObject.socialPayments.nameCertificateFromBank;
-          	CreditObject.socialPayments.numberCertificateFromBank = req.body.socialPayments.numberCertificateFromBank ? req.body.socialPayments.numberCertificateFromBank : CreditObject.socialPayments.numberCertificateFromBank;
-          	CreditObject.socialPayments.dateCertificateFromBank = req.body.socialPayments.dateCertificateFromBank ? req.body.socialPayments.dateCertificateFromBank : CreditObject.socialPayments.dateCertificateFromBank;
-          	CreditObject.socialPayments.nameEmployer = req.body.socialPayments.nameEmployer ? req.body.socialPayments.nameEmployer : CreditObject.socialPayments.nameEmployer;
-          	CreditObject.socialPayments.certificateNumberFromWork = req.body.socialPayments.certificateNumberFromWork ? req.body.socialPayments.certificateNumberFromWork : CreditObject.socialPayments.certificateNumberFromWork;
-          	CreditObject.socialPayments.dateCertificateFromWork = req.body.socialPayments.dateCertificateFromWork ? req.body.socialPayments.dateCertificateFromWork : CreditObject.socialPayments.dateCertificateFromWork;
-          	CreditObject.socialPayments.positionWithIndicationEmployer = req.body.socialPayments.positionWithIndicationEmployer ? req.body.socialPayments.positionWithIndicationEmployer : CreditObject.socialPayments.positionWithIndicationEmployer;
-          	CreditObject.socialPayments.nameDocumentConfirmingApprovalLoan = req.body.socialPayments.nameDocumentConfirmingApprovalLoan ? req.body.socialPayments.nameDocumentConfirmingApprovalLoan : CreditObject.socialPayments.nameDocumentConfirmingApprovalLoan;
-          	CreditObject.socialPayments.approvalNumber = req.body.socialPayments.approvalNumber ? req.body.socialPayments.approvalNumber : CreditObject.socialPayments.approvalNumber;
-          	CreditObject.socialPayments.approvalDate = req.body.socialPayments.approvalDate ? req.body.socialPayments.approvalDate : CreditObject.socialPayments.approvalDate;
-          	CreditObject.socialPayments.categoryRecipientSocialBenefits = req.body.socialPayments.categoryRecipientSocialBenefits ? req.body.socialPayments.categoryRecipientSocialBenefits : CreditObject.socialPayments.categoryRecipientSocialBenefits;
-          	CreditObject.socialPayments.totalAmountSocialPayment = req.body.socialPayments.totalAmountSocialPayment ? req.body.socialPayments.totalAmountSocialPayment : CreditObject.socialPayments.totalAmountSocialPayment;
 
             CreditObject.save(function (err, CreditObject) {
                 if (err) {
