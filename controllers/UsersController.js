@@ -111,10 +111,7 @@ module.exports = {
                     throw error;
                 }
                 var Users = new UsersModel({
-              			id : req.body.id,
-              			firstName : req.body.firstName,
-              			lastName : req.body.lastName,
-              			middleName : req.body.middleName,
+              			fio : req.body.firstName,
               			password : req.body.password,
               			dataBirth : req.body.dataBirth,
               			email : req.body.email,
@@ -156,10 +153,7 @@ module.exports = {
                 });
             }
 
-            Users.id = req.body.id ? req.body.id : Users.id;
-      			Users.firstName = req.body.firstName ? req.body.firstName : Users.firstName;
-      			Users.lastName = req.body.lastName ? req.body.lastName : Users.lastName;
-      			Users.middleName = req.body.middleName ? req.body.middleName : Users.middleName;
+      			Users.fio = req.body.fio ? req.body.fio : Users.fio;
       			Users.password = req.body.password ? req.body.password : Users.password;
       			Users.dataBirth = req.body.dataBirth ? req.body.dataBirth : Users.dataBirth;
       			Users.email = req.body.email ? req.body.email : Users.email;

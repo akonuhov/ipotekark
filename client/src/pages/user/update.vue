@@ -4,33 +4,9 @@
     <el-form :model="userObject" :rules="rules" ref="userObjectForm" label-position="top" class="el-form--user">
       <el-card shadow="hover">
         <el-row :gutter="20">
-          <el-col :span="6">
-            <el-form-item label="Фамилия" prop="firstName">
-              <el-input v-model="userObject.firstName" placeholder="Фамилия"></el-input>
-            </el-form-item>
-          </el-col>
-          <el-col :span="6">
-            <el-form-item label="Имя" prop="lastName">
-              <el-input v-model="userObject.lastName" placeholder="Имя"></el-input>
-            </el-form-item>
-          </el-col>
-          <el-col :span="6">
-            <el-form-item label="Отчество" prop="middleName">
-              <el-input v-model="userObject.middleName" placeholder="Отчество"></el-input>
-            </el-form-item>
-          </el-col>
-          <el-col :span="6">
-            <el-form-item label="Должность" prop="position">
-              <el-input v-model="userObject.position" placeholder="Должность"></el-input>
-            </el-form-item>
-          </el-col>
-          <el-col :span="6">
-            <el-form-item label="Дата рождения" prop="dataBirth">
-              <el-date-picker
-                v-model="userObject.dataBirth"
-                type="date"
-                placeholder="Дата рождения">
-              </el-date-picker>
+          <el-col :span="18">
+            <el-form-item label="ФИО" prop="firstName">
+              <el-input v-model="userObject.fio" placeholder="ФИО"></el-input>
             </el-form-item>
           </el-col>
           <el-col :span="6">

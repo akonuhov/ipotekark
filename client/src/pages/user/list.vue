@@ -7,18 +7,8 @@
       @row-click="onRowClick"
       empty-text="Список сотрудников пуст">
       <el-table-column
-        prop="firstName"
-        label="Фамилия"
-        sortable>
-      </el-table-column>
-      <el-table-column
-        prop="lastName"
-        label="Имя"
-        sortable>
-      </el-table-column>
-      <el-table-column
-        prop="middleName"
-        label="Отчество"
+        prop="fio"
+        label="ФИО"
         sortable>
       </el-table-column>
       <el-table-column
