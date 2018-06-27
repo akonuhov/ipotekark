@@ -9,7 +9,7 @@ var UsersSchema = new Schema({
 	'dataBirth' : Date,
 	'email' : String,
 	'position' : String,
-	'phone' : Number,
+	'phone' : String,
 	'employmentDate' : Date,
 	'role' : String,
 	'createdAt' : Date,

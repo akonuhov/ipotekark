@@ -190,6 +190,7 @@ export default {
   name: 'PageSocialPaymentsObjectCreate',
   data: () => ({
     socialPaymentsObject: {
+      borrowerId: null,
       category: null,
       numberCitizensRegister: null,
       totalAreaPlaceRegistration: null,
