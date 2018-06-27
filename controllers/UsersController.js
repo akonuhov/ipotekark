@@ -74,7 +74,7 @@ module.exports = {
      */
     show: function (req, res) {
         var id = req.params.id;
-        UsersModel.findOne({id: id}, function (err, Users) {
+        UsersModel.findOne({_id: id}, function (err, Users) {
             if (err) {
                 return res.status(500).json({
                     message: 'Внутренняя ошибка сервера',
