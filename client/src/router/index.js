@@ -20,6 +20,7 @@ import PageEvaluatorCreate from '@/pages/evaluator/create'
 import PageHistoryOperationList from '@/pages/history-operation/list'
 import PageUserList from '@/pages/user/list'
 import PageUserCreate from '@/pages/user/create'
+import PageUserUpdate from '@/pages/user/update'
 
 Vue.use(Router)
 
@@ -178,6 +179,14 @@ export default new Router({
       path: '/user/create',
       name: 'PageUserCreate',
       component: PageUserCreate,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/user/update/:id',
+      name: 'PageUserUpdate',
+      component: PageUserUpdate,
       meta: {
         requiresAuth: true
       }

@@ -73,7 +73,7 @@ export default {
       return this.moment(row.dataBirth).format('DD MMMM YYYY')
     },
     onRowClick (row, event, column) {
-      // this.$router.push('/')
+      this.$router.push('/user/update/' + row._id)
     }
   },
   computed: {
