@@ -13,6 +13,7 @@ import PageSocialPaymentsCreate from '@/pages/social-payments/create'
 import PageSocialPaymentsUpdate from '@/pages/social-payments/update'
 import PageDocumentList from '@/pages/document/list'
 import PageDocumentCreate from '@/pages/document/create'
+import PageDocumentUpdate from '@/pages/document/update'
 import PageProviderList from '@/pages/provider/list'
 import PageProviderCreate from '@/pages/provider/create'
 import PageEvaluatorList from '@/pages/evaluator/list'
@@ -123,6 +124,14 @@ export default new Router({
       path: '/document/create',
       name: 'PageDocumentCreate',
       component: PageDocumentCreate,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/document/update/:id',
+      name: 'PageDocumentUpdate',
+      component: PageDocumentUpdate,
       meta: {
         requiresAuth: true
       }

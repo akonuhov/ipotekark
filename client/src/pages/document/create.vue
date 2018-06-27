@@ -18,7 +18,7 @@
       </el-card>
       <el-row :gutter='20'>
         <el-col :span='24'>
-          <el-button type='success'>Добавить</el-button>
+          <el-button type='success' @click="onCreateDocument">Добавить</el-button>
           <el-button @click="onClickButtonBack">Назад</el-button>
         </el-col>
       </el-row>
@@ -38,6 +38,22 @@ export default {
     }
   }),
   methods: {
+    onCreateDocument () {
+      this.$http.post('/api/documents', this.documentObject)
+        .then(res => {
+          this.$router.push('/document')
+          this.$message({
+            message: 'Шаблон документа добавлено',
+            type: 'success'
+          })
+        })
+        .catch(error => {
+          this.$message({
+            message: error.response.data.error.message,
+            type: 'error'
+          })
+        })
+    },
     onClickButtonBack () {
       this.$router.push('/document')
     }

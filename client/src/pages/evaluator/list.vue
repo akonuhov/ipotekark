@@ -9,6 +9,14 @@
         label="Наименование с указанием ОГРН и местонахождения"
         sortable>
       </el-table-column>
+      <el-table-column
+        label="Операции"
+        align="center"
+        width="100">
+        <template slot-scope="scope">
+          <i class="fas fa-trash"></i>
+        </template>
+      </el-table-column>
     </el-table>
   </layouts-default>
 </template>

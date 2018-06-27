@@ -10,6 +10,14 @@
         label="Наименование документа"
         sortable>
       </el-table-column>
+      <el-table-column
+        label="Операции"
+        align="center"
+        width="100">
+        <template slot-scope="scope">
+          <i class="fas fa-trash"></i>
+        </template>
+      </el-table-column>
     </el-table>
   </layouts-default>
 </template>
@@ -19,12 +27,12 @@ import LayoutsDefault from '@/layouts/default'
 export default {
   name: 'PageDocumentList',
   data: () => ({
-    DocumentsObject: []
+    documentsObject: []
   }),
   created () {
     this.$http.get('/api/documents')
       .then(res => {
-        this.socialPaymentObject = res.data
+        this.documentsObject = res.data
       })
       .catch(error => {
         console.log(error)
@@ -32,12 +40,12 @@ export default {
   },
   computed: {
     getAllDocumentsObject () {
-      return this.DocumentsObject
+      return this.documentsObject
     }
   },
   methods: {
     onRowClick (row, event, column) {
-      this.$router.push('/documents/update/' + row._id)
+      this.$router.push('/document/update/' + row._id)
     }
   },
   components: {
