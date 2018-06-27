@@ -66,7 +66,7 @@
           </el-col>
           <el-col :span="8" :md="8" :sm="12" :xs="24">
             <el-form-item label="Общая площадь квартиры">
-              <el-input-number v-model="creditObject.totaAareAapartment" :min="0" controls-position="right"></el-input-number>
+              <el-input-number v-model="creditObject.totalAreaAapartment" :min="0" controls-position="right"></el-input-number>
             </el-form-item>
           </el-col>
           <el-col :span="8" :md="8" :sm="12" :xs="24">
@@ -170,7 +170,7 @@ export default {
       amountCredit: null,
       timeCredit: null,
       costSquareMeter: null,
-      totaAareAapartment: null,
+      totalAreaAapartment: null,
       costApartment: null,
       initialFee: null,
       percentRate: null,

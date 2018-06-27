@@ -10,7 +10,7 @@ var CreditObjectSchema = new Schema({
 	'amountCredit': Number,
 	'timeCredit': Number,
 	'costSquareMeter': Number,
-	'totaAareAapartment': Number,
+	'totalAreaAapartment': Number,
 	'costApartment': Number,
 	'initialFee': Number,
 	'percentRate': Number,
@@ -19,7 +19,10 @@ var CreditObjectSchema = new Schema({
 	'numberDependents': Number,
 	'ageOnMomentEndCredit': Number,
 	'monthlyPayment': Number,
-	'dateLoanAgreement': Date
+	'dateLoanAgreement': Date,
+	'purchaseAgreementNumber': String,
+	'numberEvaluationReport': String,
+	'dateEvaluationReport': Date
 });
 
 module.exports = mongoose.model('CreditObject', CreditObjectSchema);
