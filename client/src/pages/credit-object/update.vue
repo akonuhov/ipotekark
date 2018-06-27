@@ -13,10 +13,10 @@
             <el-form-item label="Заемщик" prop="borrowerId">
               <el-select v-model="creditObject.borrowerId" placeholder="Заемщик">
                 <el-option
-                  v-for="item in getAllBorrowerObject"
-                  :key="item._id"
+                  v-for="(item, index) in getAllBorrowerObject"
+                  :key="index"
                   :label="item.passportData.fioImenitelny"
-                  :value="item._id">
+                  :value="item.passportData.fioImenitelny">
                 </el-option>
               </el-select>
             </el-form-item>
@@ -25,10 +25,10 @@
             <el-form-item label="Продавцы/Застройщики">
               <el-select v-model="creditObject.providerId" placeholder="Продавцы/Застройщики">
                 <el-option
-                  v-for="item in getAllProviderObject"
-                  :key="item._id"
+                  v-for="(item, index) in getAllProviderObject"
+                  :key="index"
                   :label="item.name"
-                  :value="item._id">
+                  :value="item.name">
                 </el-option>
               </el-select>
             </el-form-item>
@@ -37,10 +37,10 @@
             <el-form-item label="Оценщики">
               <el-select v-model="creditObject.evaluatorId" placeholder="Оценщики">
                 <el-option
-                  v-for="item in getAllEvaluatorObject"
-                  :key="item._id"
+                  v-for="(item, index) in getAllEvaluatorObject"
+                  :key="index"
                   :label="item.name"
-                  :value="item._id">
+                  :value="item.name">
                 </el-option>
               </el-select>
             </el-form-item>

@@ -10,6 +10,14 @@
         prop="id"
         label="Номер кредитного дела">
       </el-table-column>
+      <el-table-column
+        prop="borrowerId"
+        label="Заемщик">
+      </el-table-column>
+      <el-table-column
+        prop="providerId"
+        label="Продавцы/Застройщики">
+      </el-table-column>
     </el-table>
   </layouts-default>
 </template>

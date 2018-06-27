@@ -11,8 +11,8 @@
         sortable>
       </el-table-column>
       <el-table-column
-        prop="numberCitizensRegister"
-        label="Номер в реестре граждан"
+        prop="borrowerId"
+        label="Заемщик"
         sortable>
       </el-table-column>
     </el-table>

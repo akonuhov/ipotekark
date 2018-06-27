@@ -14,7 +14,7 @@
                   v-for="(item, index) in getAllBorrowerObject"
                   :key="index"
                   :label="item.passportData.fioImenitelny"
-                  :value="item._id">
+                  :value="item.passportData.fioImenitelny">
                 </el-option>
               </el-select>
             </el-form-item>

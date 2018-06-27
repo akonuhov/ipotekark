@@ -14,7 +14,7 @@
                   v-for="(item, index) in getAllBorrowerObject"
                   :key="index"
                   :label="item.passportData.fioImenitelny"
-                  :value="item._id">
+                  :value="item.passportData.fioImenitelny">
                 </el-option>
               </el-select>
             </el-form-item>
@@ -23,8 +23,8 @@
             <el-form-item label="Категория соц. выплаты">
               <el-select v-model="socialPaymentsObject.category" placeholder="Категория соц. выплаты">
                 <el-option
-                  v-for="item in optionsSocialPayments"
-                  :key="item.value"
+                  v-for="(item, index) in optionsSocialPayments"
+                  :key="index"
                   :label="item.label"
                   :value="item.value"
                   :title="item.label">
