@@ -6,12 +6,13 @@
       empty-text="Список заемщиков пуст"
       @row-click="onRowClick">
       <el-table-column
-        prop="_id"
-        label="ID">
+        prop="passportData.fioImenitelny"
+        label="ФИО"
+        sortable>
       </el-table-column>
       <el-table-column
-        prop="passportData.fioImenitelny"
-        label="Фамилия"
+        prop="passportData.placeBirth"
+        label="Место рождения"
         sortable>
       </el-table-column>
       <el-table-column
