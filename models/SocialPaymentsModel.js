@@ -2,6 +2,7 @@ var mongoose = require('mongoose');
 var Schema   = mongoose.Schema;
 
 var SocialPaymentsSchema = new Schema({
+	'borrowerId': String,
 	'category' : String,
 	'numberCitizensRegister' : String,
 	'totalAreaPlaceRegistration' : Number,

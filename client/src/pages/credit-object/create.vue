@@ -13,8 +13,8 @@
             <el-form-item label="Заемщик" prop="borrowerId">
               <el-select v-model="creditObject.borrowerId" placeholder="Заемщик">
                 <el-option
-                  v-for="item in getAllBorrowerObject"
-                  :key="item._id"
+                  v-for="(item, index) in getAllBorrowerObject"
+                  :key="index"
                   :label="item.passportData.fioImenitelny"
                   :value="item._id">
                 </el-option>

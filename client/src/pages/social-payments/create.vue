@@ -1,11 +1,23 @@
 <template lang="html">
   <layouts-default>
-    <h1>Введите данные о кредитном деле</h1>
+    <h1>Введите данные о социальной выплате</h1>
     <el-form :model="socialPaymentsObject" ref="socialPaymentsObjectForm" label-position="top" class="el-form--credit-object">
       <el-card shadow="hover">
         <el-row :gutter="20">
           <el-col :span="24">
             <h3>Социальные выплаты</h3>
+          </el-col>
+          <el-col :span="8" :md="8" :sm="12" :xs="24">
+            <el-form-item label="Заемщик">
+              <el-select v-model="socialPaymentsObject.borrowerId" placeholder="Заемщик">
+                <el-option
+                  v-for="(item, index) in getAllBorrowerObject"
+                  :key="index"
+                  :label="item.passportData.fioImenitelny"
+                  :value="item._id">
+                </el-option>
+              </el-select>
+            </el-form-item>
           </el-col>
           <el-col :span="8" :md="8" :sm="12" :xs="24">
             <el-form-item label="Категория соц. выплаты">
@@ -204,6 +216,7 @@ export default {
       categoryRecipientSocialBenefits: null,
       totalAmountSocialPayment: null
     },
+    optionsBorrower: [],
     optionsSocialPayments: [
       {
         value: 'Медицинские работники',
@@ -251,6 +264,20 @@ export default {
       }
     ]
   }),
+  created () {
+    this.$http.get('/api/borrowers')
+      .then(res => {
+        this.optionsBorrower = res.data
+      })
+      .catch(error => {
+        console.log(error)
+      })
+  },
+  computed: {
+    getAllBorrowerObject () {
+      return this.optionsBorrower
+    }
+  },
   methods: {
     onCreateCredirObject () {
       this.$http.post('/api/social-payments', this.socialPaymentsObject)

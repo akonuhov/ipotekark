@@ -48,6 +48,7 @@ module.exports = {
      */
     create: function (req, res) {
         var SocialPayments = new SocialPaymentsModel({
+            borrowerId : req.body.borrowerId,
       			category : req.body.category,
       			numberCitizensRegister : req.body.numberCitizensRegister,
       			totalAreaPlaceRegistration : req.body.totalAreaPlaceRegistration,
@@ -104,6 +105,7 @@ module.exports = {
                 });
             }
 
+            SocialPayments.borrowerId = req.body.borrowerId ? req.body.borrowerId : SocialPayments.borrowerId;
             SocialPayments.category = req.body.category ? req.body.category : SocialPayments.category;
       			SocialPayments.numberCitizensRegister = req.body.numberCitizensRegister ? req.body.numberCitizensRegister : SocialPayments.numberCitizensRegister;
       			SocialPayments.totalAreaPlaceRegistration = req.body.totalAreaPlaceRegistration ? req.body.totalAreaPlaceRegistration : SocialPayments.totalAreaPlaceRegistration;
