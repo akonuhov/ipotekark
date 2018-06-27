@@ -3,7 +3,7 @@ var Schema   = mongoose.Schema;
 
 var SocialPaymentsSchema = new Schema({
 	'category' : String,
-	'numberCitizensRegister' : Number,
+	'numberCitizensRegister' : String,
 	'totalAreaPlaceRegistration' : Number,
 	'numberRegisteredPersons' : Number,
 	'provideCitizenArea' : Number,

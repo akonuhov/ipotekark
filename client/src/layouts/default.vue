@@ -38,7 +38,7 @@
         </el-submenu>
         <el-submenu index="3">
           <template slot="title">
-            <i class="fas fa-file-alt"></i>
+            <i class="fas fa-hand-holding-usd"></i>
             <span slot="title">Социальные выплаты</span>
           </template>
           <el-menu-item index="3-1" route="/social-payment">

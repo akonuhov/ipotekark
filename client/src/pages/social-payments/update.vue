@@ -1,7 +1,7 @@
 <template lang="html">
   <layouts-default>
     <h1>Введите данные о кредитном деле</h1>
-    <el-form :model="socialPaymentsObject" :rules="rules" ref="socialPaymentsObjectForm" label-position="top" class="el-form--credit-object">
+    <el-form :model="socialPaymentsObject" ref="socialPaymentsObjectForm" label-position="top" class="el-form--credit-object">
       <el-card shadow="hover">
         <el-row :gutter="20">
           <el-col :span="24">
@@ -164,7 +164,7 @@
       </el-card>
       <el-row :gutter="20">
         <el-col :span="24">
-          <el-button type="success" @click="onCreateCredirObject">Добавить</el-button>
+          <el-button type="success" @click="onUpdateCredirObject">Обновить</el-button>
           <el-button @click="onClickButtonBack">Назад</el-button>
         </el-col>
       </el-row>
@@ -243,13 +243,22 @@ export default {
       }
     ]
   }),
+  created () {
+    this.$http.get('/api/social-payments/' + this.$route.params.id)
+      .then(res => {
+        this.socialPaymentsObject = Object.assign(this.socialPaymentsObject, res.data)
+      })
+      .catch(error => {
+        console.log(error)
+      })
+  },
   methods: {
-    onCreateCredirObject () {
-      this.$http.post('/api/social-payments', this.socialPaymentsObject)
+    onUpdateCredirObject () {
+      this.$http.put('/api/social-payments/' + this.$route.params.id, this.socialPaymentsObject)
         .then(res => {
-          this.$router.push('/credit-object')
+          this.$router.push('/social-payment')
           this.$message({
-            message: 'Социальная выплата добавлена',
+            message: 'Социальная выплата обновлена',
             type: 'success'
           })
         })
