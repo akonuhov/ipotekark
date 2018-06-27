@@ -7,33 +7,8 @@
       empty-text="Список кредитных дел пуст"
       @row-click="onRowClick">
       <el-table-column
-        prop="_id"
-        label="ID"
-        sortable>
-      </el-table-column>
-      <el-table-column
-        prop="timeCredit"
-        label="ФИО">
-      </el-table-column>
-      <el-table-column
-        prop="amountCredit"
-        label="Сумма займа">
-      </el-table-column>
-      <el-table-column
-        prop="timeCredit"
-        label="Доход">
-      </el-table-column>
-      <el-table-column
-        prop="timeCredit"
-        label="Ежемесяный платеж">
-      </el-table-column>
-      <el-table-column
-        prop="timeCredit"
-        label="Менеджер">
-      </el-table-column>
-      <el-table-column
-        prop="timeCredit"
-        label="Статус">
+        prop="id"
+        label="Номер кредитного дела">
       </el-table-column>
     </el-table>
   </layouts-default>

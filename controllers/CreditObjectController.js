@@ -57,7 +57,7 @@ module.exports = {
       			amountCredit : req.body.amountCredit,
       			timeCredit : req.body.timeCredit,
       			costSquareMeter : req.body.costSquareMeter,
-      			totaAareAapartment : req.body.totaAareAapartment,
+      			totalAreaAapartment : req.body.totaAareAapartment,
       			costApartment : req.body.costApartment,
       			initialFee : req.body.initialFee,
       			percentRate : req.body.percentRate,
@@ -66,7 +66,10 @@ module.exports = {
       			numberDependents : req.body.numberDependents,
       			ageOnMomentEndCredit : req.body.ageOnMomentEndCredit,
       			monthlyPayment : req.body.monthlyPayment,
-      			dateLoanAgreement : req.body.dateLoanAgreement
+      			dateLoanAgreement : req.body.dateLoanAgreement,
+            purchaseAgreementNumber: req.body.purchaseAgreementNumber,
+            numberEvaluationReport: req.body.numberEvaluationReport,
+            dateEvaluationReport: req.body.dateEvaluationReport
         });
 
         CreditObject.save(function (err, CreditObject) {
@@ -106,7 +109,7 @@ module.exports = {
             CreditObject.amountCredit = req.body.amountCredit ? req.body.amountCredit : CreditObject.amountCredit;
       			CreditObject.timeCredit = req.body.timeCredit ? req.body.timeCredit : CreditObject.timeCredit;
       			CreditObject.costSquareMeter = req.body.costSquareMeter ? req.body.costSquareMeter : CreditObject.costSquareMeter;
-      			CreditObject.totaAareAapartment = req.body.totaAareAapartment ? req.body.totaAareAapartment : CreditObject.totaAareAapartment;
+      			CreditObject.totalAreaAapartment = req.body.totalAreaAapartment ? req.body.totalAreaAapartment : CreditObject.totalAreaAapartment;
       			CreditObject.costApartment = req.body.costApartment ? req.body.costApartment : CreditObject.costApartment;
       			CreditObject.initialFee = req.body.initialFee ? req.body.initialFee : CreditObject.initialFee;
       			CreditObject.percentRate = req.body.percentRate ? req.body.percentRate : CreditObject.percentRate;
@@ -116,6 +119,9 @@ module.exports = {
       			CreditObject.ageOnMomentEndCredit = req.body.ageOnMomentEndCredit ? req.body.ageOnMomentEndCredit : CreditObject.ageOnMomentEndCredit;
       			CreditObject.monthlyPayment = req.body.monthlyPayment ? req.body.monthlyPayment : CreditObject.monthlyPayment;
       			CreditObject.dateLoanAgreement = req.body.dateLoanAgreement ? req.body.dateLoanAgreement : CreditObject.dateLoanAgreement;
+            CreditObject.purchaseAgreementNumber = req.body.purchaseAgreementNumber ? req.body.purchaseAgreementNumber : CreditObject.purchaseAgreementNumber;
+            CreditObject.numberEvaluationReport = req.body.numberEvaluationReport ? req.body.numberEvaluationReport : CreditObject.numberEvaluationReport;
+            CreditObject.dateEvaluationReport  = req.body.dateEvaluationReport ? req.body.dateEvaluationReport : CreditObject.dateEvaluationReport;
 
             CreditObject.save(function (err, CreditObject) {
                 if (err) {

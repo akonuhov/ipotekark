@@ -48,27 +48,31 @@ module.exports = {
      */
     create: function (req, res) {
         var SocialPayments = new SocialPaymentsModel({
-            id: req.body.id,
-          	status: req.body.status,
-          	borrowerId: req.body.borrowerId,
-          	providerId: req.body.providerId,
-          	evaluatorId: req.body.evaluatorId,
-          	amountCredit: req.body.amountCredit,
-          	timeCredit: req.body.timeCredit,
-          	costSquareMeter: req.body.costSquareMeter,
-          	totalAreaAapartment: req.body.totalAreaAapartment,
-          	costApartment: req.body.costApartment,
-          	initialFee: req.body.initialFee,
-          	percentRate: req.body.percentRate,
-          	totalLoanValue: req.body.totalLoanValue,
-          	estimatedCostApartment: req.body.estimatedCostApartment,
-          	numberDependents: req.body.numberDependents,
-          	ageOnMomentEndCredit: req.body.ageOnMomentEndCredit,
-          	monthlyPayment: req.body.monthlyPayment,
-          	dateLoanAgreement: req.body.dateLoanAgreement,
-          	purchaseAgreementNumber: req.body.purchaseAgreementNumber,
-          	numberEvaluationReport: req.body.numberEvaluationReport,
-          	dateEvaluationReport: req.body.dateEvaluationReport
+            category : req.body.category,
+            numberCitizensRegister : req.body.numberCitizensRegister,
+            totalAreaPlaceRegistration : req.body.totalAreaPlaceRegistration,
+            numberRegisteredPersons : req.body.numberRegisteredPersons,
+            provideCitizenArea : req.body.provideCitizenArea,
+            nameRegistrationCertificate : req.body.nameRegistrationCertificate,
+            registrationCertificateNumber : req.body.registrationCertificateNumber,
+            dateRegistrationCertificate : req.body.dateRegistrationCertificate,
+            numberCohabitingFamilyMembers : req.body.numberCohabitingFamilyMembers,
+            familyCertificateReference : req.body.familyCertificateReference,
+            familyCertificateNumber : req.body.familyCertificateNumber,
+            dateCertificateFamily : req.body.dateCertificateFamily,
+            cohabitingFamilyMembers : req.body.cohabitingFamilyMembers,
+            nameCertificateFromBank : req.body.nameCertificateFromBank,
+            numberCertificateFromBank : req.body.numberCertificateFromBank,
+            dateCertificateFromBank : req.body.dateCertificateFromBank,
+            nameEmployer : req.body.nameEmployer,
+            certificateNumberFromWork : req.body.certificateNumberFromWork,
+            dateCertificateFromWork : req.body.dateCertificateFromWork,
+            positionWithIndicationEmployer : req.body.positionWithIndicationEmployer,
+            nameDocumentConfirmingApprovalLoan : req.body.nameDocumentConfirmingApprovalLoan,
+            approvalNumber : req.body.approvalNumber,
+            approvalDate : req.body.approvalDate,
+            categoryRecipientSocialBenefits : req.body.categoryRecipientSocialBenefits,
+            totalAmountSocialPayment : req.body.totalAmountSocialPayment
         });
 
         SocialPayments.save(function (err, SocialPayments) {
@@ -100,27 +104,31 @@ module.exports = {
                 });
             }
 
-            SocialPayments.id = req.body.id;
-          	SocialPayments.status = req.body.status;
-          	SocialPayments.borrowerId = req.body.borrowerId;
-          	SocialPayments.providerId = req.body.providerId;
-          	SocialPayments.evaluatorId = req.body.evaluatorId;
-          	SocialPayments.amountCredit = req.body.amountCredit;
-          	SocialPayments.timeCredit = req.body.timeCredit;
-          	SocialPayments.costSquareMeter = req.body.costSquareMeter;
-          	SocialPayments.totalAreaAapartment = req.body.totalAreaAapartment;
-          	SocialPayments.costApartment = req.body.costApartment;
-          	SocialPayments.initialFee = req.body.initialFee;
-          	SocialPayments.percentRate = req.body.percentRate;
-          	SocialPayments.totalLoanValue = req.body.totalLoanValue;
-          	SocialPayments.estimatedCostApartment = req.body.estimatedCostApartment;
-          	SocialPayments.numberDependents = req.body.numberDependents;
-          	SocialPayments.ageOnMomentEndCredit = req.body.ageOnMomentEndCredit;
-          	SocialPayments.monthlyPayment = req.body.monthlyPayment;
-          	SocialPayments.dateLoanAgreement = req.body.dateLoanAgreement;
-          	SocialPayments.purchaseAgreementNumber = req.body.purchaseAgreementNumber;
-          	SocialPayments.numberEvaluationReport = req.body.numberEvaluationReport;
-          	SocialPayments.dateEvaluationReport = req.body.dateEvaluationReport;
+            SocialPayments.category = req.body.category ? req.body.category : SocialPayments.category;
+            SocialPayments.numberCitizensRegister = req.body.numberCitizensRegister ? req.body.numberCitizensRegister : SocialPayments.numberCitizensRegister;
+            SocialPayments.totalAreaPlaceRegistration = req.body.totalAreaPlaceRegistration ? req.body.totalAreaPlaceRegistration : SocialPayments.totalAreaPlaceRegistration;
+            SocialPayments.numberRegisteredPersons = req.body.numberRegisteredPersons ? req.body.numberRegisteredPersons : SocialPayments.numberRegisteredPersons;
+            SocialPayments.provideCitizenArea = req.body.provideCitizenArea ? req.body.provideCitizenArea : SocialPayments.provideCitizenArea;
+            SocialPayments.nameRegistrationCertificate = req.body.nameRegistrationCertificate ? req.body.nameRegistrationCertificate : SocialPayments.nameRegistrationCertificate;
+            SocialPayments.registrationCertificateNumber = req.body.registrationCertificateNumber ? req.body.registrationCertificateNumber : SocialPayments.registrationCertificateNumber;
+            SocialPayments.dateRegistrationCertificate = req.body.dateRegistrationCertificate ? req.body.dateRegistrationCertificate : SocialPayments.dateRegistrationCertificate;
+            SocialPayments.numberCohabitingFamilyMembers = req.body.numberCohabitingFamilyMembers ? req.body.numberCohabitingFamilyMembers : SocialPayments.numberCohabitingFamilyMembers;
+            SocialPayments.familyCertificateReference = req.body.familyCertificateReference ? req.body.familyCertificateReference : SocialPayments.familyCertificateReference;
+            SocialPayments.familyCertificateNumber = req.body.familyCertificateNumber ? req.body.familyCertificateNumber : SocialPayments.familyCertificateNumber;
+            SocialPayments.dateCertificateFamily = req.body.dateCertificateFamily ? req.body.dateCertificateFamily : SocialPayments.dateCertificateFamily;
+            SocialPayments.cohabitingFamilyMembers = req.body.cohabitingFamilyMembers ? req.body.cohabitingFamilyMembers : SocialPayments.cohabitingFamilyMembers;
+            SocialPayments.nameCertificateFromBank = req.body.nameCertificateFromBank ? req.body.nameCertificateFromBank : SocialPayments.nameCertificateFromBank;
+            SocialPayments.numberCertificateFromBank = req.body.numberCertificateFromBank ? req.body.numberCertificateFromBank : SocialPayments.numberCertificateFromBank;
+            SocialPayments.dateCertificateFromBank = req.body.dateCertificateFromBank ? req.body.dateCertificateFromBank : SocialPayments.dateCertificateFromBank;
+            SocialPayments.nameEmployer = req.body.nameEmployer ? req.body.nameEmployer : SocialPayments.nameEmployer;
+            SocialPayments.certificateNumberFromWork = req.body.certificateNumberFromWork ? req.body.certificateNumberFromWork : SocialPayments.certificateNumberFromWork;
+            SocialPayments.dateCertificateFromWork = req.body.dateCertificateFromWork ? req.body.dateCertificateFromWork : SocialPayments.dateCertificateFromWork;
+            SocialPayments.positionWithIndicationEmployer = req.body.positionWithIndicationEmployer ? req.body.positionWithIndicationEmployer : SocialPayments.positionWithIndicationEmployer;
+            SocialPayments.nameDocumentConfirmingApprovalLoan = req.body.nameDocumentConfirmingApprovalLoan ? req.body.nameDocumentConfirmingApprovalLoan : SocialPayments.nameDocumentConfirmingApprovalLoan;
+            SocialPayments.approvalNumber = req.body.approvalNumber ? req.body.approvalNumber : SocialPayments.approvalNumber;
+            SocialPayments.approvalDate = req.body.approvalDate ? req.body.approvalDate : SocialPayments.approvalDate;
+            SocialPayments.categoryRecipientSocialBenefits = req.body.categoryRecipientSocialBenefits ? req.body.categoryRecipientSocialBenefits : SocialPayments.categoryRecipientSocialBenefits;
+            SocialPayments.totalAmountSocialPayment = req.body.totalAmountSocialPayment ? req.body.totalAmountSocialPayment : SocialPayments.totalAmountSocialPayment;
 
             SocialPayments.save(function (err, SocialPayments) {
                 if (err) {

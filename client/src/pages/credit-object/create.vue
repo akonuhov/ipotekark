@@ -138,7 +138,7 @@
           <el-col :span="8" :md="8" :sm="12" :xs="24">
             <el-form-item label="Дата отчета об оценке">
               <el-date-picker
-                v-model="creditObject.dateLoanAgreement"
+                v-model="creditObject.dateEvaluationReport"
                 type="date"
                 placeholder="Дата отчета об оценке">
               </el-date-picker>
@@ -170,7 +170,7 @@ export default {
       amountCredit: null,
       timeCredit: null,
       costSquareMeter: null,
-      totalAreaAapartment: null,
+      totaAareAapartment: null,
       costApartment: null,
       initialFee: null,
       percentRate: null,
@@ -179,10 +179,10 @@ export default {
       numberDependents: null,
       ageOnMomentEndCredit: null,
       monthlyPayment: null,
-      dateEvaluationReport: null,
+      dateLoanAgreement: null,
       purchaseAgreementNumber: null,
       numberEvaluationReport: null,
-      dateLoanAgreement: null
+      dateEvaluationReport: null
     },
     optionsPercentRate: [{
       value: '13',

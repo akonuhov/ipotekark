@@ -14,6 +14,7 @@ import Axios from 'axios'
 
 Axios.defaults.headers.common.Accept = 'application/json'
 Axios.defaults.baseURL = 'http://ais.ipotekark.ru:3000'
+// Axios.defaults.baseURL = 'http://localhost:3000'
 
 // Bind Axios to Vue.
 Vue.$http = Axios

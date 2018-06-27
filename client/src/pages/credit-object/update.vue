@@ -127,18 +127,18 @@
           </el-col>
           <el-col :span="8" :md="8" :sm="12" :xs="24">
             <el-form-item label="Номер договора приобретения">
-              <el-input placeholder="Номер договора приобретения"></el-input>
+              <el-input v-model="creditObject.purchaseAgreementNumber" placeholder="Номер договора приобретения"></el-input>
             </el-form-item>
           </el-col>
           <el-col :span="8" :md="8" :sm="12" :xs="24">
             <el-form-item label="Номер отчета об оценке">
-              <el-input placeholder="Номер отчета об оценке"></el-input>
+              <el-input v-model="creditObject.numberEvaluationReport" placeholder="Номер отчета об оценке"></el-input>
             </el-form-item>
           </el-col>
           <el-col :span="8" :md="8" :sm="12" :xs="24">
             <el-form-item label="Дата отчета об оценке">
               <el-date-picker
-                v-model="creditObject.dateLoanAgreement"
+                v-model="creditObject.dateEvaluationReport"
                 type="date"
                 placeholder="Дата отчета об оценке">
               </el-date-picker>
@@ -179,7 +179,10 @@ export default {
       numberDependents: null,
       ageOnMomentEndCredit: null,
       monthlyPayment: null,
-      dateLoanAgreement: null
+      dateLoanAgreement: null,
+      purchaseAgreementNumber: null,
+      numberEvaluationReport: null,
+      dateEvaluationReport: null
     },
     optionsPercentRate: [{
       value: '13',

@@ -169,7 +169,7 @@
           </el-col>
           <el-col :span="8" :md="8" :sm="12" :xs="24">
             <el-form-item label="Итоговая сумма социальной выплаты">
-              <el-input placeholder="Итоговая сумма социальной выплаты" v-model="socialPaymentsObject.totalAmountSocialPayment"></el-input>
+              <el-input-number v-model="socialPaymentsObject.totalAmountSocialPayment" :min="0" controls-position="right"></el-input-number>
             </el-form-item>
           </el-col>
         </el-row>
