@@ -127,12 +127,12 @@
           </el-col>
           <el-col :span="8" :md="8" :sm="12" :xs="24">
             <el-form-item label="Номер договора приобретения">
-              <el-input readonly placeholder="Номер договора приобретения"></el-input>
+              <el-input placeholder="Номер договора приобретения"></el-input>
             </el-form-item>
           </el-col>
           <el-col :span="8" :md="8" :sm="12" :xs="24">
             <el-form-item label="Номер отчета об оценке">
-              <el-input readonly placeholder="Номер отчета об оценке"></el-input>
+              <el-input placeholder="Номер отчета об оценке"></el-input>
             </el-form-item>
           </el-col>
           <el-col :span="8" :md="8" :sm="12" :xs="24">
