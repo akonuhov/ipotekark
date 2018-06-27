@@ -93,7 +93,6 @@ export default {
         trigger: 'change'
       },
       dataBirth: {
-        type: 'date',
         required: true,
         message: 'Поле обязательно для заполнения',
         trigger: 'change'
@@ -114,7 +113,6 @@ export default {
         trigger: 'change'
       },
       employmentDate: {
-        type: 'date',
         required: true,
         message: 'Поле обязательно для заполнения',
         trigger: 'change'

@@ -27,13 +27,7 @@
       </el-table-column>
       <el-table-column
         prop="email"
-        label="Электронная почта"
-        width="200">
-      </el-table-column>
-      <el-table-column
-        prop="dataBirth"
-        label="Дата рождения"
-        :formatter="formatterDataBirth">
+        label="Электронная почта">
       </el-table-column>
     </el-table>
   </layouts-default>
