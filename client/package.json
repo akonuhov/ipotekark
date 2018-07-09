@@ -14,11 +14,9 @@
     "build": "node build/build.js"
   },
   "dependencies": {
-    "@tinymce/tinymce-vue": "github:tinymce/tinymce-vue",
     "axios": "^0.18.0",
     "element-ui": "^2.3.7",
     "moment": "^2.22.1",
-    "tinymce": "^4.7.13",
     "vue": "^2.5.2",
     "vue-clipboards": "^1.2.4",
     "vue-configuration": "^1.0.3",
