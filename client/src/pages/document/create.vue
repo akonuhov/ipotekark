@@ -11,7 +11,10 @@
           </el-col>
           <el-col :span='24' :md='24' :sm='24' :xs='24'>
             <el-form-item label='Содержание документа'>
-              <editor v-model="documentObject.text" />
+              <editor v-model="documentObject.text"
+                      api-key="kj7ga8kbis3ruxkn583myh7brwat9hkjtbzfwov9ir58bp32"
+                      plugins="a11ychecker, advcode, linkchecker, media mediaembed, powerpaste, tinymcespellchecker"
+                      toolbar="a11ycheck, code" />
             </el-form-item>
           </el-col>
         </el-row>

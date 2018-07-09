@@ -12,8 +12,9 @@
           <el-col :span='24' :md='24' :sm='24' :xs='24'>
             <el-form-item label='Содержание документа'>
               <editor v-model="documentObject.text"
-                      plugins="advlist autolink autosave link image lists charmap print preview hr anchor pagebreak"
-                      toolbar="newdocument fullpage | bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | styleselect formatselect fontselect fontsizeselect | cut copy paste | searchreplace | bullist numlist | outdent indent blockquote | undo redo | link unlink anchor image media code | insertdatetime preview | forecolor backcolor | table | hr removeformat | subscript superscript | charmap emoticons | print fullscreen | ltr rtl | visualchars visualblocks nonbreaking template pagebreak restoredraft" />
+                      api-key="kj7ga8kbis3ruxkn583myh7brwat9hkjtbzfwov9ir58bp32"
+                      plugins="a11ychecker, advcode, linkchecker, media mediaembed, powerpaste, tinymcespellchecker"
+                      toolbar="a11ycheck, code" />
             </el-form-item>
           </el-col>
         </el-row>
