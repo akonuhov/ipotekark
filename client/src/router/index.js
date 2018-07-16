@@ -37,7 +37,7 @@ export default new Router({
       name: 'PageMain',
       component: PageMain,
       meta: {
-        requiresAuth: true
+        authenticated: true
       }
     },
     {
@@ -45,7 +45,7 @@ export default new Router({
       name: 'PageCreditObjectList',
       component: PageCreditObjectList,
       meta: {
-        requiresAuth: true
+        authenticated: true
       }
     },
     {
@@ -53,7 +53,7 @@ export default new Router({
       name: 'PageCreditObjectUpdate',
       component: PageCreditObjectUpdate,
       meta: {
-        requiresAuth: true
+        authenticated: true
       }
     },
     {
@@ -61,7 +61,7 @@ export default new Router({
       name: 'PageCreditObjectCreate',
       component: PageCreditObjectCreate,
       meta: {
-        requiresAuth: true
+        authenticated: true
       }
     },
     {
@@ -69,7 +69,7 @@ export default new Router({
       name: 'PageBorrowerList',
       component: PageBorrowerList,
       meta: {
-        requiresAuth: true
+        authenticated: true
       }
     },
     {
@@ -77,7 +77,7 @@ export default new Router({
       name: 'PageBorrowerCreate',
       component: PageBorrowerCreate,
       meta: {
-        requiresAuth: true
+        authenticated: true
       }
     },
     {
@@ -85,7 +85,7 @@ export default new Router({
       name: 'PageBorrowerUpdate',
       component: PageBorrowerUpdate,
       meta: {
-        requiresAuth: true
+        authenticated: true
       }
     },
     {
@@ -93,7 +93,7 @@ export default new Router({
       name: 'PageSocialPaymentsList',
       component: PageSocialPaymentsList,
       meta: {
-        requiresAuth: true
+        authenticated: true
       }
     },
     {
@@ -101,7 +101,7 @@ export default new Router({
       name: 'PageSocialPaymentsCreate',
       component: PageSocialPaymentsCreate,
       meta: {
-        requiresAuth: true
+        authenticated: true
       }
     },
     {
@@ -109,7 +109,7 @@ export default new Router({
       name: 'PageSocialPaymentsUpdate',
       component: PageSocialPaymentsUpdate,
       meta: {
-        requiresAuth: true
+        authenticated: true
       }
     },
     {
@@ -117,7 +117,7 @@ export default new Router({
       name: 'PageDocumentList',
       component: PageDocumentList,
       meta: {
-        requiresAuth: true
+        authenticated: true
       }
     },
     {
@@ -125,7 +125,7 @@ export default new Router({
       name: 'PageDocumentCreate',
       component: PageDocumentCreate,
       meta: {
-        requiresAuth: true
+        authenticated: true
       }
     },
     {
@@ -133,7 +133,7 @@ export default new Router({
       name: 'PageDocumentUpdate',
       component: PageDocumentUpdate,
       meta: {
-        requiresAuth: true
+        authenticated: true
       }
     },
     {
@@ -141,7 +141,7 @@ export default new Router({
       name: 'PageProviderList',
       component: PageProviderList,
       meta: {
-        requiresAuth: true
+        authenticated: true
       }
     },
     {
@@ -149,7 +149,7 @@ export default new Router({
       name: 'PageProviderCreate',
       component: PageProviderCreate,
       meta: {
-        requiresAuth: true
+        authenticated: true
       }
     },
     {
@@ -157,7 +157,7 @@ export default new Router({
       name: 'PageEvaluatorList',
       component: PageEvaluatorList,
       meta: {
-        requiresAuth: true
+        authenticated: true
       }
     },
     {
@@ -165,7 +165,7 @@ export default new Router({
       name: 'PageEvaluatorCreate',
       component: PageEvaluatorCreate,
       meta: {
-        requiresAuth: true
+        authenticated: true
       }
     },
     {
@@ -173,7 +173,7 @@ export default new Router({
       name: 'PageHistoryOperationList',
       component: PageHistoryOperationList,
       meta: {
-        requiresAuth: true
+        authenticated: true
       }
     },
     {
@@ -181,7 +181,7 @@ export default new Router({
       name: 'PageUserList',
       component: PageUserList,
       meta: {
-        requiresAuth: true
+        authenticated: true
       }
     },
     {
@@ -189,7 +189,7 @@ export default new Router({
       name: 'PageUserCreate',
       component: PageUserCreate,
       meta: {
-        requiresAuth: true
+        authenticated: true
       }
     },
     {
@@ -197,7 +197,7 @@ export default new Router({
       name: 'PageUserUpdate',
       component: PageUserUpdate,
       meta: {
-        requiresAuth: true
+        authenticated: true
       }
     }
   ]

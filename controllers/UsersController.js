@@ -111,7 +111,7 @@ module.exports = {
                     throw error;
                 }
                 var Users = new UsersModel({
-              			fio : req.body.firstName,
+              			fio : req.body.fio,
               			password : req.body.password,
               			dataBirth : req.body.dataBirth,
               			email : req.body.email,

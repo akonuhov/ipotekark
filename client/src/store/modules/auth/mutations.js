@@ -1,37 +1,16 @@
-/* ============
- * Mutations for the auth module
- * ============
- *
- * The mutations that are available on the
- * account module.
- */
-
-import Vue from 'vue'
-import { CHECK, REGISTER, LOGIN, LOGOUT } from './mutation-types'
+// import Vue from "vue";
+import * as types from './mutation-types'
 
 export default {
-  [CHECK] (state) {
-    state.authenticated = !!localStorage.getItem('id_token')
-    if (state.authenticated) {
-      Vue.$http.defaults.headers.common.Authorization = `Bearer ${localStorage.getItem(
-        'id_token'
-      )}`
-    }
+  [types.CHECK] (state, data) {
+    state.authenticated = data
   },
 
-  [REGISTER] () {
-    //
+  [types.LOGIN] (state) {
+
   },
 
-  [LOGIN] (state, token) {
-    state.authenticated = true
-    localStorage.setItem('id_token', token)
-    Vue.$http.defaults.headers.common.Authorization = `Bearer ${token}`
-  },
+  [types.LOGOUT] (state) {
 
-  [LOGOUT] (state) {
-    state.authenticated = false
-    localStorage.removeItem('id_token')
-    Vue.$http.defaults.headers.common.Authorization = ''
   }
 }

@@ -4,7 +4,6 @@
     <el-table
       :data="getAllUsersObject"
       :default-sort = "{prop: '_id', order: 'descending'}"
-      @row-click="onRowClick"
       empty-text="Список сотрудников пуст">
       <el-table-column
         prop="fio"
@@ -34,7 +33,8 @@
         align="center"
         width="100">
         <template slot-scope="scope">
-          <i class="fas fa-trash"></i>
+          <i class="fas fa-user-edit" @click="onClickUserEdit(scope.row._id)"></i>
+          <i class="fas fa-trash" @click="onClickUserDelete(scope.row._id)"></i>
         </template>
       </el-table-column>
     </el-table>
@@ -45,18 +45,6 @@
 import LayoutsDefault from '@/layouts/default'
 export default {
   name: 'PageUserList',
-  data: () => ({
-    usersObject: []
-  }),
-  created () {
-    this.$http.get('/api/users')
-      .then(res => {
-        this.usersObject = res.data
-      })
-      .catch(error => {
-        console.log(error)
-      })
-  },
   methods: {
     formatterEmploymentDate (row, column) {
       return this.moment(row.employmentDate).format('DD MMMM YYYY')
@@ -64,13 +52,16 @@ export default {
     formatterDataBirth (row, column) {
       return this.moment(row.dataBirth).format('DD MMMM YYYY')
     },
-    onRowClick (row, event, column) {
-      this.$router.push('/user/update/' + row._id)
+    onClickUserEdit (id) {
+      this.$router.push('/user/update/' + id)
+    },
+    onClickUserDelete (id) {
+      this.$store.dispatch('users/remove', id)
     }
   },
   computed: {
     getAllUsersObject () {
-      return this.usersObject
+      return this.$store.state.users.list
     }
   },
   components: {
@@ -80,4 +71,11 @@ export default {
 </script>
 
 <style lang="scss">
+.fas {
+  margin-right: 10px;
+  cursor: pointer;
+  &:last-child {
+    margin-right: 0;
+  }
+}
 </style>

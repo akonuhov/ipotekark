@@ -5,7 +5,7 @@
       <el-card shadow="hover">
         <el-row :gutter="20">
           <el-col :span="18">
-            <el-form-item label="ФИО" prop="firstName">
+            <el-form-item label="ФИО" prop="fio">
               <el-input v-model="userObject.fio" placeholder="ФИО"></el-input>
             </el-form-item>
           </el-col>
@@ -74,9 +74,7 @@ export default {
   name: 'PageUserCreate',
   data: () => ({
     userObject: {
-      firstName: null,
-      lastName: null,
-      middleName: null,
+      fio: null,
       password: null,
       dataBirth: null,
       email: null,
@@ -86,17 +84,7 @@ export default {
       role: null
     },
     rules: {
-      firstName: {
-        required: true,
-        message: 'Поле обязательно для заполнения',
-        trigger: 'change'
-      },
-      lastName: {
-        required: true,
-        message: 'Поле обязательно для заполнения',
-        trigger: 'change'
-      },
-      middleName: {
+      fio: {
         required: true,
         message: 'Поле обязательно для заполнения',
         trigger: 'change'
@@ -142,20 +130,7 @@ export default {
     onCreateUser () {
       this.$refs['userObjectForm'].validate((valid) => {
         if (valid) {
-          this.$http.post('/api/users', this.userObject)
-            .then(res => {
-              this.$router.push('/user')
-              this.$message({
-                message: 'Сотрудник добавлен',
-                type: 'success'
-              })
-            })
-            .catch(error => {
-              this.$message({
-                message: error.response.data.error.message,
-                type: 'error'
-              })
-            })
+          this.$store.dispatch('users/create', this.userObject)
         } else {
           return false
         }

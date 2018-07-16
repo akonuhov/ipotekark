@@ -43,21 +43,7 @@ export default {
     onSubmitLoginForm () {
       this.$refs['loginForm'].validate((valid) => {
         if (valid) {
-          this.$http.post('/api/users/auth', this.login)
-            .then(res => {
-              console.log(true)
-              // this.$message({
-              //   message: 'Заемщик добавлен',
-              //   type: 'success'
-              // })
-            })
-            .catch(error => {
-              console.log(error)
-              // this.$message({
-              //   message: error.response.data.error.message,
-              //   type: 'error'
-              // })
-            })
+          this.$store.dispatch('auth/login', this.login)
         } else {
           return false
         }
@@ -79,7 +65,6 @@ export default {
     height: 100%;
     margin: auto 0 auto auto;
     box-sizing: border-box;
-    box-shadow: -1px 0 10px #ffffff;
     background-color: #ffffff;
     h2 {
       margin: 20px 0;

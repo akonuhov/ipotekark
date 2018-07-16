@@ -5,8 +5,22 @@
       <el-card shadow="hover">
         <el-row :gutter="20">
           <el-col :span="18">
-            <el-form-item label="ФИО" prop="firstName">
+            <el-form-item label="ФИО" prop="fio">
               <el-input v-model="userObject.fio" placeholder="ФИО"></el-input>
+            </el-form-item>
+          </el-col>
+          <el-col :span="6">
+            <el-form-item label="Должность" prop="position">
+              <el-input v-model="userObject.position" placeholder="Должность"></el-input>
+            </el-form-item>
+          </el-col>
+          <el-col :span="6">
+            <el-form-item label="Дата рождения" prop="dataBirth">
+              <el-date-picker
+                v-model="userObject.dataBirth"
+                type="date"
+                placeholder="Дата рождения">
+              </el-date-picker>
             </el-form-item>
           </el-col>
           <el-col :span="6">
@@ -72,17 +86,7 @@ export default {
       role: null
     },
     rules: {
-      firstName: {
-        required: true,
-        message: 'Поле обязательно для заполнения',
-        trigger: 'change'
-      },
-      lastName: {
-        required: true,
-        message: 'Поле обязательно для заполнения',
-        trigger: 'change'
-      },
-      middleName: {
+      fio: {
         required: true,
         message: 'Поле обязательно для заполнения',
         trigger: 'change'

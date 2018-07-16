@@ -17,11 +17,11 @@ Vue.use(VueConfig, {
 })
 Vue.use(ElementUI, { locale })
 
-Vue.config.productionTip = false
+store.dispatch('auth/check')
 
 // router.beforeEach((to, from, next) => {
-//   if (to.matched.some(record => record.meta.requiresAuth)) {
-//     if (!localStorage.getItem('auth')) {
+//   if (to.matched.some(record => record.meta.authenticated)) {
+//     if (!localStorage.getItem('authenticated')) {
 //       next({
 //         path: '/login',
 //         query: { redirect: to.fullPath }
