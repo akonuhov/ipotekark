@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import Vuex from 'Vuex'
+import Vuex from 'vuex'
 import createLogger from 'vuex/dist/logger'
 import users from './modules/users'
 import auth from './modules/auth'
