@@ -130,7 +130,7 @@ export default {
     onCreateUser () {
       this.$refs['userObjectForm'].validate((valid) => {
         if (valid) {
-          this.$store.dispatch('users/create', this.userObject)
+          this.$store.dispatch('user/create', this.userObject)
         } else {
           return false
         }

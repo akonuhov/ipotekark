@@ -141,7 +141,7 @@ export default {
     onUpdateUser () {
       this.$refs['userObjectForm'].validate((valid) => {
         if (valid) {
-          this.$store.dispatch('users/update', [this.userObject, this.$route.params.id])
+          this.$store.dispatch('user/update', [this.userObject, this.$route.params.id])
         } else {
           return false
         }
