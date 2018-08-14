@@ -62,7 +62,7 @@ module.exports = {
       			placeBirth : req.body.passportData.placeBirth
           },
           share: {
-            shareInOwnership: req.body.share.placeBirth
+            shareInOwnership: req.body.share.shareInOwnership
           },
           contactData: {
             phoneHome : req.body.contactData.phoneHome,
@@ -71,8 +71,8 @@ module.exports = {
       			email : req.body.contactData.email
           },
           bankData: {
-            accountNumber : req.body.accountNumber,
-      			requisites : req.body.requisites
+            accountNumber : req.body.bankData.accountNumber,
+      			requisites : req.body.bankData.requisites
           },
           incomeData: {
             basic : req.body.incomeData.basic,

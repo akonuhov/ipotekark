@@ -4,8 +4,7 @@
     <el-table
       :data="getAllCreditsObject"
       :default-sort = "{prop: '_id', order: 'descending'}"
-      empty-text="Список кредитных дел пуст"
-      @row-click="onRowClick">
+      empty-text="Список кредитных дел пуст">
       <el-table-column
         prop="id"
         label="Номер кредитного дела">
@@ -20,10 +19,10 @@
       </el-table-column>
       <el-table-column
         label="Операции"
-        align="center"
-        width="100">
+        align="center">
         <template slot-scope="scope">
-          <i class="fas fa-trash"></i>
+          <i class="fas fa-user-edit" @click="onClickCreditObjectEdit(scope.row._id)"></i>
+          <i class="fas fa-trash" @click="onClickCreditObjectDelete(scope.row._id)"></i>
         </template>
       </el-table-column>
     </el-table>
@@ -34,46 +33,26 @@
 import LayoutsDefault from '@/layouts/default'
 export default {
   name: 'PageCreditObjectList',
-  data: () => ({
-    creditsObject: [],
-    tableData: [{
-      date: '2016-05-03',
-      name: 'Tom',
-      address: 'No. 189, Grove St, Los Angeles'
-    }, {
-      date: '2016-05-02',
-      name: 'Tom',
-      address: 'No. 189, Grove St, Los Angeles'
-    }, {
-      date: '2016-05-04',
-      name: 'Tom',
-      address: 'No. 189, Grove St, Los Angeles'
-    }, {
-      date: '2016-05-01',
-      name: 'Tom',
-      address: 'No. 189, Grove St, Los Angeles'
-    }]
-  }),
-  created () {
-    this.$http.get(this.$config.config.apiUrl.creditObject.getAll)
-      .then(res => {
-        this.creditsObject = res.data
-      })
-      .catch(error => {
-        console.log(error)
-      })
-  },
   methods: {
     formatter (row, column) {
       return row.address
     },
-    onRowClick (row, event, column) {
-      this.$router.push('/credit-object/update/' + row._id)
+    onClickCreditObjectEdit (id) {
+      this.$router.push('/credit-object/update/' + id)
+    },
+    onClickCreditObjectDelete (id) {
+      this.$confirm('Вы точно хотите удалить кредитное дело из базы данных', 'Предупреждение', {
+        confirmButtonText: 'Удалить',
+        cancelButtonText: 'Отменить',
+        type: 'warning'
+      }).then(() => {
+        this.$store.dispatch('creditObject/remove', id)
+      })
     }
   },
   computed: {
     getAllCreditsObject () {
-      return this.creditsObject
+      return this.$store.state.creditObject.list
     }
   },
   components: {
@@ -83,5 +62,11 @@ export default {
 </script>
 
 <style lang="scss">
-
+.fas {
+  margin-right: 10px;
+  cursor: pointer;
+  &:last-child {
+    margin-right: 0;
+  }
+}
 </style>

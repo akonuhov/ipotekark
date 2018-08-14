@@ -141,20 +141,7 @@ export default {
     onUpdateUser () {
       this.$refs['userObjectForm'].validate((valid) => {
         if (valid) {
-          this.$http.put('/api/users/' + this.$route.params.id, this.userObject)
-            .then(res => {
-              this.$router.push('/user')
-              this.$message({
-                message: 'Сотрудник обновлен',
-                type: 'success'
-              })
-            })
-            .catch(error => {
-              this.$message({
-                message: error.response.data.error.message,
-                type: 'error'
-              })
-            })
+          this.$store.dispatch('users/update', [this.userObject, this.$route.params.id])
         } else {
           return false
         }

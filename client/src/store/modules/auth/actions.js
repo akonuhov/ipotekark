@@ -6,7 +6,13 @@ export const check = ({ commit }) => {
   if (localStorage.getItem('authenticated')) {
     commit(types.CHECK, localStorage.getItem('authenticated'))
   }
-  store.dispatch('users/list')
+  store.dispatch('borrower/list')
+  store.dispatch('creditObject/list')
+  store.dispatch('document/list')
+  store.dispatch('evaluator/list')
+  store.dispatch('provider/list')
+  store.dispatch('socialPayment/list')
+  store.dispatch('user/list')
 }
 
 export const login = ({ commit }, data) => {

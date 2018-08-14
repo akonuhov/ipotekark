@@ -11,10 +11,10 @@
       </el-table-column>
       <el-table-column
         label="Операции"
-        align="center"
-        width="100">
+        align="center">
         <template slot-scope="scope">
-          <i class="fas fa-trash"></i>
+          <i class="fas fa-user-edit" @click="onClickEvaluatorEdit(scope.row._id)"></i>
+          <i class="fas fa-trash" @click="onClickEvaluatorDelete(scope.row._id)"></i>
         </template>
       </el-table-column>
     </el-table>
@@ -25,21 +25,23 @@
 import LayoutsDefault from '@/layouts/default'
 export default {
   name: 'PageEvaluatorList',
-  data: () => ({
-    evaluatorObject: []
-  }),
-  created () {
-    this.$http.get('/api/evaluators')
-      .then(res => {
-        this.evaluatorObject = res.data
+  methods: {
+    onClickEvaluatorEdit (id) {
+      this.$router.push('/evaluator/update/' + id)
+    },
+    onClickEvaluatorDelete (id) {
+      this.$confirm('Вы точно хотите удалить оценщика из базы данных', 'Предупреждение', {
+        confirmButtonText: 'Удалить',
+        cancelButtonText: 'Отменить',
+        type: 'warning'
+      }).then(() => {
+        this.$store.dispatch('evaluator/remove', id)
       })
-      .catch(error => {
-        console.log(error)
-      })
+    }
   },
   computed: {
     getAllEvaluatorObject () {
-      return this.evaluatorObject
+      return this.$store.state.evaluator.list
     }
   },
   components: {
@@ -49,4 +51,11 @@ export default {
 </script>
 
 <style lang="scss">
+.fas {
+  margin-right: 10px;
+  cursor: pointer;
+  &:last-child {
+    margin-right: 0;
+  }
+}
 </style>

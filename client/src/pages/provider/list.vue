@@ -16,10 +16,10 @@
       </el-table-column>
       <el-table-column
         label="Операции"
-        align="center"
-        width="100">
+        align="center">
         <template slot-scope="scope">
-          <i class="fas fa-trash"></i>
+          <i class="fas fa-user-edit" @click="onClickProviderEdit(scope.row._id)"></i>
+          <i class="fas fa-trash" @click="onClickProviderDelete(scope.row._id)"></i>
         </template>
       </el-table-column>
     </el-table>
@@ -30,21 +30,23 @@
 import LayoutsDefault from '@/layouts/default'
 export default {
   name: 'PageProviderList',
-  data: () => ({
-    providerObject: []
-  }),
-  created () {
-    this.$http.get('/api/providers')
-      .then(res => {
-        this.providerObject = res.data
+  methods: {
+    onClickProviderEdit (id) {
+      this.$router.push('/provider/update/' + id)
+    },
+    onClickProviderDelete (id) {
+      this.$confirm('Вы точно хотите удалить продавца/застройщика из базы данных', 'Предупреждение', {
+        confirmButtonText: 'Удалить',
+        cancelButtonText: 'Отменить',
+        type: 'warning'
+      }).then(() => {
+        this.$store.dispatch('provider/remove', id)
       })
-      .catch(error => {
-        console.log(error)
-      })
+    }
   },
   computed: {
     getAllProviderObject () {
-      return this.providerObject
+      return this.$store.state.provider.list
     }
   },
   components: {
@@ -54,4 +56,11 @@ export default {
 </script>
 
 <style lang="scss">
+.fas {
+  margin-right: 10px;
+  cursor: pointer;
+  &:last-child {
+    margin-right: 0;
+  }
+}
 </style>

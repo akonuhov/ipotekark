@@ -7,9 +7,6 @@
 import LayoutsDefault from '@/layouts/default'
 export default {
   name: 'PageMain',
-  data: () => ({
-    html: '<h1>Hello world</h1><p>asasasasa<p>'
-  }),
   created () {
 
   },
