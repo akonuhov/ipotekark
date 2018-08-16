@@ -136,56 +136,56 @@ module.exports = {
                 });
             }
             // passportData
-            Borrowers.passportData.fioImenitelny = req.body.passportData.fioImenitelny ? req.body.passportData.fioImenitelny : Borrowers.passportData.fioImenitelny;
-      			Borrowers.passportData.fioRoditelny = req.body.passportData.fioRoditelny ? req.body.passportData.fioRoditelny : Borrowers.passportData.fioRoditelny;
-      			Borrowers.passportData.fioDatelny = req.body.passportData.fioDatelny ? req.body.passportData.fioDatelny : Borrowers.passportData.fioDatelny;
-            Borrowers.passportData.fioTvoritelny = req.body.passportData.fioTvoritelny ? req.body.passportData.fioTvoritelny : Borrowers.passportData.fioTvoritelny;
-      			Borrowers.passportData.dateBirth = req.body.passportData.dateBirth ? req.body.passportData.dateBirth : Borrowers.passportData.dateBirth;
-      			Borrowers.passportData.gender = req.body.passportData.gender ? req.body.passportData.gender : Borrowers.passportData.gender;
-      			Borrowers.passportData.passportSeries = req.body.passportData.passportSeries ? req.body.passportData.passportSeries : Borrowers.passportData.passportSeries;
-      			Borrowers.passportData.passportId = req.body.passportData.passportId ? req.body.passportData.passportId : Borrowers.passportData.passportId;
-      			Borrowers.passportData.issuedBy = req.body.passportData.issuedBy ? req.body.passportData.issuedBy : Borrowers.passportData.issuedBy;
-      			Borrowers.passportData.unitCode = req.body.passportData.unitCode ? req.body.passportData.unitCode : Borrowers.passportData.unitCode;
-      			Borrowers.passportData.placeBirth = req.body.passportData.placeBirth ? req.body.passportData.placeBirth : Borrowers.passportData.placeBirth;
+            Borrowers.passportData.fioImenitelny = req.body.passportData.fioImenitelny;
+      			Borrowers.passportData.fioRoditelny = req.body.passportData.fioRoditelny;
+      			Borrowers.passportData.fioDatelny = req.body.passportData.fioDatelny;
+            Borrowers.passportData.fioTvoritelny = req.body.passportData.fioTvoritelny;
+      			Borrowers.passportData.dateBirth = req.body.passportData.dateBirth;
+      			Borrowers.passportData.gender = req.body.passportData.gender;
+      			Borrowers.passportData.passportSeries = req.body.passportData.passportSeries;
+      			Borrowers.passportData.passportId = req.body.passportData.passportId;
+      			Borrowers.passportData.issuedBy = req.body.passportData.issuedBy;
+      			Borrowers.passportData.unitCode = req.body.passportData.unitCode;
+      			Borrowers.passportData.placeBirth = req.body.passportData.placeBirth;
             // shareData
-            Borrowers.share.shareInOwnership = req.body.share.shareInOwnership ? req.body.share.shareInOwnership : Borrowers.share.shareInOwnership;
+            Borrowers.share.shareInOwnership = req.body.share.shareInOwnership;
             // contactData
-      			Borrowers.contactData.phoneHome = req.body.contactData.phoneHome ? req.body.contactData.phoneHome : Borrowers.contactData.phoneHome;
-      			Borrowers.contactData.phoneService = req.body.contactData.phoneService ? req.body.contactData.phoneService : Borrowers.contactData.phoneService;
-      			Borrowers.contactData.phoneMobile = req.body.contactData.phoneMobile ? req.body.contactData.phoneMobile : Borrowers.contactData.phoneMobile;
-      			Borrowers.contactData.email = req.body.contactData.email ? req.body.contactData.email : Borrowers.contactData.email;
+      			Borrowers.contactData.phoneHome = req.body.contactData.phoneHome;
+      			Borrowers.contactData.phoneService = req.body.contactData.phoneService;
+      			Borrowers.contactData.phoneMobile = req.body.contactData.phoneMobile;
+      			Borrowers.contactData.email = req.body.contactData.email;
             // bankData
-            Borrowers.bankData.accountNumber = req.body.bankData.accountNumber ? req.body.bankData.accountNumber : Borrowers.bankData.accountNumber;
-      			Borrowers.bankData.requisites = req.body.bankData.requisites ? req.body.bankData.requisites : Borrowers.bankData.requisites;
+            Borrowers.bankData.accountNumber = req.body.bankData.accountNumber;
+      			Borrowers.bankData.requisites = req.body.bankData.requisites;
             // incomeData
-      			Borrowers.incomeData.basic = req.body.incomeData.basic ? req.body.incomeData.basic : Borrowers.incomeData.basic;
-      			Borrowers.incomeData.basicDeduction = req.body.incomeData.basicDeduction ? req.body.incomeData.basicDeduction : Borrowers.incomeData.basicDeduction;
-      			Borrowers.incomeData.partTime = req.body.incomeData.partTime ? req.body.incomeData.partTime : Borrowers.incomeData.partTime;
-      			Borrowers.incomeData.partTimeDeduction = req.body.incomeData.partTimeDeduction ? req.body.incomeData.partTimeDeduction : Borrowers.incomeData.partTimeDeduction;
-      			Borrowers.incomeData.pension = req.body.incomeData.pension ? req.body.incomeData.pension : Borrowers.incomeData.pension;
-      			Borrowers.incomeData.pensionDeduction = req.body.incomeData.pensionDeduction ? req.body.incomeData.pensionDeduction : Borrowers.incomeData.pensionDeduction;
+      			Borrowers.incomeData.basic = req.body.incomeData.basic;
+      			Borrowers.incomeData.basicDeduction = req.body.incomeData.basicDeduction;
+      			Borrowers.incomeData.partTime = req.body.incomeData.partTime;
+      			Borrowers.incomeData.partTimeDeduction = req.body.incomeData.partTimeDeduction;
+      			Borrowers.incomeData.pension = req.body.incomeData.pension;
+      			Borrowers.incomeData.pensionDeduction = req.body.incomeData.pensionDeduction;
       			// aggregateExpenseData
-      			Borrowers.aggregateExpense = req.body.aggregateExpense ? req.body.aggregateExpense : Borrowers.aggregateExpense;
+      			Borrowers.aggregateExpense = req.body.aggregateExpense;
             // placeRegistrationData
-      			Borrowers.placeRegistration.subject = req.body.placeRegistration.subject ? req.body.placeRegistration.subject : Borrowers.placeRegistration.subject;
-      			Borrowers.placeRegistration.district = req.body.placeRegistration.district ? req.body.placeRegistration.district : Borrowers.placeRegistration.district;
-      			Borrowers.placeRegistration.typeSettlement = req.body.placeRegistration.typeSettlement ? req.body.placeRegistration.typeSettlement : Borrowers.placeRegistration.typeSettlement;
-      			Borrowers.placeRegistration.locality = req.body.placeRegistration.locality ? req.body.placeRegistration.locality : Borrowers.placeRegistration.locality;
-      			Borrowers.placeRegistration.typeRoad = req.body.placeRegistration.typeRoad ? req.body.placeRegistration.typeRoad : Borrowers.placeRegistration.typeRoad;
-      			Borrowers.placeRegistration.nameRoad = req.body.placeRegistration.nameRoad ? req.body.placeRegistration.nameRoad : Borrowers.placeRegistration.nameRoad;
-      			Borrowers.placeRegistration.houseNumber = req.body.placeRegistration.houseNumber ? req.body.placeRegistration.houseNumber : Borrowers.placeRegistration.houseNumber;
-      			Borrowers.placeRegistration.housing = req.body.placeRegistration.housing ? req.body.placeRegistration.housing : Borrowers.placeRegistration.housing;
-      			Borrowers.placeRegistration.apartmentNumber = req.body.placeRegistration.apartmentNumber ? req.body.placeRegistration.apartmentNumber : Borrowers.placeRegistration.apartmentNumber;
+      			Borrowers.placeRegistration.subject = req.body.placeRegistration.subject;
+      			Borrowers.placeRegistration.district = req.body.placeRegistration.district;
+      			Borrowers.placeRegistration.typeSettlement = req.body.placeRegistration.typeSettlement;
+      			Borrowers.placeRegistration.locality = req.body.placeRegistration.locality;
+      			Borrowers.placeRegistration.typeRoad = req.body.placeRegistration.typeRoad;
+      			Borrowers.placeRegistration.nameRoad = req.body.placeRegistration.nameRoad;
+      			Borrowers.placeRegistration.houseNumber = req.body.placeRegistration.houseNumber;
+      			Borrowers.placeRegistration.housing = req.body.placeRegistration.housing;
+      			Borrowers.placeRegistration.apartmentNumber = req.body.placeRegistration.apartmentNumber;
             // placeResidenceData
-      			Borrowers.placeResidence.subject = req.body.placeResidence.subject ? req.body.placeResidence.subject : Borrowers.placeResidence.subject;
-      			Borrowers.placeResidence.district = req.body.placeResidence.district ? req.body.placeResidence.district : Borrowers.placeResidence.district;
-      			Borrowers.placeResidence.typeSettlement = req.body.placeResidence.typeSettlement ? req.body.placeResidence.typeSettlement : Borrowers.placeResidence.typeSettlement;
-      			Borrowers.placeResidence.locality = req.body.placeResidence.locality ? req.body.placeResidence.locality : Borrowers.placeResidence.locality;
-      			Borrowers.placeResidence.typeRoad = req.body.placeResidence.typeRoad ? req.body.placeResidence.typeRoad : Borrowers.placeResidence.typeRoad;
-      			Borrowers.placeResidence.nameRoad = req.body.placeResidence.nameRoad ? req.body.placeResidence.nameRoad : Borrowers.placeResidence.nameRoad;
-      			Borrowers.placeResidence.houseNumber = req.body.placeResidence.houseNumber ? req.body.placeResidence.houseNumber : Borrowers.placeResidence.houseNumber;
-      			Borrowers.placeResidence.housing = req.body.placeResidence.housing ? req.body.placeResidence.housing : Borrowers.placeResidence.housing;
-      			Borrowers.placeResidence.apartmentNumber = req.body.placeResidence.apartmentNumber ? req.body.placeResidence.apartmentNumber : Borrowers.placeResidence.apartmentNumber;
+      			Borrowers.placeResidence.subject = req.body.placeResidence.subject;
+      			Borrowers.placeResidence.district = req.body.placeResidence.district;
+      			Borrowers.placeResidence.typeSettlement = req.body.placeResidence.typeSettlement;
+      			Borrowers.placeResidence.locality = req.body.placeResidence.locality;
+      			Borrowers.placeResidence.typeRoad = req.body.placeResidence.typeRoad;
+      			Borrowers.placeResidence.nameRoad = req.body.placeResidence.nameRoad;
+      			Borrowers.placeResidence.houseNumber = req.body.placeResidence.houseNumber;
+      			Borrowers.placeResidence.housing = req.body.placeResidence.housing;
+      			Borrowers.placeResidence.apartmentNumber = req.body.placeResidence.apartmentNumber;
 
             Borrowers.save(function (err, Borrowers) {
                 if (err) {

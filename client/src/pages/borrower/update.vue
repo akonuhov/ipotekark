@@ -317,10 +317,13 @@ export default {
       incomeData: {
         basic: null,
         basicDeduction: null,
+        basicTotal: null,
         partTime: null,
         partTimeDeduction: null,
+        partTimeTotal: null,
         pension: null,
         pensionDeduction: null,
+        pensionTotal: null,
         sum: null
       },
       aggregateExpense: null,
@@ -522,6 +525,59 @@ export default {
         console.log(error)
       })
   },
+  watch: {
+    'borrowerObject.incomeData.basic' () {
+      if (this.borrowerObject.incomeData.basicDeduction > 0) {
+        this.borrowerObject.incomeData.basicTotal = this.borrowerObject.incomeData.basic - (this.borrowerObject.incomeData.basic * this.borrowerObject.incomeData.basicDeduction / 100)
+      } else {
+        this.borrowerObject.incomeData.basicTotal = this.borrowerObject.incomeData.basic
+      }
+      this.setIncomeDataSum()
+    },
+    'borrowerObject.incomeData.basicDeduction' () {
+      if (this.borrowerObject.incomeData.basicDeduction > 0) {
+        this.borrowerObject.incomeData.basicTotal = this.borrowerObject.incomeData.basic - (this.borrowerObject.incomeData.basic * this.borrowerObject.incomeData.basicDeduction / 100)
+      } else {
+        this.borrowerObject.incomeData.basicTotal = this.borrowerObject.incomeData.basic
+      }
+      this.setIncomeDataSum()
+    },
+    'borrowerObject.incomeData.partTime' () {
+      if (this.borrowerObject.incomeData.partTimeDeduction > 0) {
+        this.borrowerObject.incomeData.partTimeTotal = this.borrowerObject.incomeData.partTime - (this.borrowerObject.incomeData.partTime * this.borrowerObject.incomeData.partTimeDeduction / 100)
+      } else {
+        this.borrowerObject.incomeData.partTimeTotal = this.borrowerObject.incomeData.partTime
+      }
+      this.setIncomeDataSum()
+    },
+    'borrowerObject.incomeData.partTimeDeduction' () {
+      if (this.borrowerObject.incomeData.partTimeDeduction > 0) {
+        this.borrowerObject.incomeData.partTimeTotal = this.borrowerObject.incomeData.partTime - (this.borrowerObject.incomeData.partTime * this.borrowerObject.incomeData.partTimeDeduction / 100)
+      } else {
+        this.borrowerObject.incomeData.partTimeTotal = this.borrowerObject.incomeData.partTime
+      }
+      this.setIncomeDataSum()
+    },
+    'borrowerObject.incomeData.pension' () {
+      if (this.borrowerObject.incomeData.pensionDeduction > 0) {
+        this.borrowerObject.incomeData.pensionTotal = this.borrowerObject.incomeData.pension - (this.borrowerObject.incomeData.pension * this.borrowerObject.incomeData.pensionDeduction / 100)
+      } else {
+        this.borrowerObject.incomeData.pensionTotal = this.borrowerObject.incomeData.pension
+      }
+      this.setIncomeDataSum()
+    },
+    'borrowerObject.incomeData.pensionDeduction' () {
+      if (this.borrowerObject.incomeData.pensionDeduction > 0) {
+        this.borrowerObject.incomeData.pensionTotal = this.borrowerObject.incomeData.pension - (this.borrowerObject.incomeData.pension * this.borrowerObject.incomeData.pensionDeduction / 100)
+      } else {
+        this.borrowerObject.incomeData.pensionTotal = this.borrowerObject.incomeData.pension
+      }
+      this.setIncomeDataSum()
+    },
+    'borrowerObject.aggregateExpense' () {
+      this.setIncomeDataSum()
+    }
+  },
   methods: {
     setValutPlaceResidence () {
       for (let item in this.borrowerObject.placeResidence) {
@@ -534,10 +590,6 @@ export default {
     },
     onClickButtonBack () {
       this.$router.push('/borrower')
-    },
-    getIncomeDataSum () {
-
-      // this.borrowerObject.incomeData.sum = (this.borrowerObject.incomeData.basic / 100 * this.borrowerObject.incomeData.basicDeduction) + (this.borrowerObject.incomeData.partTime / 100 * this.borrowerObject.incomeData.partTimeDeduction) + (this.borrowerObject.incomeData.pension / 100 * this.borrowerObject.incomeData.pensionDeduction)
     },
     onUpdateBorrower () {
       this.$refs['borrowerObjectForm'].validate((valid) => {
@@ -560,6 +612,9 @@ export default {
           return false
         }
       })
+    },
+    setIncomeDataSum () {
+      this.borrowerObject.incomeData.sum = this.borrowerObject.incomeData.basicTotal + this.borrowerObject.incomeData.partTimeTotal + this.borrowerObject.incomeData.pensionTotal - this.borrowerObject.aggregateExpense
     }
   },
   components: {
