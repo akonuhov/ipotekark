@@ -122,20 +122,7 @@ export default {
     onCreateProvider () {
       this.$refs['providerObjectForm'].validate((valid) => {
         if (valid) {
-          this.$http.post('/api/providers', this.providerObject)
-            .then(res => {
-              this.$router.push('/provider')
-              this.$message({
-                message: 'Продавец/застройщик добавлен',
-                type: 'success'
-              })
-            })
-            .catch(error => {
-              this.$message({
-                message: error.response.data.error.message,
-                type: 'error'
-              })
-            })
+          this.$store.dispatch('provider/create', this.providerObject)
         } else {
           return false
         }

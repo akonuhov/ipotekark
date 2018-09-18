@@ -517,13 +517,7 @@ export default {
     }
   }),
   created () {
-    this.$http.get('/api/borrowers/' + this.$route.params.id)
-      .then(res => {
-        this.borrowerObject = Object.assign(this.borrowerObject, res.data)
-      })
-      .catch(error => {
-        console.log(error)
-      })
+    this.borrowerObject = this.$store.state.borrower.list.find(item => item._id === this.$route.params.id)
   },
   watch: {
     'borrowerObject.incomeData.basic' () {
@@ -594,20 +588,7 @@ export default {
     onUpdateBorrower () {
       this.$refs['borrowerObjectForm'].validate((valid) => {
         if (valid) {
-          this.$http.put('/api/borrowers/' + this.$route.params.id, this.borrowerObject)
-            .then(res => {
-              this.$router.push('/borrower')
-              this.$message({
-                message: 'Данные о заемщике обновлены',
-                type: 'success'
-              })
-            })
-            .catch(error => {
-              this.$message({
-                message: error.response.data.error.message,
-                type: 'error'
-              })
-            })
+          this.$store.dispatch('borrower/update', [this.borrowerObject, this.$route.params.id])
         } else {
           return false
         }

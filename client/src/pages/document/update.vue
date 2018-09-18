@@ -11,8 +11,7 @@
           </el-col>
           <el-col :span='24' :md='24' :sm='24' :xs='24'>
             <el-form-item label='Содержание документа'>
-              <editor v-model="documentObject.text"
-                      :init="{plugins: 'wordcount'}" />
+              <vuemce :config="config" v-model="documentObject.text" />
             </el-form-item>
           </el-col>
         </el-row>
@@ -28,92 +27,32 @@
 </template>
 
 <script>
-import Editor from '@tinymce/tinymce-vue'
+import { component } from 'vue-mce'
 import LayoutsDefault from '@/layouts/default'
 export default {
   name: 'PageDocumentCreate',
   data: () => ({
     documentObject: {
       name: null,
-      text: null,
-      tinymceConfig: {
-        plugins: [
-          'advlist autolink autosave link image lists charmap print preview hr anchor pagebreak',
-          'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking',
-          'table contextmenu directionality emoticons template textcolor paste fullpage textcolor colorpicker textpattern'
-        ],
-        toolbar: {
-          toolbar1: 'newdocument fullpage | bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | styleselect formatselect fontselect fontsizeselect',
-          toolbar2: 'cut copy paste | searchreplace | bullist numlist | outdent indent blockquote | undo redo | link unlink anchor image media code | insertdatetime preview | forecolor backcolor',
-          toolbar3: 'table | hr removeformat | subscript superscript | charmap emoticons | print fullscreen | ltr rtl | visualchars visualblocks nonbreaking template pagebreak restoredraft',
-          menubar: false,
-          toolbar_items_size: 'small',
-          style_formats: [{
-            title: 'Bold text',
-            inline: 'b'
-          }, {
-            title: 'Red text',
-            inline: 'span',
-            styles: {
-              color: '#ff0000'
-            }
-          }, {
-            title: 'Red header',
-            block: 'h1',
-            styles: {
-              color: '#ff0000'
-            }
-          }, {
-            title: 'Example 1',
-            inline: 'span',
-            classes: 'example1'
-          }, {
-            title: 'Example 2',
-            inline: 'span',
-            classes: 'example2'
-          }, {
-            title: 'Table styles'
-          }, {
-            title: 'Table row 1',
-            selector: 'tr',
-            classes: 'tablerow1'
-          }],
-          templates: [{
-            title: 'Test template 1',
-            content: 'Test 1'
-          }, {
-            title: 'Test template 2',
-            content: 'Test 2'
-          }]
-        }
-      }
-    }
+      text: null
+    },
+    config: null
   }),
   created () {
-    this.$http.get('/api/documents/' + this.$route.params.id)
-      .then(res => {
-        this.documentObject = Object.assign(this.documentObject, res.data)
-      })
-      .catch(error => {
-        console.log(error)
-      })
+    this.documentObject = this.$store.state.document.list.find(item => item._id === this.$route.params.id)
+    this.config = {
+      plugins: 'template',
+      menubar: 'insert',
+      toolbar: 'template',
+      templates: [
+        {title: 'Название договора', description: 'Some desc 1', content: this.$store.state.borrower.list[0].passportData.fioDatelny},
+        {title: 'Some title 2', description: 'Some desc 2', content: 'My content 2'}
+      ]
+    }
   },
   methods: {
     onUpdateDocument () {
-      this.$http.put('/api/documents/' + this.$route.params.id, this.documentObject)
-        .then(res => {
-          this.$router.push('/document')
-          this.$message({
-            message: 'Шаблон документа обновлен',
-            type: 'success'
-          })
-        })
-        .catch(error => {
-          this.$message({
-            message: error.response.data.error.message,
-            type: 'error'
-          })
-        })
+      this.$store.dispatch('document/update', [this.documentObject, this.$route.params.id])
     },
     onClickButtonBack () {
       this.$router.push('/document')
@@ -121,7 +60,7 @@ export default {
   },
   components: {
     LayoutsDefault,
-    Editor
+    'vuemce': component
   }
 }
 </script>

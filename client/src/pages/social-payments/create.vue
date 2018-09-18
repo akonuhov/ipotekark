@@ -281,20 +281,7 @@ export default {
   },
   methods: {
     onCreateCredirObject () {
-      this.$http.post('/api/social-payments', this.socialPaymentsObject)
-        .then(res => {
-          this.$router.push('/social-payment')
-          this.$message({
-            message: 'Социальная выплата добавлена',
-            type: 'success'
-          })
-        })
-        .catch(error => {
-          this.$message({
-            message: error.response.data.error.message,
-            type: 'error'
-          })
-        })
+      this.$store.dispatch('socialPayment/create', this.socialPaymentsObject)
     },
     onClickButtonBack () {
       this.$router.push('/social-payment')

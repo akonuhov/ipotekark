@@ -40,20 +40,7 @@ export default {
   }),
   methods: {
     onCreateDocument () {
-      this.$http.post('/api/documents', this.documentObject)
-        .then(res => {
-          this.$router.push('/document')
-          this.$message({
-            message: 'Шаблон документа добавлено',
-            type: 'success'
-          })
-        })
-        .catch(error => {
-          this.$message({
-            message: error.response.data.error.message,
-            type: 'error'
-          })
-        })
+      this.$store.dispatch('document/create', this.documentObject)
     },
     onClickButtonBack () {
       this.$router.push('/document')

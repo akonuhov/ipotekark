@@ -363,46 +363,15 @@ export default {
     }
   }),
   created () {
-    this.$http.get('/api/borrowers')
-      .then(res => {
-        this.optionsBorrower = res.data
-      })
-      .catch(error => {
-        console.log(error)
-      })
-    this.$http.get('/api/providers')
-      .then(res => {
-        this.optionsProvider = res.data
-      })
-      .catch(error => {
-        console.log(error)
-      })
-    this.$http.get('/api/evaluators')
-      .then(res => {
-        this.optionsEvaluator = res.data
-      })
-      .catch(error => {
-        console.log(error)
-      })
+    this.optionsBorrower = this.$store.state.borrower.list
+    this.optionsProvider = this.$store.state.provider.list
+    this.optionsEvaluator = this.$store.state.evaluator.list
   },
   methods: {
     onCreateCredirObject () {
       this.$refs['creditObjectForm'].validate((valid) => {
         if (valid) {
-          this.$http.post('/api/credit-object', this.creditObject)
-            .then(res => {
-              this.$router.push('/credit-object')
-              this.$message({
-                message: 'Кредитное дело добавлено',
-                type: 'success'
-              })
-            })
-            .catch(error => {
-              this.$message({
-                message: error.response.data.error.message,
-                type: 'error'
-              })
-            })
+          this.$store.dispatch('creditObject/create', this.creditObject)
         } else {
           return false
         }

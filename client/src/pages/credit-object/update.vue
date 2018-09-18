@@ -363,53 +363,16 @@ export default {
     }
   }),
   created () {
-    this.$http.get('/api/borrowers')
-      .then(res => {
-        this.optionsBorrower = res.data
-      })
-      .catch(error => {
-        console.log(error)
-      })
-    this.$http.get('/api/providers')
-      .then(res => {
-        this.optionsProvider = res.data
-      })
-      .catch(error => {
-        console.log(error)
-      })
-    this.$http.get('/api/evaluators')
-      .then(res => {
-        this.optionsEvaluator = res.data
-      })
-      .catch(error => {
-        console.log(error)
-      })
-    this.$http.get('/api/credit-object/' + this.$route.params.id)
-      .then(res => {
-        this.creditObject = Object.assign(this.creditObject, res.data)
-      })
-      .catch(error => {
-        console.log(error)
-      })
+    this.optionsBorrower = this.$store.state.borrower.list
+    this.optionsProvider = this.$store.state.provider.list
+    this.optionsEvaluator = this.$store.state.evaluator.list
+    this.creditObject = this.$store.state.creditObject.list.find(item => item._id === this.$route.params.id)
   },
   methods: {
     onUpdateCreditObject () {
       this.$refs['creditObjectForm'].validate((valid) => {
         if (valid) {
-          this.$http.put('/api/credit-object/' + this.$route.params.id, this.creditObject)
-            .then(res => {
-              this.$router.push('/credit-object')
-              this.$message({
-                message: 'Данные о кредитном деле обновлены',
-                type: 'success'
-              })
-            })
-            .catch(error => {
-              this.$message({
-                message: error.response.data.error.message,
-                type: 'error'
-              })
-            })
+          this.$store.dispatch('creditObject/update', [this.creditObject, this.$route.params.id])
         } else {
           return false
         }

@@ -585,20 +585,7 @@ export default {
     onCreateBorrower () {
       this.$refs['borrowerObjectForm'].validate((valid) => {
         if (valid) {
-          this.$http.post('/api/borrowers', this.borrowerObject)
-            .then(res => {
-              this.$router.push('/borrower')
-              this.$message({
-                message: 'Заемщик добавлен',
-                type: 'success'
-              })
-            })
-            .catch(error => {
-              this.$message({
-                message: error.response.data.error.message,
-                type: 'error'
-              })
-            })
+          this.$store.dispatch('borrower/create', this.borrowerObject)
         } else {
           return false
         }

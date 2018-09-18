@@ -13,10 +13,6 @@ export const list = ({ commit }) => {
     })
 }
 
-export const show = ({ commit }) => {
-
-}
-
 export const create = ({ commit }, payload) => {
   Vue.$http.post('/api/borrowers', payload)
     .then(res => {
@@ -51,7 +47,6 @@ export const remove = ({ commit }, payload) => {
 
 export default {
   list,
-  show,
   create,
   update,
   remove

@@ -258,20 +258,8 @@ export default {
     ]
   }),
   created () {
-    this.$http.get('/api/social-payments/' + this.$route.params.id)
-      .then(res => {
-        this.socialPaymentsObject = Object.assign(this.socialPaymentsObject, res.data)
-      })
-      .catch(error => {
-        console.log(error)
-      })
-    this.$http.get('/api/borrowers')
-      .then(res => {
-        this.optionsBorrower = res.data
-      })
-      .catch(error => {
-        console.log(error)
-      })
+    this.socialPaymentsObject = this.$store.state.socialPayment.list.find(item => item._id === this.$route.params.id)
+    this.optionsBorrower = this.$store.state.borrower.list
   },
   computed: {
     getAllBorrowerObject () {
@@ -280,20 +268,7 @@ export default {
   },
   methods: {
     onUpdateCredirObject () {
-      this.$http.put('/api/social-payments/' + this.$route.params.id, this.socialPaymentsObject)
-        .then(res => {
-          this.$router.push('/social-payment')
-          this.$message({
-            message: 'Социальная выплата обновлена',
-            type: 'success'
-          })
-        })
-        .catch(error => {
-          this.$message({
-            message: error.response.data.error.message,
-            type: 'error'
-          })
-        })
+      this.$store.dispatch('socialPayment/update', [this.socialPaymentsObject, this.$route.params.id])
     },
     onClickButtonBack () {
       this.$router.push('/social-payment')

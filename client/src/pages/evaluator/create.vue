@@ -77,20 +77,7 @@ export default {
     onCreateEvaluator () {
       this.$refs['evaluatorObjectForm'].validate((valid) => {
         if (valid) {
-          this.$http.post('/api/evaluators', this.evaluatorObject)
-            .then(res => {
-              this.$router.push('/evaluator')
-              this.$message({
-                message: 'Оценщик добавлен',
-                type: 'success'
-              })
-            })
-            .catch(error => {
-              this.$message({
-                message: error.response.data.error.message,
-                type: 'error'
-              })
-            })
+          this.$store.dispatch('evaluator/create', this.evaluatorObject)
         } else {
           return false
         }

@@ -11,7 +11,8 @@
       </el-table-column>
       <el-table-column
         label="Операции"
-        align="center">
+        align="center"
+        width="100px">
         <template slot-scope="scope">
           <i class="fas fa-user-edit" @click="onClickDocumentEdit(scope.row._id)"></i>
           <i class="fas fa-trash" @click="onClickDocumentDelete(scope.row._id)"></i>
