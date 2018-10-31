@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({
   extended: false
 }));
 app.use(cors());
-mongoose.connect('mongodb://localhost/ipotekark');
+mongoose.connect('mongodb://ais.ipotekark.ru/ipotekark');
 
 app.use(routes);
 
